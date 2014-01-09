@@ -1,5 +1,5 @@
 //
-//  MVViewController.h
+//  SPViewController.h
 //  SliderPuzzle
 //
 //  Created by HENRY CHAN on 9/01/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MVViewController : UIViewController
+@interface SPViewController : UIViewController
 
 @end

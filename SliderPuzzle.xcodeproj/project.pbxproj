@@ -12,15 +12,17 @@
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
 		BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BA4187EA2AF00D247D2 /* InfoPlist.strings */; };
 		BAF63BA8187EA2AF00D247D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BA7187EA2AF00D247D2 /* main.m */; };
-		BAF63BAC187EA2AF00D247D2 /* MVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* MVAppDelegate.m */; };
+		BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */; };
 		BAF63BAF187EA2AF00D247D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BAD187EA2AF00D247D2 /* Main.storyboard */; };
-		BAF63BB2187EA2AF00D247D2 /* MVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* MVViewController.m */; };
+		BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPViewController.m */; };
 		BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BB3187EA2AF00D247D2 /* Images.xcassets */; };
 		BAF63BBB187EA2AF00D247D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63BBA187EA2AF00D247D2 /* XCTest.framework */; };
 		BAF63BBC187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63BBD187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
 		BAF63BC5187EA2AF00D247D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BC3187EA2AF00D247D2 /* InfoPlist.strings */; };
 		BAF63BC7187EA2AF00D247D2 /* SliderPuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BC6187EA2AF00D247D2 /* SliderPuzzleTests.m */; };
+		BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF9DFA2187EA6120098D7B4 /* SPTile.m */; };
+		D7526AE4EBD44497B73FF6F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64815AAC52B04B2AADEB95C0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64815AAC52B04B2AADEB95C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B98187EA2AF00D247D2 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B9B187EA2AF00D247D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -42,17 +45,20 @@
 		BAF63BA5187EA2AF00D247D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF63BA7187EA2AF00D247D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAF63BA9187EA2AF00D247D2 /* SliderPuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SliderPuzzle-Prefix.pch"; sourceTree = "<group>"; };
-		BAF63BAA187EA2AF00D247D2 /* MVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVAppDelegate.h; sourceTree = "<group>"; };
-		BAF63BAB187EA2AF00D247D2 /* MVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVAppDelegate.m; sourceTree = "<group>"; };
+		BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
+		BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		BAF63BAE187EA2AF00D247D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BAF63BB0187EA2AF00D247D2 /* MVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVViewController.h; sourceTree = "<group>"; };
-		BAF63BB1187EA2AF00D247D2 /* MVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVViewController.m; sourceTree = "<group>"; };
+		BAF63BB0187EA2AF00D247D2 /* SPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPViewController.h; sourceTree = "<group>"; };
+		BAF63BB1187EA2AF00D247D2 /* SPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
 		BAF63BB3187EA2AF00D247D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BAF63BB9187EA2AF00D247D2 /* SliderPuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderPuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63BBA187EA2AF00D247D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BAF63BC2187EA2AF00D247D2 /* SliderPuzzleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderPuzzleTests-Info.plist"; sourceTree = "<group>"; };
 		BAF63BC4187EA2AF00D247D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF63BC6187EA2AF00D247D2 /* SliderPuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderPuzzleTests.m; sourceTree = "<group>"; };
+		BAF9DFA1187EA6120098D7B4 /* SPTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTile.h; sourceTree = "<group>"; };
+		BAF9DFA2187EA6120098D7B4 /* SPTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTile.m; sourceTree = "<group>"; };
+		D6FA853EEDBD46DF81C7BC4F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 				BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */,
 				BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */,
 				BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */,
+				D7526AE4EBD44497B73FF6F1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,7 @@
 				BAF63BC0187EA2AF00D247D2 /* SliderPuzzleTests */,
 				BAF63B9A187EA2AF00D247D2 /* Frameworks */,
 				BAF63B99187EA2AF00D247D2 /* Products */,
+				D6FA853EEDBD46DF81C7BC4F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +113,7 @@
 				BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */,
 				BAF63B9F187EA2AF00D247D2 /* UIKit.framework */,
 				BAF63BBA187EA2AF00D247D2 /* XCTest.framework */,
+				64815AAC52B04B2AADEB95C0 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +121,13 @@
 		BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				BAF63BAA187EA2AF00D247D2 /* MVAppDelegate.h */,
-				BAF63BAB187EA2AF00D247D2 /* MVAppDelegate.m */,
+				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
+				BAF9DFA0187EA5680098D7B4 /* Model */,
+				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
+				BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */,
 				BAF63BAD187EA2AF00D247D2 /* Main.storyboard */,
-				BAF63BB0187EA2AF00D247D2 /* MVViewController.h */,
-				BAF63BB1187EA2AF00D247D2 /* MVViewController.m */,
+				BAF63BB0187EA2AF00D247D2 /* SPViewController.h */,
+				BAF63BB1187EA2AF00D247D2 /* SPViewController.m */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
 				BAF63BA2187EA2AF00D247D2 /* Supporting Files */,
 			);
@@ -152,6 +163,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BAF9DFA0187EA5680098D7B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAF9DFA1187EA6120098D7B4 /* SPTile.h */,
+				BAF9DFA2187EA6120098D7B4 /* SPTile.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAF9DFA4187EA6BC0098D7B4 /* Image Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Image Utility";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAF63BCA187EA2AF00D247D2 /* Build configuration list for PBXNativeTarget "SliderPuzzle" */;
 			buildPhases = (
+				C3A98ADD651B405386EBEBB1 /* Check Pods Manifest.lock */,
 				BAF63B94187EA2AF00D247D2 /* Sources */,
 				BAF63B95187EA2AF00D247D2 /* Frameworks */,
 				BAF63B96187EA2AF00D247D2 /* Resources */,
+				22AE5CFFF87944559724E1DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +225,7 @@
 		BAF63B90187EA2AF00D247D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = MV;
+				CLASSPREFIX = SP;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Kinwo.net;
 				TargetAttributes = {
@@ -245,14 +274,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22AE5CFFF87944559724E1DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3A98ADD651B405386EBEBB1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BAF63B94187EA2AF00D247D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
-				BAF63BB2187EA2AF00D247D2 /* MVViewController.m in Sources */,
-				BAF63BAC187EA2AF00D247D2 /* MVAppDelegate.m in Sources */,
+				BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */,
+				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +439,7 @@
 		};
 		BAF63BCB187EA2AF00D247D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6FA853EEDBD46DF81C7BC4F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -389,6 +453,7 @@
 		};
 		BAF63BCC187EA2AF00D247D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6FA853EEDBD46DF81C7BC4F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -461,6 +526,7 @@
 				BAF63BCC187EA2AF00D247D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAF63BCD187EA2AF00D247D2 /* Build configuration list for PBXNativeTarget "SliderPuzzleTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +535,7 @@
 				BAF63BCF187EA2AF00D247D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

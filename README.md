@@ -1,1 +1,1 @@
-# This is my README
+A simple Slider Puzzle iOS Game

@@ -1,14 +1,14 @@
 //
-//  MVAppDelegate.m
+//  SPAppDelegate.m
 //  SliderPuzzle
 //
 //  Created by HENRY CHAN on 9/01/2014.
 //  Copyright (c) 2014 Kinwo.net. All rights reserved.
 //
 
-#import "MVAppDelegate.h"
+#import "SPAppDelegate.h"
 
-@implementation MVAppDelegate
+@implementation SPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

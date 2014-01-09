@@ -1,5 +1,5 @@
 //
-//  MVAppDelegate.h
+//  SPAppDelegate.h
 //  SliderPuzzle
 //
 //  Created by HENRY CHAN on 9/01/2014.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MVAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

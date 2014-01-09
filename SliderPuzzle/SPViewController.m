@@ -1,18 +1,18 @@
 //
-//  MVViewController.m
+//  SPViewController.m
 //  SliderPuzzle
 //
 //  Created by HENRY CHAN on 9/01/2014.
 //  Copyright (c) 2014 Kinwo.net. All rights reserved.
 //
 
-#import "MVViewController.h"
+#import "SPViewController.h"
 
-@interface MVViewController ()
+@interface SPViewController ()
 
 @end
 
-@implementation MVViewController
+@implementation SPViewController
 
 - (void)viewDidLoad
 {
