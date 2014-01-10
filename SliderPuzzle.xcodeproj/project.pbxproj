@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
+		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
+		BAB67C92187FE1950013F331 /* slider.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C90187FE1950013F331 /* slider.jpg */; };
+		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
+		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
+		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
 		BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */; };
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
@@ -37,6 +43,16 @@
 
 /* Begin PBXFileReference section */
 		64815AAC52B04B2AADEB95C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
+		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
+		BAB67C8F187FE1950013F331 /* globe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = globe.jpg; sourceTree = "<group>"; };
+		BAB67C90187FE1950013F331 /* slider.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slider.jpg; sourceTree = "<group>"; };
+		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
+		BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
+		BAB67C9B187FF9500013F331 /* NSMutableArray+ScramblePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ScramblePosition.h"; sourceTree = "<group>"; };
+		BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ScramblePosition.m"; sourceTree = "<group>"; };
+		BAB67C9E188004660013F331 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		BAB67C9F188004660013F331 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		BAF63B98187EA2AF00D247D2 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B9B187EA2AF00D247D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,6 +102,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAB67C8E187FE1800013F331 /* ImageSamples */ = {
+			isa = PBXGroup;
+			children = (
+				BAB67C8F187FE1950013F331 /* globe.jpg */,
+				BAB67C90187FE1950013F331 /* slider.jpg */,
+			);
+			path = ImageSamples;
+			sourceTree = "<group>";
+		};
+		BAB67C9A187FF9430013F331 /* Array Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BAB67C9B187FF9500013F331 /* NSMutableArray+ScramblePosition.h */,
+				BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */,
+			);
+			path = "Array Utility";
+			sourceTree = "<group>";
+		};
 		BAF63B8F187EA2AF00D247D2 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +155,8 @@
 		BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				BAB67C9A187FF9430013F331 /* Array Utility */,
+				BAB67C8E187FE1800013F331 /* ImageSamples */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
 				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
@@ -175,6 +211,12 @@
 		BAF9DFA4187EA6BC0098D7B4 /* Image Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */,
+				BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */,
+				BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */,
+				BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */,
+				BAB67C9E188004660013F331 /* UIImage+Color.h */,
+				BAB67C9F188004660013F331 /* UIImage+Color.m */,
 			);
 			path = "Image Utility";
 			sourceTree = "<group>";
@@ -258,7 +300,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB67C92187FE1950013F331 /* slider.jpg in Resources */,
 				BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */,
+				BAB67C91187FE1950013F331 /* globe.jpg in Resources */,
 				BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */,
 				BAF63BAF187EA2AF00D247D2 /* Main.storyboard in Resources */,
 			);
@@ -314,8 +358,12 @@
 			files = (
 				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
+				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
 				BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */,
+				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
+				BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
+				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
