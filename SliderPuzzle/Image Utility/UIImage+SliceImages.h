@@ -10,4 +10,6 @@
 
 @interface UIImage (SliceImages)
 
+-(NSMutableArray *)sliceImagesWithNumRows:(NSInteger)rows numColumns:(NSInteger)columns;
+
 @end

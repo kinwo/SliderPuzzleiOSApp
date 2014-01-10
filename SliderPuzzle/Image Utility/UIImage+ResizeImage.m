@@ -10,4 +10,16 @@
 
 @implementation UIImage (ResizeImage)
 
+- (UIImage*)resizeImageToSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);
+    
+    [self drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
+
+
 @end

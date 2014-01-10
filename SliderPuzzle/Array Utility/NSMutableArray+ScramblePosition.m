@@ -10,4 +10,15 @@
 
 @implementation NSMutableArray (ScramblePosition)
 
+- (void)scramble
+{
+    NSUInteger arraySize = [self count];
+    
+    for (NSUInteger i = 0; i < arraySize; ++i) {
+        NSInteger nElements = arraySize - i;
+        NSInteger n = arc4random_uniform(nElements) + i;
+        [self exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
 @end

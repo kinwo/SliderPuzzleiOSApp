@@ -10,4 +10,6 @@
 
 @interface NSMutableArray (ScramblePosition)
 
+- (void)scramble;
+
 @end

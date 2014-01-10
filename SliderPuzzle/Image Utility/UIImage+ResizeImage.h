@@ -10,4 +10,6 @@
 
 @interface UIImage (ResizeImage)
 
+- (UIImage*)resizeImageToSize:(CGSize)size;
+
 @end
