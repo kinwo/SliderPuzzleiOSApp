@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
 		BAB67C92187FE1950013F331 /* slider.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C90187FE1950013F331 /* slider.jpg */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
 		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
+		BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */; };
 		BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */; };
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		64815AAC52B04B2AADEB95C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTilesMatrix.h; sourceTree = "<group>"; };
+		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C8F187FE1950013F331 /* globe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = globe.jpg; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ScramblePosition.m"; sourceTree = "<group>"; };
 		BAB67C9E188004660013F331 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		BAB67C9F188004660013F331 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPuzzleBoard.h; sourceTree = "<group>"; };
+		BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPuzzleBoard.m; sourceTree = "<group>"; };
 		BAF63B98187EA2AF00D247D2 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B9B187EA2AF00D247D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +168,8 @@
 				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
 				BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */,
 				BAF63BAD187EA2AF00D247D2 /* Main.storyboard */,
+				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
+				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
 				BAF63BB0187EA2AF00D247D2 /* SPViewController.h */,
 				BAF63BB1187EA2AF00D247D2 /* SPViewController.m */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
@@ -204,6 +212,8 @@
 			children = (
 				BAF9DFA1187EA6120098D7B4 /* SPTile.h */,
 				BAF9DFA2187EA6120098D7B4 /* SPTile.m */,
+				BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */,
+				BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,9 +371,11 @@
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
 				BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
+				BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */,
 				BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
+				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
