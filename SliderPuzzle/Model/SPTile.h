@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SPTile : NSObject
+@interface SPTile : UIImageView
+
+@property(nonatomic) NSInteger xPos;
+@property(nonatomic) NSInteger yPos;
+
+- (BOOL)hasIntersect:(SPTile*)otherTile;
+
+- (void)moveToXPos:(NSInteger)xPos yPos:(NSInteger)yPos;
+
+- (BOOL)hasXPosIntersect:(SPTile*)otherTile;
+
+- (BOOL)hasYPosIntersect:(SPTile*)otherTile;
+
 
 @end

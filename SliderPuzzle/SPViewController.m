@@ -7,10 +7,15 @@
 //
 
 #import "SPViewController.h"
+
 #import "UIImage+SliceImages.h"
 #import "UIImage+ResizeImage.h"
 #import "UIImage+Color.h"
 #import "NSMutableArray+ScramblePosition.h"
+
+#import "SPTile.h"
+#import "SPTilesMatrix.h"
+#import "SPPuzzleBoard.h"
 
 static NSInteger const NumRows = 4;
 static NSInteger const NumColumns = 4;
@@ -18,14 +23,29 @@ static NSString* const SourceImage = @"globe.jpg";
 static NSInteger const TargetImageWidth = 310;
 static NSInteger const TargetImageHeight= 310;
 static NSInteger const spacerIndex = 0;
-static NSInteger const spacerX = 0;
-static NSInteger const spacerY = 0;
 
 @interface SPViewController ()
+
+@property(nonatomic, strong)  SPTile *spacer;
+@property(nonatomic) NSInteger sliceWidth;
+@property(nonatomic) NSInteger sliceHeight;
+
+// Model for Puzzle tiles
+@property(nonatomic, strong) SPTilesMatrix *tilesMatrix;
 
 @end
 
 @implementation SPViewController
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.spacer = [[SPTile alloc] init];
+        self.tilesMatrix = [[SPTilesMatrix alloc] initWithNumColumns:NumColumns withNumRows:NumRows];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -41,10 +61,11 @@ static NSInteger const spacerY = 0;
 
 - (void)displaySliceImagesFor:(UIImage*)srcImage
 {
-    UIView *containerView = [self createContainerView:srcImage];
+    CGRect containerFrame = CGRectMake(5, 100, srcImage.size.width, srcImage.size.height);
+    SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
     
-    NSInteger sliceWidth = srcImage.size.width / NumColumns;
-    NSInteger sliceHeight = srcImage.size.width / NumRows;
+    self.sliceWidth = srcImage.size.width / NumColumns;
+    self.sliceHeight = srcImage.size.width / NumRows;
     
     NSMutableArray *sliceImageList = [srcImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
 
@@ -52,64 +73,64 @@ static NSInteger const spacerY = 0;
     [sliceImageList scramble];
     
     // select top left corner element as spacer
-    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, sliceWidth, sliceHeight)];
+    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.sliceWidth, self.sliceHeight)];
     sliceImageList[spacerIndex] = spacerImage;
     
-    
-    NSInteger originX = 0;
-    NSInteger originY = 0;
-    
     NSInteger index=0;
+    
+    // add UIImage to container view
     for (int i=0; i<NumRows; i++) {
-        originY = i * sliceHeight;
-        
         for (int j=0; j<NumColumns; j++) {
-            originX = j * sliceWidth;
+            SPTile *tileImageView = [self createTile:sliceImageList[index] tileX:j tileY:i];
+            [self addGestureRecogizer:tileImageView];
+            [boardView addSubview:tileImageView];
+            [self.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
             
-            UIImageView *sliceImageView = [self createSliceImageView:sliceImageList[index] sliceFrame:CGRectMake(originX, originY, sliceWidth, sliceHeight)];
-            [containerView addSubview:sliceImageView];
+            if (index == spacerIndex) {
+                self.spacer = tileImageView;
+                [self.tilesMatrix setSpacer:tileImageView];
+            }
             
             index++;
         }
     }
     
-    [self.view addSubview:containerView];
+    [self.view addSubview:boardView];
 }
 
-- (UIImageView*)createSliceImageView:(UIImage*)sliceImage sliceFrame:(CGRect)frame
+- (void)addGestureRecogizer:(SPTile*)tile
 {
-    UIImageView *sliceImageView = [[UIImageView alloc] initWithFrame:frame];
-    sliceImageView.contentMode = UIViewContentModeCenter;
-    sliceImageView.image = sliceImage;
-    
-    // shadow
-    sliceImageView.layer.shadowColor = [UIColor orangeColor].CGColor;
-    sliceImageView.layer.shadowOffset = CGSizeMake(0, 1);
-    sliceImageView.layer.shadowOpacity = 2;
-    sliceImageView.layer.shadowRadius = 2;
-    
-    return sliceImageView;
+    // tap
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
+    [tile addGestureRecognizer:tapGesture];
 }
 
-- (UIView*)createContainerView:(UIImage*)srcImage;
+- (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
 {
-    CGRect containerFrame = CGRectMake(5, 100, srcImage.size.width, srcImage.size.height);
-    UIView *containerView = [[UIView alloc] initWithFrame:containerFrame];
-    containerView.contentMode = UIViewContentModeCenter;
+    NSInteger originX = xPos * self.sliceWidth;
+    NSInteger originY = yPos * self.sliceHeight;
+    CGRect frame = CGRectMake(originX, originY, self.sliceWidth, self.sliceHeight);
     
-    // shadow
-    containerView.layer.shadowColor = [UIColor grayColor].CGColor;
-    containerView.layer.shadowOffset = CGSizeMake(0, 2);
-    containerView.layer.shadowOpacity = 3;
-    containerView.layer.shadowRadius = 5;
+    SPTile *tile = [[SPTile alloc] initWithFrame:frame];
+    tile.image = sliceImage;
+    tile.xPos = xPos;
+    tile.yPos = yPos;
     
-    return containerView;
+    return tile;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark Gesture handler
+- (void)handleTileTap:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIGestureRecognizer *gestureRecognizer = (UIGestureRecognizer*)sender;
+    SPTile *senderTile = (SPTile*) gestureRecognizer.view;
+    
+    // swap tile only if this tile has intersection with spacer tile
+    if ([senderTile hasIntersect:self.spacer]) {
+        [UIView animateWithDuration:0.3f animations:^{
+            [self.tilesMatrix slideTile:senderTile toSpacer:self.spacer];
+        }];
+    }
 }
 
 @end
