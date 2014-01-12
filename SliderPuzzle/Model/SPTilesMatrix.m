@@ -9,6 +9,13 @@
 #import "SPTilesMatrix.h"
 #import "SPTile.h"
 
+typedef void (^SenderXBiggerBlock)(SPTile* tile, NSInteger index);
+typedef void (^SenderXSmallerBlock)(SPTile* tile, NSInteger index);
+
+typedef void (^SenderYBiggerBlock)(SPTile* tile, NSInteger index);
+typedef void (^SenderYSmallerBlock)(SPTile* tile, NSInteger index);
+
+
 @interface SPTilesMatrix()
 
 // 2D matrix of SPTile
@@ -72,10 +79,7 @@
     [self setSPTileWithXPos:xPos withYPos:yPos tile:tile];
 }
 
-/**
- Move the tile and the tiles in between towards the position of the spacer tile
- */
-- (void)slideTile:(SPTile*)tile
+- (void)iterateTile:(SPTile*)tile senderYBiggerBlock:(SenderYBiggerBlock)senderYBiggerBlock senderYSmallerBlock:(SenderYSmallerBlock)senderYSmallerBlock senderXBiggerBlock:(SenderXBiggerBlock)senderXBiggerBlock senderXSmallerBlock:(SenderXSmallerBlock)senderXSmallerBlock
 {
     NSInteger senderXPos = tile.xPos;
     NSInteger senderYPos = tile.yPos;
@@ -86,15 +90,13 @@
         if (senderYPos >= spacerYPos) {
             for (NSInteger i=spacerYPos+1; i<=senderYPos; i++) {
                 SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                NSInteger toTileYPos = i -1;
-                [self moveTileToXPos:senderXPos withYPos:toTileYPos tile:fromTile];
+                senderYBiggerBlock(fromTile, i);
             }
             
         } else {
             for (NSInteger i=spacerYPos-1; i>=senderYPos; i--) {
                 SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                NSInteger toTileYPos = i + 1;
-                [self moveTileToXPos:senderXPos withYPos:toTileYPos tile:fromTile];
+                senderYSmallerBlock(fromTile, i);
             }
             
         }
@@ -102,19 +104,44 @@
         if (senderXPos >= spacerXPos) {
             for (NSInteger i=spacerXPos+1; i<=senderXPos; i++) {
                 SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                NSInteger toTileXPos = i -1;
-                [self moveTileToXPos:toTileXPos withYPos:senderYPos tile:fromTile];
+                senderXBiggerBlock(fromTile, i);
             }
             
         } else {
             for (NSInteger i=spacerXPos-1; i>=senderXPos; i--) {
                 SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                NSInteger toTileXPos = i + 1;
-                [self moveTileToXPos:toTileXPos withYPos:senderYPos tile:fromTile];
+                senderXSmallerBlock(fromTile, i);
             }
         }
     }
+
+}
+
+/**
+ Move the tile and the tiles in between towards the position of the spacer tile
+ */
+- (void)slideTile:(SPTile*)tile
+{
+    NSInteger senderXPos = tile.xPos;
+    NSInteger senderYPos = tile.yPos;
     
+    [self iterateTile:tile senderYBiggerBlock:^(SPTile *tile, NSInteger index) {
+        NSInteger toTileYPos = index -1;
+        [self moveTileToXPos:senderXPos withYPos:toTileYPos tile:tile];
+
+    } senderYSmallerBlock:^(SPTile *tile, NSInteger index) {
+        NSInteger toTileYPos = index + 1;
+        [self moveTileToXPos:senderXPos withYPos:toTileYPos tile:tile];
+    
+    } senderXBiggerBlock:^(SPTile *tile, NSInteger index) {
+        NSInteger toTileXPos = index -1;
+        [self moveTileToXPos:toTileXPos withYPos:senderYPos tile:tile];
+    
+    } senderXSmallerBlock:^(SPTile *tile, NSInteger index) {
+        NSInteger toTileXPos = index + 1;
+        [self moveTileToXPos:toTileXPos withYPos:senderYPos tile:tile];
+    }];
+
     //shift spacer to the "tile" position
     [self moveTileToXPos:senderXPos withYPos:senderYPos tile:self.spacer];
 }
@@ -130,41 +157,19 @@
     
     NSInteger senderXPos = tile.xPos;
     NSInteger senderYPos = tile.yPos;
-    NSInteger spacerXPos = self.spacer.xPos;
-    NSInteger spacerYPos = self.spacer.yPos;
-    
-    if ([tile hasXPosIntersect:self.spacer]) {
-        // movement should be in Y axis
-        if (senderYPos >= spacerYPos) {
-            for (NSInteger i=spacerYPos+1; i<=senderYPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile translateWithX:senderXPos Y:yDistance];
-            }
-            
-        } else {
-            for (NSInteger i=spacerYPos-1; i>=senderYPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile translateWithX:senderXPos Y:yDistance];
-            }
-        }
+
+    [self iterateTile:tile senderYBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile translateWithX:senderXPos Y:yDistance];
+
+    } senderYSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile translateWithX:senderXPos Y:yDistance];
         
-    } else if ([tile hasYPosIntersect:self.spacer]) {
-        // movement should be in X axis
-        if (senderXPos >= spacerXPos) {
-            for (NSInteger i=spacerXPos+1; i<=senderXPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile translateWithX:xDistance Y:senderYPos];
-            }
-            
-        } else {
-            for (NSInteger i=spacerXPos-1; i>=senderXPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile translateWithX:xDistance Y:senderYPos];
-            }
-        }
+    } senderXBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile translateWithX:xDistance Y:senderYPos];
         
-    }
-    
+    } senderXSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile translateWithX:xDistance Y:senderYPos];
+    }];
 }
 
 /**
@@ -172,42 +177,18 @@
  */
 - (void)saveTileState:(SPTile*)tile
 {
-    NSInteger senderXPos = tile.xPos;
-    NSInteger senderYPos = tile.yPos;
-    NSInteger spacerXPos = self.spacer.xPos;
-    NSInteger spacerYPos = self.spacer.yPos;
-    
-    if ([tile hasXPosIntersect:self.spacer]) {
-        if (senderYPos >= spacerYPos) {
-            for (NSInteger i=spacerYPos+1; i<=senderYPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile saveState];
-            }
-            
-        } else {
-            for (NSInteger i=spacerYPos-1; i>=senderYPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile saveState];
-            }
-            
-        }
-    } else if ([tile hasYPosIntersect:self.spacer]) {
-        if (senderXPos >= spacerXPos) {
-            for (NSInteger i=spacerXPos+1; i<=senderXPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile saveState];
-            }
-            
-        } else {
-            for (NSInteger i=spacerXPos-1; i>=senderXPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile saveState];
-            }
-        }
-    }
-    
-    //shift spacer
-    [self.spacer saveState];
+    [self iterateTile:tile senderYBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile saveState];
+        
+    } senderYSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile saveState];
+        
+    } senderXBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile saveState];
+        
+    } senderXSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile saveState];
+    }];
 }
 
 /**
@@ -215,44 +196,18 @@
  */
 - (void)restoreTileState:(SPTile*)tile
 {
-    NSInteger senderXPos = tile.xPos;
-    NSInteger senderYPos = tile.yPos;
-    NSInteger spacerXPos = self.spacer.xPos;
-    NSInteger spacerYPos = self.spacer.yPos;
-    
-    if ([tile hasXPosIntersect:self.spacer]) {
-        if (senderYPos >= spacerYPos) {
-            for (NSInteger i=spacerYPos+1; i<=senderYPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile restoreState];
-            }
-            
-        } else {
-            for (NSInteger i=spacerYPos-1; i>=senderYPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:senderXPos atYPos:i];
-                [fromTile restoreState];
-            }
-            
-        }
-    } else if ([tile hasYPosIntersect:self.spacer]) {
-        if (senderXPos >= spacerXPos) {
-            for (NSInteger i=spacerXPos+1; i<=senderXPos; i++) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile restoreState];
-            }
-            
-        } else {
-            for (NSInteger i=spacerXPos-1; i>=senderXPos; i--) {
-                SPTile *fromTile = [self getSPTileAtXPos:i atYPos:senderYPos];
-                [fromTile restoreState];
-            }
-        }
-    }
-    
-    //shift spacer
-    [self.spacer restoreState];
+    [self iterateTile:tile senderYBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile restoreState];
+        
+    } senderYSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile restoreState];
+        
+    } senderXBiggerBlock:^(SPTile *tile, NSInteger index) {
+        [tile restoreState];
+        
+    } senderXSmallerBlock:^(SPTile *tile, NSInteger index) {
+        [tile restoreState];
+    }];
 }
-
-
 
 @end
