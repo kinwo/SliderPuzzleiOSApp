@@ -15,11 +15,11 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAa-pS-b31">
                                 <rect key="frame" x="58" y="30" width="204" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.82256657119373788" green="0.94427732035496925" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.35686275362968445" green="0.90588241815567017" blue="0.80784320831298828" alpha="1" colorSpace="deviceRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Slider Puzzle Game !">
                                         <attributes>
-                                            <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.9960784912109375" green="0.85882359743118286" blue="0.19215688109397888" alpha="1" colorSpace="deviceRGB"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
