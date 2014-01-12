@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA15E72B1882143C00F5F93D /* GameDescription.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA15E72A1882143C00F5F93D /* GameDescription.txt */; };
 		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
+		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
 		BAB67C92187FE1950013F331 /* slider.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C90187FE1950013F331 /* slider.jpg */; };
@@ -44,9 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA15E72A1882143C00F5F93D /* GameDescription.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameDescription.txt; sourceTree = "<group>"; };
 		BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTilesMatrix.h; sourceTree = "<group>"; };
 		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
+		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C8F187FE1950013F331 /* globe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = globe.jpg; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
 				BAF63BB0187EA2AF00D247D2 /* SPViewController.h */,
 				BAF63BB1187EA2AF00D247D2 /* SPViewController.m */,
-				BA15E72A1882143C00F5F93D /* GameDescription.txt */,
+				BAA3C7771882370C0053D42B /* README.md */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
 				BAF63BA2187EA2AF00D247D2 /* Supporting Files */,
 			);
@@ -308,7 +308,7 @@
 				BAB67C92187FE1950013F331 /* slider.jpg in Resources */,
 				BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */,
 				BAB67C91187FE1950013F331 /* globe.jpg in Resources */,
-				BA15E72B1882143C00F5F93D /* GameDescription.txt in Resources */,
+				BAA3C7781882370C0053D42B /* README.md in Resources */,
 				BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */,
 				BAF63BAF187EA2AF00D247D2 /* Main.storyboard in Resources */,
 			);
