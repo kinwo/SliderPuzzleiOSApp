@@ -26,7 +26,6 @@ static NSInteger const spacerIndex = 0;
 
 @interface SPViewController ()
 
-@property(nonatomic, strong)  SPTile *spacer;
 @property(nonatomic) NSInteger sliceWidth;
 @property(nonatomic) NSInteger sliceHeight;
 
@@ -41,7 +40,6 @@ static NSInteger const spacerIndex = 0;
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.spacer = [[SPTile alloc] init];
         self.tilesMatrix = [[SPTilesMatrix alloc] initWithNumColumns:NumColumns withNumRows:NumRows];
     }
     return self;
@@ -78,7 +76,7 @@ static NSInteger const spacerIndex = 0;
     
     NSInteger index=0;
     
-    // add UIImage to container view
+    // add SPTile to container view
     for (int i=0; i<NumRows; i++) {
         for (int j=0; j<NumColumns; j++) {
             SPTile *tileImageView = [self createTile:sliceImageList[index] tileX:j tileY:i];
@@ -87,7 +85,6 @@ static NSInteger const spacerIndex = 0;
             [self.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
             
             if (index == spacerIndex) {
-                self.spacer = tileImageView;
                 [self.tilesMatrix setSpacer:tileImageView];
             }
             
@@ -103,6 +100,12 @@ static NSInteger const spacerIndex = 0;
     // tap
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
     [tile addGestureRecognizer:tapGesture];
+    
+    // dragging
+    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
+    dragGesture.minimumNumberOfTouches = 1;
+    [tile addGestureRecognizer:dragGesture];
+    
 }
 
 - (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
@@ -119,17 +122,31 @@ static NSInteger const spacerIndex = 0;
     return tile;
 }
 
-#pragma mark Gesture handler
-- (void)handleTileTap:(id)sender
+- (void)animateSlideTile:(SPTile*)senderTile
 {
-    UIGestureRecognizer *gestureRecognizer = (UIGestureRecognizer*)sender;
-    SPTile *senderTile = (SPTile*) gestureRecognizer.view;
-    
-    // swap tile only if this tile has intersection with spacer tile
-    if ([senderTile hasIntersect:self.spacer]) {
-        [UIView animateWithDuration:0.3f animations:^{
-            [self.tilesMatrix slideTile:senderTile toSpacer:self.spacer];
+    // slide tile only if this tile has intersection with spacer tile and with animation
+    if ([senderTile hasIntersect:self.tilesMatrix.spacer]) {
+        [UIView animateWithDuration:0.2f animations:^{
+            [self.tilesMatrix slideTile:senderTile toSpacer:self.tilesMatrix.spacer];
         }];
+    }
+}
+
+#pragma mark Gesture handler
+- (void)handleTileTap:(UIGestureRecognizer*)gestureRecognizer
+{
+    SPTile *senderTile = (SPTile*) gestureRecognizer.view;
+    [self animateSlideTile:senderTile];
+}
+
+- (void)handleTileDrag:(UIPanGestureRecognizer*)dragGestureRecognizer
+{
+    if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+
+    } else if (dragGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+
+        SPTile *senderTile = (SPTile*) dragGestureRecognizer.view;
+        [self animateSlideTile:senderTile];
     }
 }
 

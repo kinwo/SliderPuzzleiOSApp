@@ -43,7 +43,7 @@
 }
 
 /**
- Move tile and the tiles in between towards the position of the spacer tile
+ Move the tile and the tiles in between towards the position of the spacer tile
  */
 - (void)slideTile:(SPTile*)tile toSpacer:(SPTile*)spacer
 {
@@ -86,7 +86,7 @@
 
     }
     
-    //set spacer
+    //shift spacer to the "tile" position
     [self moveTileToXPos:senderXPos withYPos:senderYPos tile:self.spacer];
 }
 
