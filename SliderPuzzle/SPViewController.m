@@ -95,6 +95,7 @@ static NSInteger const spacerIndex = 0;
     [self.view addSubview:boardView];
 }
 
+// register Tap and Dragging gestures to a tile
 - (void)addGestureRecogizer:(SPTile*)tile
 {
     // tap
@@ -122,6 +123,7 @@ static NSInteger const spacerIndex = 0;
     return tile;
 }
 
+// Add animation to slide tile action
 - (void)animateSlideTile:(SPTile*)senderTile
 {
     // slide tile only if this tile has intersection with spacer tile and with animation

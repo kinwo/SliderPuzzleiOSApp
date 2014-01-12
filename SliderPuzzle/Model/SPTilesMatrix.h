@@ -2,6 +2,9 @@
 //  SPTilesMatrix.h
 //  SliderPuzzle
 //
+//  A model class responsible for storing and retrieving of Tiles as well as operation against the matrix
+//  including: slide, translate, save state, restore state etc.
+//
 //  Created by HENRY CHAN on 11/01/2014.
 //  Copyright (c) 2014 Kinwo.net. All rights reserved.
 //
