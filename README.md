@@ -1,7 +1,7 @@
 A simple Slider Puzzle iOS Game
 ===============================
 
-Author: Henry Chan [henry@kinwo.net]
+Author: Henry Chan [henry@kinwo.net]  
 Source repository: https://bitbucket.org/kinwo/sliderpuzzle
 
 
