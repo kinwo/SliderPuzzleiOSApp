@@ -10,6 +10,13 @@
 
 #import "SPTile.h"
 
+@interface SPTile()
+
+@property(nonatomic) CGFloat orgXInFrame;
+@property(nonatomic) CGFloat orgYInFrame;
+
+@end
+
 @implementation SPTile
 
 /**
@@ -34,6 +41,20 @@
     self.layer.shadowOffset = CGSizeMake(0, 1);
     self.layer.shadowOpacity = 2;
     self.layer.shadowRadius = 2;
+}
+
+- (void)saveState
+{
+    self.orgXInFrame = self.frame.origin.x;
+    self.orgYInFrame = self.frame.origin.y;
+}
+
+- (void)restoreState
+{
+    CGRect newFrame = self.frame;
+    newFrame.origin.x = self.orgXInFrame;
+    newFrame.origin.y = self.orgYInFrame;
+    self.frame = newFrame;
 }
 
 - (BOOL)hasIntersect:(SPTile*)otherTile
@@ -61,6 +82,14 @@
     // update coordinate
     self.xPos = xPos;
     self.yPos = yPos;
+}
+
+- (void)translateWithX:(CGFloat)xDistance Y:(NSInteger)yDistance
+{
+    CGRect newFrame = self.frame;
+    newFrame.origin.x = self.orgXInFrame + xDistance;
+    newFrame.origin.y = self.orgYInFrame + yDistance;
+    self.frame = newFrame;
 }
 
 

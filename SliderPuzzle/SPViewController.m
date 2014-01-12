@@ -127,7 +127,7 @@ static NSInteger const spacerIndex = 0;
     // slide tile only if this tile has intersection with spacer tile and with animation
     if ([senderTile hasIntersect:self.tilesMatrix.spacer]) {
         [UIView animateWithDuration:0.2f animations:^{
-            [self.tilesMatrix slideTile:senderTile toSpacer:self.tilesMatrix.spacer];
+            [self.tilesMatrix slideTile:senderTile];
         }];
     }
 }
@@ -141,12 +141,30 @@ static NSInteger const spacerIndex = 0;
 
 - (void)handleTileDrag:(UIPanGestureRecognizer*)dragGestureRecognizer
 {
-    if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+    SPTile *senderTile = (SPTile*) dragGestureRecognizer.view;
+
+    if (dragGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        // save original tile state
+        [self.tilesMatrix saveTileState:senderTile];
+
+    } if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
+
+        if ([self.tilesMatrix isMovementInRightDirection:translation tile:senderTile]) {
+            [self.tilesMatrix translateTile:senderTile withX:translation.x withY:translation.y];
+        }
 
     } else if (dragGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
 
-        SPTile *senderTile = (SPTile*) dragGestureRecognizer.view;
-        [self animateSlideTile:senderTile];
+        if ([self.tilesMatrix isMovementInRightDirection:translation tile:senderTile] && [self.tilesMatrix isMovementMoreThanHalfWay:translation tile:senderTile]) {
+            // finish the sliding
+            [self animateSlideTile:senderTile];
+        } else {
+            // restore original tile state
+            [self.tilesMatrix restoreTileState:senderTile];
+        }
+
     }
 }
 

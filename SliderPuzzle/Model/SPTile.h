@@ -21,5 +21,11 @@
 
 - (BOOL)hasYPosIntersect:(SPTile*)otherTile;
 
+- (void)translateWithX:(CGFloat)xDistance Y:(NSInteger)yDistance;
+
+- (void)saveState;
+
+- (void)restoreState;
+
 
 @end

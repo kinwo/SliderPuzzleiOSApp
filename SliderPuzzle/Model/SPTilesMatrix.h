@@ -19,6 +19,29 @@
 
 - (SPTile*)getSPTileAtXPos:(NSInteger)xPos atYPos:(NSInteger)yPos;
 
-- (void)slideTile:(SPTile*)tile toSpacer:(SPTile*)spacer;
+- (BOOL)isMovementInRightDirection:(CGPoint)translation tile:(SPTile*)tile;
+
+- (BOOL)isMovementMoreThanHalfWay:(CGPoint)translation tile:(SPTile*)tile;
+
+/**
+ Move the tile and the tiles in between towards the position of the spacer tile
+ */
+- (void)slideTile:(SPTile*)tile;
+
+/**
+ Translate the tile and the tiles in between towards the position of the spacer tile
+ */
+- (void)translateTile:(SPTile*)tile withX:(CGFloat)xDistance withY:(CGFloat)yDistance;
+
+/**
+ Save the state of the tile and the tiles in between it and the spacer tile
+ */
+- (void)saveTileState:(SPTile*)tile;
+
+/**
+ Restore the state of the tile and the tiles in between it and the spacer tile
+ */
+- (void)restoreTileState:(SPTile*)tile;
+
 
 @end
