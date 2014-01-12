@@ -1,7 +1,9 @@
 A simple Slider Puzzle iOS Game
 ===============================
 
+Author: Henry Chan [henry@kinwo.net]
 Source repository: https://bitbucket.org/kinwo/sliderpuzzle
+
 
 The challenge is to build a native android, or native iOS implementation of a 4x4 slider puzzle.
  
