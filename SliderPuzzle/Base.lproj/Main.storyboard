@@ -7,26 +7,66 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SPViewController" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="SPViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAa-pS-b31">
-                                <rect key="frame" x="58" y="30" width="204" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="nDX-gI-yed">
+                                <rect key="frame" x="0.0" y="458" width="320" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create a new Game">
+                                    <color key="titleColor" red="0.55294120311737061" green="0.85882359743118286" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseNewPuzzleImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gDd-9P-bZE"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="4z0-2F-3hc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.35686275362968445" green="0.90588241815567017" blue="0.80784320831298828" alpha="1" colorSpace="deviceRGB"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Slider Puzzle Game !">
-                                        <attributes>
-                                            <color key="NSColor" red="0.9960784912109375" green="0.85882359743118286" blue="0.19215688109397888" alpha="1" colorSpace="deviceRGB"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="XK7-wL-1gq">
+                                        <rect key="frame" x="6" y="0.0" width="313" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAa-pS-b31">
+                                                <rect key="frame" x="84" y="26" width="144" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="PopzUp">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.97647064924240112" green="0.92156869173049927" blue="0.20392158627510071" alpha="1" colorSpace="deviceRGB"/>
+                                                            <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.55294120309999995" green="0.85882359740000003" blue="0.94901967050000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="LLI-W9-YLI">
+                                        <rect key="frame" x="0.0" y="26" width="6" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.97647064920000004" green="0.9215686917" blue="0.20392158630000001" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686280729999995" green="0.270588249" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="3Ff-kM-9PM">
+                                <rect key="frame" x="47" y="73" width="80" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.9215686917" blue="0.20392158630000001" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="X4m-8C-IRT">
+                                <rect key="frame" x="199" y="74" width="80" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.9215686917" blue="0.20392158630000001" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

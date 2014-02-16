@@ -17,6 +17,8 @@
 #import "SPTilesMatrix.h"
 #import "SPPuzzleBoard.h"
 
+#import <Socialize/Socialize.h>
+
 static NSInteger const NumRows = 4;
 static NSInteger const NumColumns = 4;
 static NSString* const SourceImage = @"globe.jpg";
@@ -24,10 +26,14 @@ static NSInteger const TargetImageWidth = 310;
 static NSInteger const TargetImageHeight= 310;
 static NSInteger const spacerIndex = 0;
 
-@interface SPViewController ()
+@interface SPViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(nonatomic) NSInteger sliceWidth;
 @property(nonatomic) NSInteger sliceHeight;
+
+@property (nonatomic, strong) SZActionBar *actionBar;
+@property (nonatomic, strong) id<SZEntity> entity;
+@property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 
 // Model for Puzzle tiles
 @property(nonatomic, strong) SPTilesMatrix *tilesMatrix;
@@ -50,22 +56,67 @@ static NSInteger const spacerIndex = 0;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // resize to fit into the container
-    UIImage *resizedImage = [[UIImage imageNamed:SourceImage] resizeImageToSize:CGSizeMake(TargetImageWidth, TargetImageHeight)];
+    
     
     // display slice images for the resized image
-    [self displaySliceImagesFor:resizedImage];
+    [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self addSocializeBar];
+}
+
+- (void)addSocializeBar
+{
+    if (self.actionBar == nil) {
+        self.entity = [SZEntity entityWithKey:@"sp_board" name:@"Slider Puzzle Board"];
+        self.actionBar = [SZActionBarUtils showActionBarWithViewController:self entity:self.entity options:nil];
+        
+        SZShareOptions *shareOptions = [SZShareUtils userShareOptions];
+        shareOptions.dontShareLocation = YES;
+        
+        shareOptions.willAttemptPostingToSocialNetworkBlock = ^(SZSocialNetwork network, SZSocialNetworkPostData *postData) {
+            if (network == SZSocialNetworkTwitter) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"twitter"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customStatus = [NSString stringWithFormat:@"Custom status for %@ with url %@", displayName, entityURL];
+                
+                [postData.params setObject:customStatus forKey:@"status"];
+                
+            } else if (network == SZSocialNetworkFacebook) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"facebook"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customMessage = [NSString stringWithFormat:@"Custom status for %@ ", displayName];
+                
+                [postData.params setObject:customMessage forKey:@"message"];
+                [postData.params setObject:entityURL forKey:@"link"];
+                [postData.params setObject:@"A caption" forKey:@"caption"];
+                [postData.params setObject:@"Custom Name" forKey:@"name"];
+                [postData.params setObject:@"A Site" forKey:@"description"];
+            }
+        };
+        
+        self.actionBar.shareOptions = shareOptions;
+    }
 }
 
 - (void)displaySliceImagesFor:(UIImage*)srcImage
 {
-    CGRect containerFrame = CGRectMake(5, 100, srcImage.size.width, srcImage.size.height);
+    if (self.puzzleBoardView) {
+        [self.puzzleBoardView removeFromSuperview];
+    }
+    
+    // resize to fit into the container
+    UIImage *resizedImage = [srcImage resizeImageToSize:CGSizeMake(TargetImageWidth, TargetImageHeight)];
+    
+    CGRect containerFrame = CGRectMake(5, 125, srcImage.size.width, resizedImage.size.height);
     SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
     
-    self.sliceWidth = srcImage.size.width / NumColumns;
-    self.sliceHeight = srcImage.size.width / NumRows;
+    self.sliceWidth = resizedImage.size.width / NumColumns;
+    self.sliceHeight = resizedImage.size.width / NumRows;
     
-    NSMutableArray *sliceImageList = [srcImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
+    NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
 
     // randomize
     [sliceImageList scramble];
@@ -92,6 +143,7 @@ static NSInteger const spacerIndex = 0;
         }
     }
     
+    self.puzzleBoardView = boardView;
     [self.view addSubview:boardView];
 }
 
@@ -132,6 +184,31 @@ static NSInteger const spacerIndex = 0;
             [self.tilesMatrix slideTile:senderTile];
         }];
     }
+}
+
+# pragma mark IBActions
+- (IBAction)chooseNewPuzzleImage:(id)sender {
+    UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+# pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    [self displaySliceImagesFor:chosenImage];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 #pragma mark Gesture handler
