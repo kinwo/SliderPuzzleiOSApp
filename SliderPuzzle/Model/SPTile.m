@@ -28,7 +28,7 @@
     if (self) {
         self.xPos = 0;
         self.yPos = 0;
-        self.contentMode = UIViewContentModeCenter;
+        self.contentMode = UIViewContentModeScaleAspectFill;
         self.userInteractionEnabled = YES;
         [self addShadow];
     }

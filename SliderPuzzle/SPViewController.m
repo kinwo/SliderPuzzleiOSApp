@@ -21,9 +21,13 @@
 
 static NSInteger const NumRows = 4;
 static NSInteger const NumColumns = 4;
+static NSInteger const PuzzleBoardFrameX = 5;
+static NSInteger const PuzzleBoardFrameY = 125;
+
+
 static NSString* const SourceImage = @"globe.jpg";
-static NSInteger const TargetImageWidth = 310;
-static NSInteger const TargetImageHeight= 310;
+static NSInteger const TargetImageWidth = 620;
+static NSInteger const TargetImageHeight= 620;
 static NSInteger const spacerIndex = 0;
 
 @interface SPViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -34,6 +38,7 @@ static NSInteger const spacerIndex = 0;
 @property (nonatomic, strong) SZActionBar *actionBar;
 @property (nonatomic, strong) id<SZEntity> entity;
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
+@property (weak, nonatomic) IBOutlet UIImageView *originalImage;
 
 // Model for Puzzle tiles
 @property(nonatomic, strong) SPTilesMatrix *tilesMatrix;
@@ -109,12 +114,16 @@ static NSInteger const spacerIndex = 0;
     
     // resize to fit into the container
     UIImage *resizedImage = [srcImage resizeImageToSize:CGSizeMake(TargetImageWidth, TargetImageHeight)];
+    self.originalImage.image = resizedImage;
     
-    CGRect containerFrame = CGRectMake(5, 125, srcImage.size.width, resizedImage.size.height);
+    float targetFrameWidth = resizedImage.size.width / 2;
+    float targetFrameHeight = resizedImage.size.height / 2;
+    
+    CGRect containerFrame = CGRectMake(PuzzleBoardFrameX, PuzzleBoardFrameY, targetFrameWidth, targetFrameHeight);
     SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
     
-    self.sliceWidth = resizedImage.size.width / NumColumns;
-    self.sliceHeight = resizedImage.size.width / NumRows;
+    self.sliceWidth = (targetFrameWidth / NumColumns);
+    self.sliceHeight = (targetFrameHeight / NumRows);
     
     NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
 
@@ -194,6 +203,18 @@ static NSInteger const spacerIndex = 0;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer {
+    BOOL isShowOriginalImage = NO;
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        isShowOriginalImage = YES;
+    }
+    
+    UILabel *senderLabel = (UILabel*)gestureRecognizer.view;
+    senderLabel.highlighted = isShowOriginalImage;
+    self.originalImage.hidden = !isShowOriginalImage;
+    self.puzzleBoardView.hidden = isShowOriginalImage;
 }
 
 # pragma mark UIImagePickerControllerDelegate

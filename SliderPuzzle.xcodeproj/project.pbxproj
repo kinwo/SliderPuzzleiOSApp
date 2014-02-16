@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
+		BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
@@ -338,6 +339,8 @@
 /* Begin PBXFileReference section */
 		BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTilesMatrix.h; sourceTree = "<group>"; };
 		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
+		BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
+		BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
@@ -699,6 +702,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA5B19C218B04297005DCBE8 /* MGImageUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */,
+				BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */,
+			);
+			path = MGImageUtilities;
+			sourceTree = "<group>";
+		};
 		BAB67C8E187FE1800013F331 /* ImageSamples */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +732,7 @@
 		BABBDF8718868C1D0070CD24 /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				BA5B19C218B04297005DCBE8 /* MGImageUtilities */,
 				BAC6FCDC18AF741D007BCF62 /* Socialize.embeddedframework */,
 				BABBDF8818868C1D0070CD24 /* TestFlightSDK2.1.3 */,
 			);
@@ -1544,6 +1557,7 @@
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
+				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

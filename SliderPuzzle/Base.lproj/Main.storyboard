@@ -28,13 +28,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="XK7-wL-1gq">
-                                        <rect key="frame" x="6" y="0.0" width="313" height="74"/>
+                                        <rect key="frame" x="6" y="0.0" width="315" height="74"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAa-pS-b31">
-                                                <rect key="frame" x="84" y="26" width="144" height="40"/>
+                                            <label clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fAa-pS-b31">
+                                                <rect key="frame" x="84" y="26" width="146" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="PopzUp">
                                                         <attributes>
@@ -44,7 +45,11 @@
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
-                                                <nil key="highlightedColor"/>
+                                                <color key="highlightedColor" red="0.95686280729999995" green="0.270588249" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="shadowColor" red="0.97647064920000004" green="0.9215686917" blue="0.20392158630000001" alpha="1" colorSpace="deviceRGB"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ax0-dw-2Qd" appends="YES" id="eRT-EV-84e"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.55294120309999995" green="0.85882359740000003" blue="0.94901967050000002" alpha="1" colorSpace="deviceRGB"/>
@@ -67,11 +72,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97647064920000004" green="0.9215686917" blue="0.20392158630000001" alpha="1" colorSpace="deviceRGB"/>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gi6-wi-JO3">
+                                <rect key="frame" x="5" y="125" width="310" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="originalImage" destination="gi6-wi-JO3" id="hS2-wd-9ZC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ax0-dw-2Qd">
+                    <connections>
+                        <action selector="toggleOriginalImage:" destination="vXZ-lx-hvc" id="let-ay-iuC"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
         </scene>
     </scenes>
