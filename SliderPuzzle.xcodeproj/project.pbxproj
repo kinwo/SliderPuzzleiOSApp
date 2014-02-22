@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
 		BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */; };
+		BA78393418B827EE00434653 /* MKGyroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78392F18B827EE00434653 /* MKGyroManager.m */; };
+		BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78393118B827EE00434653 /* MKParallaxManager.m */; };
+		BA78393618B827EE00434653 /* MKParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78393318B827EE00434653 /* MKParallaxView.m */; };
+		BA78393C18B83FCE00434653 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78393B18B83FCE00434653 /* CoreMotion.framework */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
@@ -341,6 +345,14 @@
 		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
 		BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
 		BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
+		BA78392E18B827EE00434653 /* MKGyroManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGyroManager.h; sourceTree = "<group>"; };
+		BA78392F18B827EE00434653 /* MKGyroManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGyroManager.m; sourceTree = "<group>"; };
+		BA78393018B827EE00434653 /* MKParallaxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParallaxManager.h; sourceTree = "<group>"; };
+		BA78393118B827EE00434653 /* MKParallaxManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParallaxManager.m; sourceTree = "<group>"; };
+		BA78393218B827EE00434653 /* MKParallaxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParallaxView.h; sourceTree = "<group>"; };
+		BA78393318B827EE00434653 /* MKParallaxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParallaxView.m; sourceTree = "<group>"; };
+		BA78393B18B83FCE00434653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		BA78393D18B8580300434653 /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
@@ -675,6 +687,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA78393C18B83FCE00434653 /* CoreMotion.framework in Frameworks */,
 				BAC6FF2118AF745B007BCF62 /* AdSupport.framework in Frameworks */,
 				BAC6FF1F18AF744F007BCF62 /* QuartzCore.framework in Frameworks */,
 				BAC6FF1D18AF7446007BCF62 /* MapKit.framework in Frameworks */,
@@ -711,6 +724,19 @@
 			path = MGImageUtilities;
 			sourceTree = "<group>";
 		};
+		BA78392D18B827EE00434653 /* MKParallaxView */ = {
+			isa = PBXGroup;
+			children = (
+				BA78392E18B827EE00434653 /* MKGyroManager.h */,
+				BA78392F18B827EE00434653 /* MKGyroManager.m */,
+				BA78393018B827EE00434653 /* MKParallaxManager.h */,
+				BA78393118B827EE00434653 /* MKParallaxManager.m */,
+				BA78393218B827EE00434653 /* MKParallaxView.h */,
+				BA78393318B827EE00434653 /* MKParallaxView.m */,
+			);
+			path = MKParallaxView;
+			sourceTree = "<group>";
+		};
 		BAB67C8E187FE1800013F331 /* ImageSamples */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +758,7 @@
 		BABBDF8718868C1D0070CD24 /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				BA78392D18B827EE00434653 /* MKParallaxView */,
 				BA5B19C218B04297005DCBE8 /* MGImageUtilities */,
 				BAC6FCDC18AF741D007BCF62 /* Socialize.embeddedframework */,
 				BABBDF8818868C1D0070CD24 /* TestFlightSDK2.1.3 */,
@@ -1071,6 +1098,7 @@
 		BAF63B9A187EA2AF00D247D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA78393B18B83FCE00434653 /* CoreMotion.framework */,
 				BAC6FF2018AF745B007BCF62 /* AdSupport.framework */,
 				BAC6FF1E18AF744F007BCF62 /* QuartzCore.framework */,
 				BAC6FF1C18AF7446007BCF62 /* MapKit.framework */,
@@ -1094,6 +1122,7 @@
 				BAF9DFA0187EA5680098D7B4 /* Model */,
 				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
 				BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */,
+				BA78393D18B8580300434653 /* SPConstants.h */,
 				BAF63BAD187EA2AF00D247D2 /* Main.storyboard */,
 				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
 				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
@@ -1548,7 +1577,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
+				BA78393618B827EE00434653 /* MKParallaxView.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
+				BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */,
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
 				BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
@@ -1557,6 +1588,7 @@
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
+				BA78393418B827EE00434653 /* MKGyroManager.m in Sources */,
 				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
