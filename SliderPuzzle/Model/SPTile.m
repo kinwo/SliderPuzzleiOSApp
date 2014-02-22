@@ -84,7 +84,7 @@
     self.yPos = yPos;
 }
 
-- (void)translateWithX:(CGFloat)xDistance Y:(NSInteger)yDistance
+- (void)translateWithX:(CGFloat)xDistance Y:(CGFloat)yDistance
 {
     CGRect newFrame = self.frame;
     newFrame.origin.x = self.orgXInFrame + xDistance;

@@ -10,8 +10,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MKParallaxView.h"
 
-@interface SPTile : UIImageView
+@interface SPTile : MKParallaxView
 
 @property(nonatomic) NSInteger xPos;
 @property(nonatomic) NSInteger yPos;
@@ -24,7 +25,7 @@
 
 - (BOOL)hasYPosIntersect:(SPTile*)otherTile;
 
-- (void)translateWithX:(CGFloat)xDistance Y:(NSInteger)yDistance;
+- (void)translateWithX:(CGFloat)xDistance Y:(CGFloat)yDistance;
 
 - (void)saveState;
 
