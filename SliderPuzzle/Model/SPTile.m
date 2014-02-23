@@ -9,6 +9,7 @@
 //
 
 #import "SPTile.h"
+#import "UIImage+Color.h"
 
 @interface SPTile()
 
@@ -37,7 +38,7 @@
 
 - (void)addShadow
 {
-    self.layer.shadowColor = [UIColor orangeColor].CGColor;
+    self.layer.shadowColor = [UIColor grayColor].CGColor;
     self.layer.shadowOffset = CGSizeMake(0, 1);
     self.layer.shadowOpacity = 2;
     self.layer.shadowRadius = 2;

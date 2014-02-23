@@ -22,7 +22,7 @@
     [Socialize storeConsumerSecret:@"62954b1e-ee90-4127-abb8-3781ee3b9e9c"];
     
     // status bar
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     return YES;
 }
