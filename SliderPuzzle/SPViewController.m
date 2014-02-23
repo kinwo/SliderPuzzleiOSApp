@@ -22,21 +22,6 @@
 #import <Socialize/Socialize.h>
 @import CoreMotion;
 
-
-static NSInteger const NumRows = 4;
-static NSInteger const NumColumns = 4;
-static NSInteger const PuzzleBoardFrameX = 5;
-static NSInteger const PuzzleBoardFrameY = 125;
-
-
-static NSString* const SourceImage = @"globe.jpg";
-static NSInteger const TargetImageWidth = 620;
-static NSInteger const TargetImageHeight= 620;
-static NSInteger const spacerIndex = 0;
-
-static CGFloat StepMoveFactor = 5;
-static CGFloat MotionDetectionSensitivity = 0.2;
-
 @interface SPViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(nonatomic) NSInteger sliceWidth;
@@ -47,12 +32,14 @@ static CGFloat MotionDetectionSensitivity = 0.2;
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 @property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *calibrateButton;
+
 
 // properties for motion detection
-@property (nonatomic) CGFloat accumXDistance;
+@property (nonatomic) CGFloat accumDistance;
 @property (nonatomic, strong) NSDate *lastUpdateTime;
-@property (nonatomic) CGFloat xVelocity;
-@property (nonatomic) CGFloat yVelocity;
+@property (nonatomic) CGFloat averageXOffset;
+@property (nonatomic) CGFloat averageYOffset;
 @property (nonatomic, strong) SPTile *currentTile;
 
 
@@ -79,6 +66,8 @@ static CGFloat MotionDetectionSensitivity = 0.2;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [self initCommon];
+    
     [self startDeviceMotionUpdate];
     
     // display slice images for the resized image
@@ -96,18 +85,26 @@ static CGFloat MotionDetectionSensitivity = 0.2;
 
 - (void)hideInstructions
 {
-    [UIView animateWithDuration:1.0 delay:15.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.instructionsLabel.alpha = 0.0f;
+        self.calibrateButton.alpha = 1.0f;
     } completion:^(BOOL finished) {
         self.instructionsLabel.hidden = YES;
+        self.calibrateButton.hidden = NO;
     }];
 
 }
 
-- (void)startDeviceMotionUpdate
+- (void)initCommon
 {
     self.lastUpdateTime = [NSDate date];
-    self.accumXDistance = 0;
+    self.accumDistance = 0;
+    self.averageYOffset = 0.0f;
+    self.averageXOffset = 0.0f;
+}
+
+- (void)startDeviceMotionUpdate
+{
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
@@ -126,13 +123,32 @@ static CGFloat MotionDetectionSensitivity = 0.2;
     // Response Algorithm
     CGFloat xAcceleration = -motionData.acceleration.x;
     CGFloat yAcceleration = motionData.acceleration.y;
-    BOOL isXAccerleration = YES;
+
+    if (self.averageYOffset == 0.0f) {
+        self.averageYOffset = yAcceleration;
+    }
+    yAcceleration = yAcceleration - self.averageYOffset;
     
-    if (fabs(xAcceleration) < MotionDetectionSensitivity) {
+    if (self.averageXOffset == 0.0f) {
+        self.averageXOffset = xAcceleration;
+    }
+    xAcceleration = xAcceleration - self.averageXOffset;
+
+    
+    BOOL isXAccerleration = YES;
+    CGFloat selectedAcceleration = xAcceleration;
+    
+    if (fabs(yAcceleration) > fabs(xAcceleration)) {
+        isXAccerleration = NO;
+        selectedAcceleration = yAcceleration;
+    }
+    
+    // skip if acceleration is below the threshold
+    if (fabs(selectedAcceleration) < MotionDetectionSensitivity) {
         return;
     }
     
-    // if X rotation, get tile on right of spacer if > 0, else get tile on left
+    // if X rotation, get tile on right of spacer if accleration > 0, else get tile on left
     if (isXAccerleration) {
         SPTile *slideTile = self.currentTile;
         SPTile *spacer = self.tilesMatrix.spacer;
@@ -156,67 +172,143 @@ static CGFloat MotionDetectionSensitivity = 0.2;
             }
         }
         
-        CGRect rect = slideTile.frame;
-        float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
-        float maxX = rect.origin.x + (float)self.sliceWidth;
-        
-        if (movetoX < 0) {
-            movetoX = 0.01;
-        }
-        
-        if (movetoX > maxX) {
-            movetoX = maxX;
-        }
-        
-        float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
-        float maxY = (rect.origin.y + rect.size.height) + (float)self.sliceHeight;
-        BOOL shouldMoveX = movetoX > 0 && movetoX < maxX;
-//        BOOL shouldMoveY = movetoY > 0 && movetoY < maxY;
-        
-        if (slideTile && shouldMoveX) {
-            if (self.accumXDistance == 0) {
-                if (self.currentTile && self.currentTile != slideTile) {
-                    [self.currentTile restoreState];
-                }
-                
-//                NSLog(@"Start sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-                [self.tilesMatrix saveTileState:slideTile];
-                self.accumXDistance += -(xAcceleration*StepMoveFactor);
-                [self.tilesMatrix translateTile:slideTile withX:self.accumXDistance withY:0];
-                self.currentTile = slideTile;
-                
-            } else if (fabs(self.accumXDistance) >= 20) {
-//                NSLog(@"Finish sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-                if (self.currentTile && self.currentTile != slideTile) {
-                    [self.currentTile restoreState];
-                } else {
-                    [self.tilesMatrix saveTileState:slideTile];
-                    // finish the sliding
-                    [self animateSlideTile:slideTile];
-                }
-                
-                self.accumXDistance = 0;
-                self.currentTile = nil;
-                
-            } else {
-//                NSLog(@"Sliding tile x=%d, y=%d, delta=%f", slideTile.xPos, slideTile.yPos, -xAcceleration);
-                if (self.currentTile && self.currentTile != slideTile) {
-                    [self.currentTile restoreState];
-                    self.currentTile = nil;
-                } else {
-                    self.accumXDistance += -(xAcceleration*StepMoveFactor);
-                    [self.tilesMatrix translateTile:slideTile withX:self.accumXDistance withY:0];
-                }
+        if (slideTile) {
+            CGRect rect = slideTile.frame;
+            
+            // X axis
+            float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
+            float maxX = rect.origin.x + (float)self.sliceWidth;
+            
+            if (movetoX < 0) {
+                movetoX = 0.01;
             }
+            
+            if (movetoX > maxX) {
+                movetoX = maxX;
+            }
+            
+            [self moveTileHorizontally:slideTile acceleration:xAcceleration];
         }
 
     } else {
-        // if Y rotation, get tile on top of spacer if > 0, else get tile on bottom
+        // if Y rotation, get tile on top of spacer if acceleration > 0, else get tile on bottom
+        SPTile *slideTile = self.currentTile;
+        SPTile *spacer = self.tilesMatrix.spacer;
         
+        if (!slideTile) {
+            if (yAcceleration > 0) {
+                NSInteger slideTileX = spacer.xPos;
+                NSInteger slideTileY = spacer.yPos + 1;
+                
+                if (slideTileY < NumColumns) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+                
+            } else {
+                NSInteger slideTileX = spacer.xPos;
+                NSInteger slideTileY = spacer.yPos - 1;
+                
+                if (slideTileY >= 0) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+            }
+        }
+        
+        if (slideTile) {
+            CGRect rect = slideTile.frame;
+            
+            // Y axis
+            float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
+            float maxY = (rect.origin.y + rect.size.height) + (float)self.sliceHeight;
+            
+            if (movetoY < 0) {
+                movetoY = 0.01;
+            }
+            
+            if (movetoY > maxY) {
+                movetoY = maxY;
+            }
+            
+            [self moveTileVertically:slideTile acceleration:yAcceleration];
+        }
     }
     
     self.lastUpdateTime = [NSDate date];
 
+}
+
+- (void)moveTileVertically:(SPTile*)slideTile acceleration:(CGFloat)acceleration
+{
+    if (self.accumDistance == 0) {
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+        }
+        
+        // NSLog(@"Start sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
+        [self.tilesMatrix saveTileState:slideTile];
+        self.accumDistance += -(acceleration*StepMoveFactor);
+        [self.tilesMatrix translateTile:slideTile withX:0 withY:self.accumDistance];
+        self.currentTile = slideTile;
+        
+    } else if (fabs(self.accumDistance) >= TileSwitchOverTheshold) {
+        // NSLog(@"Finish sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+        } else {
+            [self.tilesMatrix saveTileState:slideTile];
+            // finish the sliding
+            [self animateSlideTile:slideTile];
+        }
+        
+        self.accumDistance = 0;
+        self.currentTile = nil;
+        
+    } else {
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+            self.currentTile = nil;
+        } else {
+            self.accumDistance += -(acceleration*StepMoveFactor);
+            [self.tilesMatrix translateTile:slideTile withX:0 withY:self.accumDistance];
+        }
+    }
+}
+
+- (void)moveTileHorizontally:(SPTile*)slideTile acceleration:(CGFloat)acceleration
+{
+    if (self.accumDistance == 0) {
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+        }
+        
+        // NSLog(@"Start sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
+        [self.tilesMatrix saveTileState:slideTile];
+        self.accumDistance += -(acceleration*StepMoveFactor);
+        [self.tilesMatrix translateTile:slideTile withX:self.accumDistance withY:0];
+        self.currentTile = slideTile;
+        
+    } else if (fabs(self.accumDistance) >= TileSwitchOverTheshold) {
+        // NSLog(@"Finish sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+        } else {
+            [self.tilesMatrix saveTileState:slideTile];
+            // finish the sliding
+            [self animateSlideTile:slideTile];
+        }
+        
+        self.accumDistance = 0;
+        self.currentTile = nil;
+        
+    } else {
+        if (self.currentTile && self.currentTile != slideTile) {
+            [self.currentTile restoreState];
+            self.currentTile = nil;
+        } else {
+            self.accumDistance += -(acceleration*StepMoveFactor);
+            [self.tilesMatrix translateTile:slideTile withX:self.accumDistance withY:0];
+        }
+    }
 }
 
 - (CGFloat)radiansToDegrees:(CGFloat)radians {
@@ -360,6 +452,11 @@ static CGFloat MotionDetectionSensitivity = 0.2;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (IBAction)calibrateMotionDetection:(id)sender {
+    self.averageXOffset = 0.0f;
+    self.averageYOffset = 0.0f;
 }
 
 - (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer {

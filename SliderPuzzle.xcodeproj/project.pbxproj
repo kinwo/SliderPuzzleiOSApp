@@ -15,8 +15,6 @@
 		BA78393C18B83FCE00434653 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78393B18B83FCE00434653 /* CoreMotion.framework */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
-		BAB67C91187FE1950013F331 /* globe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C8F187FE1950013F331 /* globe.jpg */; };
-		BAB67C92187FE1950013F331 /* slider.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB67C90187FE1950013F331 /* slider.jpg */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
 		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
@@ -356,8 +354,6 @@
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
-		BAB67C8F187FE1950013F331 /* globe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = globe.jpg; sourceTree = "<group>"; };
-		BAB67C90187FE1950013F331 /* slider.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slider.jpg; sourceTree = "<group>"; };
 		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		BAB67C9B187FF9500013F331 /* NSMutableArray+ScramblePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ScramblePosition.h"; sourceTree = "<group>"; };
@@ -737,15 +733,6 @@
 			path = MKParallaxView;
 			sourceTree = "<group>";
 		};
-		BAB67C8E187FE1800013F331 /* ImageSamples */ = {
-			isa = PBXGroup;
-			children = (
-				BAB67C8F187FE1950013F331 /* globe.jpg */,
-				BAB67C90187FE1950013F331 /* slider.jpg */,
-			);
-			path = ImageSamples;
-			sourceTree = "<group>";
-		};
 		BAB67C9A187FF9430013F331 /* Array Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1117,7 +1104,6 @@
 			isa = PBXGroup;
 			children = (
 				BAB67C9A187FF9430013F331 /* Array Utility */,
-				BAB67C8E187FE1800013F331 /* ImageSamples */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
 				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
@@ -1369,7 +1355,6 @@
 				BAC6FEBF18AF741E007BCF62 /* socialize-navbar-button-blue-bg-normal.png in Resources */,
 				BAC6FE6D18AF741E007BCF62 /* socialize-authorize-twitter-enabled-icon-ios7@2x.png in Resources */,
 				BAC6FEA618AF741E007BCF62 /* socialize-comment-twitter-disabled@2x.png in Resources */,
-				BAB67C92187FE1950013F331 /* slider.jpg in Resources */,
 				BAC6FE3E18AF741E007BCF62 /* socialize-activity-cell-icon-facebook.png in Resources */,
 				BAC6FE8718AF741E007BCF62 /* socialize-comment-background-text-input-ios7@2x.png in Resources */,
 				BAC6FE6E18AF741E007BCF62 /* socialize-authorize-twitter-enabled-icon.png in Resources */,
@@ -1508,7 +1493,6 @@
 				BAC6FE9218AF741E007BCF62 /* socialize-comment-details-icon-geo-enabled.png in Resources */,
 				BAC6FE3618AF741E007BCF62 /* socialize-activity-call-out-arrow.png in Resources */,
 				BAC6FF0518AF741E007BCF62 /* SocializeAuthInfoTableViewCell.xib in Resources */,
-				BAB67C91187FE1950013F331 /* globe.jpg in Resources */,
 				BAC6FE4618AF741E007BCF62 /* socialize-activity-cell-icon-share.png in Resources */,
 				BAC6FEC818AF741E007BCF62 /* socialize-navbar-button-green@2x.png in Resources */,
 				BAC6FE8F18AF741E007BCF62 /* socialize-comment-detail-bottom-shadow-background@2x.png in Resources */,
