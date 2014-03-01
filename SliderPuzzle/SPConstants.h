@@ -11,10 +11,10 @@
 
 #define CORE_MOTION_UPDATE_INTERVAL (1.0f / 10.0f)
 
-static NSInteger const NumRows = 4;
-static NSInteger const NumColumns = 4;
-static NSInteger const PuzzleBoardFrameX = 5;
-static NSInteger const PuzzleBoardFrameY = 125;
+static NSInteger const NumRows = 3;
+static NSInteger const NumColumns = 3;
+static NSInteger const PuzzleBoardFrameX = 0;
+static NSInteger const PuzzleBoardFrameY = 0;
 
 static NSString* const SourceImage = @"OpeningPuzzlePhoto";
 static NSInteger const TargetImageWidth = 620;
