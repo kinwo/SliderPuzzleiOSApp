@@ -31,8 +31,9 @@
 @property (nonatomic, strong) id<SZEntity> entity;
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 @property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
-@property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *calibrateButton;
+//@property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
+//@property (weak, nonatomic) IBOutlet UIButton *calibrateButton;
+@property (weak, nonatomic) IBOutlet UIView *puzzleBoard;
 
 
 // properties for motion detection
@@ -73,9 +74,9 @@
     // display slice images for the resized image
     [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
     
-    [self addSocializeBar];
+//    [self addSocializeBar];
     
-    [self hideInstructions];
+//    [self hideInstructions];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,11 +87,11 @@
 - (void)hideInstructions
 {
     [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.instructionsLabel.alpha = 0.0f;
-        self.calibrateButton.alpha = 1.0f;
+//        self.instructionsLabel.alpha = 0.0f;
+//        self.calibrateButton.alpha = 1.0f;
     } completion:^(BOOL finished) {
-        self.instructionsLabel.hidden = YES;
-        self.calibrateButton.hidden = NO;
+//        self.instructionsLabel.hidden = YES;
+//        self.calibrateButton.hidden = NO;
     }];
 
 }
@@ -105,16 +106,16 @@
 
 - (void)startDeviceMotionUpdate
 {
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-        if (!error) {
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               [self respondToMotionUpdate:accelerometerData];
-                           });
-        }
-    }];
+//    self.motionManager = [[CMMotionManager alloc] init];
+//    self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
+//    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+//        if (!error) {
+//            dispatch_async(dispatch_get_main_queue(),
+//                           ^{
+//                               [self respondToMotionUpdate:accelerometerData];
+//                           });
+//        }
+//    }];
     
 }
 
@@ -154,7 +155,7 @@
         SPTile *spacer = self.tilesMatrix.spacer;
         
         if (!slideTile) {
-            if (xAcceleration > 0) {
+            if (xAcceleration > self.averageXOffset) {
                 NSInteger slideTileX = spacer.xPos + 1;
                 NSInteger slideTileY = spacer.yPos;
                 
@@ -196,7 +197,7 @@
         SPTile *spacer = self.tilesMatrix.spacer;
         
         if (!slideTile) {
-            if (yAcceleration > 0) {
+            if (yAcceleration > self.averageYOffset) {
                 NSInteger slideTileX = spacer.xPos;
                 NSInteger slideTileY = spacer.yPos + 1;
                 
@@ -396,7 +397,7 @@
     }
     
     self.puzzleBoardView = boardView;
-    [self.view addSubview:boardView];
+    [self.puzzleBoard addSubview:boardView];
 }
 
 // register Tap and Dragging gestures to a tile
