@@ -312,6 +312,7 @@
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
 		BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */; };
 		BABBDF8D18868CA70070CD24 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBDF8C18868CA70070CD24 /* libz.dylib */; };
+		BABEF9FF18E79F6A00EAF3EE /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABEF9FD18E79F6A00EAF3EE /* Main-iPad.storyboard */; };
 		BAC6FF1918AF7437007BCF62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */; };
 		BAC6FF1B18AF743D007BCF62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */; };
 		BAC6FF1D18AF7446007BCF62 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1C18AF7446007BCF62 /* MapKit.framework */; };
@@ -323,7 +324,7 @@
 		BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BA4187EA2AF00D247D2 /* InfoPlist.strings */; };
 		BAF63BA8187EA2AF00D247D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BA7187EA2AF00D247D2 /* main.m */; };
 		BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */; };
-		BAF63BAF187EA2AF00D247D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BAD187EA2AF00D247D2 /* Main.storyboard */; };
+		BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */; };
 		BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPViewController.m */; };
 		BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BB3187EA2AF00D247D2 /* Images.xcassets */; };
 		BAF63BBB187EA2AF00D247D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63BBA187EA2AF00D247D2 /* XCTest.framework */; };
@@ -666,6 +667,7 @@
 		BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPuzzleBoard.h; sourceTree = "<group>"; };
 		BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPuzzleBoard.m; sourceTree = "<group>"; };
 		BABBDF8C18868CA70070CD24 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BABEF9FE18E79F6A00EAF3EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
 		BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BAC6FF1C18AF7446007BCF62 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -681,7 +683,7 @@
 		BAF63BA9187EA2AF00D247D2 /* SliderPuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SliderPuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
-		BAF63BAE187EA2AF00D247D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAF63BAE187EA2AF00D247D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
 		BAF63BB0187EA2AF00D247D2 /* SPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPViewController.h; sourceTree = "<group>"; };
 		BAF63BB1187EA2AF00D247D2 /* SPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
 		BAF63BB3187EA2AF00D247D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -1146,7 +1148,8 @@
 				BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */,
 				BA78393D18B8580300434653 /* SPConstants.h */,
 				BA99095018BA061B00CFBE3E /* default.css */,
-				BAF63BAD187EA2AF00D247D2 /* Main.storyboard */,
+				BABEF9FD18E79F6A00EAF3EE /* Main-iPad.storyboard */,
+				BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */,
 				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
 				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
 				BAF63BB0187EA2AF00D247D2 /* SPViewController.h */,
@@ -1316,6 +1319,7 @@
 				BA99090918BA056000CFBE3E /* socialize-profileimage-large-bg.png in Resources */,
 				BA99090F18BA056000CFBE3E /* socialize-sectionheader-bg-ios7.png in Resources */,
 				BA99084B18BA056000CFBE3E /* action-bar-icon-like.png in Resources */,
+				BABEF9FF18E79F6A00EAF3EE /* Main-iPad.storyboard in Resources */,
 				BA9908DF18BA056000CFBE3E /* socialize-comment-user-background.png in Resources */,
 				BA99084E18BA056000CFBE3E /* action-bar-icon-liked@2x.png in Resources */,
 				BA99090B18BA056000CFBE3E /* socialize-profileimage-large-default-ios7.png in Resources */,
@@ -1476,7 +1480,7 @@
 				BA99085218BA056000CFBE3E /* action-bar-icon-views@2x.png in Resources */,
 				BA99091618BA056000CFBE3E /* socialize-selectnetwork-email-icon-ios7@2x.png in Resources */,
 				BA9908DD18BA056000CFBE3E /* socialize-comment-twitter-enabled.png in Resources */,
-				BAF63BAF187EA2AF00D247D2 /* Main.storyboard in Resources */,
+				BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */,
 				BA99090C18BA056000CFBE3E /* socialize-profileimage-large-default-ios7@2x.png in Resources */,
 				BA99091918BA056000CFBE3E /* socialize-selectnetwork-facebook-dis-icon-ios7.png in Resources */,
 				BA99092718BA056000CFBE3E /* socialize-selectnetwork-SMS-icon-ios7.png in Resources */,
@@ -1673,6 +1677,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BABEF9FD18E79F6A00EAF3EE /* Main-iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BABEF9FE18E79F6A00EAF3EE /* Base */,
+			);
+			name = "Main-iPad.storyboard";
+			sourceTree = "<group>";
+		};
 		BAF63BA4187EA2AF00D247D2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1681,12 +1693,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		BAF63BAD187EA2AF00D247D2 /* Main.storyboard */ = {
+		BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BAF63BAE187EA2AF00D247D2 /* Base */,
 			);
-			name = Main.storyboard;
+			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";
 		};
 		BAF63BC3187EA2AF00D247D2 /* InfoPlist.strings */ = {
@@ -1790,6 +1802,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/henry/Documents/SliderPuzzle/ThirdPartyLibs/TestFlightSDK3.0.0,
@@ -1800,7 +1813,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "BB32E734-0ED0-424D-9B25-61A95F170029";
-				VALID_ARCHS = "armv7 armv7s";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1821,6 +1835,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/henry/Documents/SliderPuzzle/ThirdPartyLibs/TestFlightSDK3.0.0,
@@ -1831,7 +1846,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "BB32E734-0ED0-424D-9B25-61A95F170029";
-				VALID_ARCHS = "armv7 armv7s";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

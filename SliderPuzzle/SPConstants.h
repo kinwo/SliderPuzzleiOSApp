@@ -17,8 +17,6 @@ static NSInteger const PuzzleBoardFrameX = 0;
 static NSInteger const PuzzleBoardFrameY = 0;
 
 static NSString* const SourceImage = @"OpeningPuzzlePhoto";
-static NSInteger const TargetImageWidth = 620;
-static NSInteger const TargetImageHeight= 620;
 static NSInteger const spacerIndex = 0;
 
 static CGFloat StepMoveFactor = 8;

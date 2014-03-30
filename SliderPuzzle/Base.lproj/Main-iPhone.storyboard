@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -95,51 +95,33 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="emotionLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="GUESS ME" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D8U-V7-twz">
-                                <rect key="frame" x="52" y="440" width="216" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="6Vb-mJ-hvK"/>
-                                    <constraint firstAttribute="height" constant="32" id="e7C-zV-X56"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="guessMeTextField"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.91372555489999996" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="fCZ-h1-Et3" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="1vQ-j9-ngg"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="leading" secondItem="3gi-Pp-S4I" secondAttribute="leading" id="8Lt-9J-St3"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="leading" secondItem="fgT-W0-gpr" secondAttribute="leading" id="BNb-Jh-uR0"/>
                             <constraint firstItem="Sva-BC-2Ge" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="15" id="But-cR-NkP"/>
-                            <constraint firstItem="cL8-wS-gPa" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="FEt-vI-SMr"/>
                             <constraint firstItem="3gi-Pp-S4I" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="83" id="FfE-2Z-Bk7"/>
-                            <constraint firstItem="D8U-V7-twz" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" priority="990" constant="27" id="IPq-PM-E2P"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="width" secondItem="fgT-W0-gpr" secondAttribute="width" id="KGG-7P-cRF"/>
                             <constraint firstAttribute="trailing" secondItem="fgT-W0-gpr" secondAttribute="trailing" constant="5" id="Q7O-sG-Erq"/>
                             <constraint firstItem="3gi-Pp-S4I" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="top" constant="-20" id="Rqr-ab-L0J"/>
-                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="30" id="cHD-Fc-tTp"/>
+                            <constraint firstItem="cL8-wS-gPa" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="bER-Da-Plj"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="width" secondItem="3gi-Pp-S4I" secondAttribute="width" id="hYl-Ho-oNr"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="height" secondItem="fgT-W0-gpr" secondAttribute="height" id="i1N-kn-3KE"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="top" id="i1j-2j-g7Z"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="height" secondItem="3gi-Pp-S4I" secondAttribute="height" id="iL3-Vh-TIn"/>
-                            <constraint firstItem="FVZ-Az-uFM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="D8U-V7-twz" secondAttribute="bottom" priority="900" constant="27" id="j4E-UU-L25"/>
+                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="30" id="n5P-Rg-qhS"/>
                             <constraint firstAttribute="trailing" secondItem="fCZ-h1-Et3" secondAttribute="trailing" constant="5" id="oZ0-9R-EEN"/>
                             <constraint firstAttribute="centerX" secondItem="cL8-wS-gPa" secondAttribute="centerX" id="oZZ-es-GPx"/>
-                            <constraint firstItem="fCZ-h1-Et3" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="qTs-fn-SF6"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="qen-q3-GIW"/>
-                            <constraint firstAttribute="centerX" secondItem="D8U-V7-twz" secondAttribute="centerX" id="yt2-zs-u1f"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="originalView" destination="fgT-W0-gpr" id="p5R-OG-lZo"/>
-                        <outlet property="puzzleBoard" destination="mDz-7U-BId" id="g7y-LJ-B8e"/>
+                        <outlet property="puzzleBoardContainer" destination="mDz-7U-BId" id="BeJ-2H-Pwp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

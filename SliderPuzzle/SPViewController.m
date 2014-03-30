@@ -31,9 +31,7 @@
 @property (nonatomic, strong) id<SZEntity> entity;
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 @property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
-//@property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
-//@property (weak, nonatomic) IBOutlet UIButton *calibrateButton;
-@property (weak, nonatomic) IBOutlet UIView *puzzleBoard;
+@property (weak, nonatomic) IBOutlet UIView *puzzleBoardContainer;
 
 
 // properties for motion detection
@@ -69,31 +67,15 @@
     
     [self initCommon];
     
-    [self startDeviceMotionUpdate];
-    
     // display slice images for the resized image
     [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
     
-//    [self addSocializeBar];
-    
-//    [self hideInstructions];
+    [self addSocializeBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)hideInstructions
-{
-    [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        self.instructionsLabel.alpha = 0.0f;
-//        self.calibrateButton.alpha = 1.0f;
-    } completion:^(BOOL finished) {
-//        self.instructionsLabel.hidden = YES;
-//        self.calibrateButton.hidden = NO;
-    }];
-
 }
 
 - (void)initCommon
@@ -104,140 +86,125 @@
     self.averageXOffset = 0.0f;
 }
 
-- (void)startDeviceMotionUpdate
+- (void)displaySliceImagesFor:(UIImage*)srcImage
 {
-//    self.motionManager = [[CMMotionManager alloc] init];
-//    self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
-//    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-//        if (!error) {
-//            dispatch_async(dispatch_get_main_queue(),
-//                           ^{
-//                               [self respondToMotionUpdate:accelerometerData];
-//                           });
-//        }
-//    }];
+    if (self.puzzleBoardView) {
+        [self.puzzleBoardView removeFromSuperview];
+    }
+    
+    // PuzzleBoard target High-res image width
+    NSInteger HighResTargetImageWidth = self.puzzleBoardContainer.frame.size.width * 2;
+    NSInteger HighResTargetImageHeight = self.puzzleBoardContainer.frame.size.height * 2;
+    
+    // resize to fit into the container
+    UIImage *resizedImage = [srcImage resizeImageToSize:CGSizeMake(HighResTargetImageWidth, HighResTargetImageHeight)];
+    self.originalView.backgroundImage = resizedImage;
+    
+    float targetFrameWidth = resizedImage.size.width / 2;
+    float targetFrameHeight = resizedImage.size.height / 2;
+    
+    CGRect containerFrame = CGRectMake(PuzzleBoardFrameX, PuzzleBoardFrameY, targetFrameWidth, targetFrameHeight);
+    SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
+    
+    self.sliceWidth = (targetFrameWidth / NumColumns);
+    self.sliceHeight = (targetFrameHeight / NumRows);
+    
+    NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
+
+    // randomize
+    [sliceImageList scramble];
+    
+    // select top left corner element as spacer
+    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.sliceWidth, self.sliceHeight)];
+    sliceImageList[spacerIndex] = spacerImage;
+    
+    NSInteger index=0;
+    
+    // add SPTile to container view
+    for (int i=0; i<NumRows; i++) {
+        for (int j=0; j<NumColumns; j++) {
+            SPTile *tileImageView = [self createTile:sliceImageList[index] tileX:j tileY:i];
+            [self addGestureRecogizer:tileImageView];
+            [boardView addSubview:tileImageView];
+            [self.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
+            
+            if (index == spacerIndex) {
+                [self.tilesMatrix setSpacer:tileImageView];
+            }
+            
+            index++;
+        }
+    }
+    
+    self.puzzleBoardView = boardView;
+    [self.puzzleBoardContainer addSubview:boardView];
+}
+
+// register Tap and Dragging gestures to a tile
+- (void)addGestureRecogizer:(SPTile*)tile
+{
+    // tap
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
+    [tile addGestureRecognizer:tapGesture];
+    
+    // dragging
+    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
+    dragGesture.minimumNumberOfTouches = 1;
+    [tile addGestureRecognizer:dragGesture];
     
 }
 
-- (void)respondToMotionUpdate:(CMAccelerometerData*)motionData
+- (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
 {
-    // Response Algorithm
-    CGFloat xAcceleration = -motionData.acceleration.x;
-    CGFloat yAcceleration = motionData.acceleration.y;
-
-    if (self.averageYOffset == 0.0f) {
-        self.averageYOffset = yAcceleration;
-    }
-    yAcceleration = yAcceleration - self.averageYOffset;
+    NSInteger originX = xPos * self.sliceWidth;
+    NSInteger originY = yPos * self.sliceHeight;
+    CGRect frame = CGRectMake(originX, originY, self.sliceWidth, self.sliceHeight);
     
-    if (self.averageXOffset == 0.0f) {
-        self.averageXOffset = xAcceleration;
-    }
-    xAcceleration = xAcceleration - self.averageXOffset;
-
+    SPTile *tile = [[SPTile alloc] initWithFrame:frame];
+    tile.backgroundImage = sliceImage;
+    tile.xPos = xPos;
+    tile.yPos = yPos;
     
-    BOOL isXAccerleration = YES;
-    CGFloat selectedAcceleration = xAcceleration;
-    
-    if (fabs(yAcceleration) > fabs(xAcceleration)) {
-        isXAccerleration = NO;
-        selectedAcceleration = yAcceleration;
-    }
-    
-    // skip if acceleration is below the threshold
-    if (fabs(selectedAcceleration) < MotionDetectionSensitivity) {
-        return;
-    }
-    
-    // if X rotation, get tile on right of spacer if accleration > 0, else get tile on left
-    if (isXAccerleration) {
-        SPTile *slideTile = self.currentTile;
-        SPTile *spacer = self.tilesMatrix.spacer;
-        
-        if (!slideTile) {
-            if (xAcceleration > self.averageXOffset) {
-                NSInteger slideTileX = spacer.xPos + 1;
-                NSInteger slideTileY = spacer.yPos;
-                
-                if (slideTileX < NumRows) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-                
-            } else {
-                NSInteger slideTileX = spacer.xPos - 1;
-                NSInteger slideTileY = spacer.yPos;
-                
-                if (slideTileX >= 0) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-            }
-        }
-        
-        if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // X axis
-            float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
-            float maxX = rect.origin.x + (float)self.sliceWidth;
-            
-            if (movetoX < 0) {
-                movetoX = 0.01;
-            }
-            
-            if (movetoX > maxX) {
-                movetoX = maxX;
-            }
-            
-            [self moveTileHorizontally:slideTile acceleration:xAcceleration];
-        }
-
-    } else {
-        // if Y rotation, get tile on top of spacer if acceleration > 0, else get tile on bottom
-        SPTile *slideTile = self.currentTile;
-        SPTile *spacer = self.tilesMatrix.spacer;
-        
-        if (!slideTile) {
-            if (yAcceleration > self.averageYOffset) {
-                NSInteger slideTileX = spacer.xPos;
-                NSInteger slideTileY = spacer.yPos + 1;
-                
-                if (slideTileY < NumColumns) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-                
-            } else {
-                NSInteger slideTileX = spacer.xPos;
-                NSInteger slideTileY = spacer.yPos - 1;
-                
-                if (slideTileY >= 0) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-            }
-        }
-        
-        if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // Y axis
-            float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
-            float maxY = (rect.origin.y + rect.size.height) + (float)self.sliceHeight;
-            
-            if (movetoY < 0) {
-                movetoY = 0.01;
-            }
-            
-            if (movetoY > maxY) {
-                movetoY = maxY;
-            }
-            
-            [self moveTileVertically:slideTile acceleration:yAcceleration];
-        }
-    }
-    
-    self.lastUpdateTime = [NSDate date];
-
+    return tile;
 }
 
+
+#pragma mark Social Bar
+- (void)addSocializeBar
+{
+    if (self.actionBar == nil) {
+        self.entity = [SZEntity entityWithKey:@"sp_board" name:@"Slider Puzzle Board"];
+        self.actionBar = [SZActionBarUtils showActionBarWithViewController:self entity:self.entity options:nil];
+        
+        SZShareOptions *shareOptions = [SZShareUtils userShareOptions];
+        shareOptions.dontShareLocation = YES;
+        
+        shareOptions.willAttemptPostingToSocialNetworkBlock = ^(SZSocialNetwork network, SZSocialNetworkPostData *postData) {
+            if (network == SZSocialNetworkTwitter) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"twitter"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customStatus = [NSString stringWithFormat:@"Custom status for %@ with url %@", displayName, entityURL];
+                
+                [postData.params setObject:customStatus forKey:@"status"];
+                
+            } else if (network == SZSocialNetworkFacebook) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"facebook"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customMessage = [NSString stringWithFormat:@"Custom status for %@ ", displayName];
+                
+                [postData.params setObject:customMessage forKey:@"message"];
+                [postData.params setObject:entityURL forKey:@"link"];
+                [postData.params setObject:@"A caption" forKey:@"caption"];
+                [postData.params setObject:@"Custom Name" forKey:@"name"];
+                [postData.params setObject:@"A Site" forKey:@"description"];
+            }
+        };
+        
+        self.actionBar.shareOptions = shareOptions;
+    }
+}
+
+#pragma mark Tiles Movement
 - (void)moveTileVertically:(SPTile*)slideTile acceleration:(CGFloat)acceleration
 {
     if (self.accumDistance == 0) {
@@ -314,118 +281,6 @@
 
 - (CGFloat)radiansToDegrees:(CGFloat)radians {
     return radians * 180 / M_PI;
-}
-
-- (void)addSocializeBar
-{
-    if (self.actionBar == nil) {
-        self.entity = [SZEntity entityWithKey:@"sp_board" name:@"Slider Puzzle Board"];
-        self.actionBar = [SZActionBarUtils showActionBarWithViewController:self entity:self.entity options:nil];
-        
-        SZShareOptions *shareOptions = [SZShareUtils userShareOptions];
-        shareOptions.dontShareLocation = YES;
-        
-        shareOptions.willAttemptPostingToSocialNetworkBlock = ^(SZSocialNetwork network, SZSocialNetworkPostData *postData) {
-            if (network == SZSocialNetworkTwitter) {
-                NSString *entityURL = [[postData.propagationInfo objectForKey:@"twitter"] objectForKey:@"entity_url"];
-                NSString *displayName = [postData.entity displayName];
-                NSString *customStatus = [NSString stringWithFormat:@"Custom status for %@ with url %@", displayName, entityURL];
-                
-                [postData.params setObject:customStatus forKey:@"status"];
-                
-            } else if (network == SZSocialNetworkFacebook) {
-                NSString *entityURL = [[postData.propagationInfo objectForKey:@"facebook"] objectForKey:@"entity_url"];
-                NSString *displayName = [postData.entity displayName];
-                NSString *customMessage = [NSString stringWithFormat:@"Custom status for %@ ", displayName];
-                
-                [postData.params setObject:customMessage forKey:@"message"];
-                [postData.params setObject:entityURL forKey:@"link"];
-                [postData.params setObject:@"A caption" forKey:@"caption"];
-                [postData.params setObject:@"Custom Name" forKey:@"name"];
-                [postData.params setObject:@"A Site" forKey:@"description"];
-            }
-        };
-        
-        self.actionBar.shareOptions = shareOptions;
-    }
-}
-
-- (void)displaySliceImagesFor:(UIImage*)srcImage
-{
-    if (self.puzzleBoardView) {
-        [self.puzzleBoardView removeFromSuperview];
-    }
-    
-    // resize to fit into the container
-    UIImage *resizedImage = [srcImage resizeImageToSize:CGSizeMake(TargetImageWidth, TargetImageHeight)];
-    self.originalView.backgroundImage = resizedImage;
-    
-    float targetFrameWidth = resizedImage.size.width / 2;
-    float targetFrameHeight = resizedImage.size.height / 2;
-    
-    CGRect containerFrame = CGRectMake(PuzzleBoardFrameX, PuzzleBoardFrameY, targetFrameWidth, targetFrameHeight);
-    SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
-    
-    self.sliceWidth = (targetFrameWidth / NumColumns);
-    self.sliceHeight = (targetFrameHeight / NumRows);
-    
-    NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
-
-    // randomize
-    [sliceImageList scramble];
-    
-    // select top left corner element as spacer
-    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.sliceWidth, self.sliceHeight)];
-    sliceImageList[spacerIndex] = spacerImage;
-    
-    NSInteger index=0;
-    
-    // add SPTile to container view
-    for (int i=0; i<NumRows; i++) {
-        for (int j=0; j<NumColumns; j++) {
-            SPTile *tileImageView = [self createTile:sliceImageList[index] tileX:j tileY:i];
-            [self addGestureRecogizer:tileImageView];
-            [boardView addSubview:tileImageView];
-            [self.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
-            
-            if (index == spacerIndex) {
-                [self.tilesMatrix setSpacer:tileImageView];
-            }
-            
-            index++;
-        }
-    }
-    
-    self.puzzleBoardView = boardView;
-    [self.puzzleBoard addSubview:boardView];
-}
-
-// register Tap and Dragging gestures to a tile
-- (void)addGestureRecogizer:(SPTile*)tile
-{
-    // tap
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
-    [tile addGestureRecognizer:tapGesture];
-    
-    // dragging
-    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
-    dragGesture.minimumNumberOfTouches = 1;
-    [tile addGestureRecognizer:dragGesture];
-    
-}
-
-- (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
-{
-    NSInteger originX = xPos * self.sliceWidth;
-    NSInteger originY = yPos * self.sliceHeight;
-    CGRect frame = CGRectMake(originX, originY, self.sliceWidth, self.sliceHeight);
-    
-    SPTile *tile = [[SPTile alloc] initWithFrame:frame];
-    tile.backgroundImage = sliceImage;
-    tile.xPos = xPos;
-    tile.yPos = yPos;
-    
-    return tile;
 }
 
 // Add animation to slide tile action
@@ -520,13 +375,146 @@
             // restore original tile state
             [self.tilesMatrix restoreTileState:senderTile];
         }
-        
-        [self startDeviceMotionUpdate];
     }
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+#pragma mark Motion Detection
+- (void)startDeviceMotionUpdate
+{
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               [self respondToMotionUpdate:accelerometerData];
+                           });
+        }
+    }];
+    
+}
+
+- (void)respondToMotionUpdate:(CMAccelerometerData*)motionData
+{
+    // Response Algorithm
+    CGFloat xAcceleration = -motionData.acceleration.x;
+    CGFloat yAcceleration = motionData.acceleration.y;
+    
+    if (self.averageYOffset == 0.0f) {
+        self.averageYOffset = yAcceleration;
+    }
+    yAcceleration = yAcceleration - self.averageYOffset;
+    
+    if (self.averageXOffset == 0.0f) {
+        self.averageXOffset = xAcceleration;
+    }
+    xAcceleration = xAcceleration - self.averageXOffset;
+    
+    
+    BOOL isXAccerleration = YES;
+    CGFloat selectedAcceleration = xAcceleration;
+    
+    if (fabs(yAcceleration) > fabs(xAcceleration)) {
+        isXAccerleration = NO;
+        selectedAcceleration = yAcceleration;
+    }
+    
+    // skip if acceleration is below the threshold
+    if (fabs(selectedAcceleration) < MotionDetectionSensitivity) {
+        return;
+    }
+    
+    // if X rotation, get tile on right of spacer if accleration > 0, else get tile on left
+    if (isXAccerleration) {
+        SPTile *slideTile = self.currentTile;
+        SPTile *spacer = self.tilesMatrix.spacer;
+        
+        if (!slideTile) {
+            if (xAcceleration > self.averageXOffset) {
+                NSInteger slideTileX = spacer.xPos + 1;
+                NSInteger slideTileY = spacer.yPos;
+                
+                if (slideTileX < NumRows) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+                
+            } else {
+                NSInteger slideTileX = spacer.xPos - 1;
+                NSInteger slideTileY = spacer.yPos;
+                
+                if (slideTileX >= 0) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+            }
+        }
+        
+        if (slideTile) {
+            CGRect rect = slideTile.frame;
+            
+            // X axis
+            float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
+            float maxX = rect.origin.x + (float)self.sliceWidth;
+            
+            if (movetoX < 0) {
+                movetoX = 0.01;
+            }
+            
+            if (movetoX > maxX) {
+                movetoX = maxX;
+            }
+            
+            [self moveTileHorizontally:slideTile acceleration:xAcceleration];
+        }
+        
+    } else {
+        // if Y rotation, get tile on top of spacer if acceleration > 0, else get tile on bottom
+        SPTile *slideTile = self.currentTile;
+        SPTile *spacer = self.tilesMatrix.spacer;
+        
+        if (!slideTile) {
+            if (yAcceleration > self.averageYOffset) {
+                NSInteger slideTileX = spacer.xPos;
+                NSInteger slideTileY = spacer.yPos + 1;
+                
+                if (slideTileY < NumColumns) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+                
+            } else {
+                NSInteger slideTileX = spacer.xPos;
+                NSInteger slideTileY = spacer.yPos - 1;
+                
+                if (slideTileY >= 0) {
+                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
+                }
+            }
+        }
+        
+        if (slideTile) {
+            CGRect rect = slideTile.frame;
+            
+            // Y axis
+            float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
+            float maxY = (rect.origin.y + rect.size.height) + (float)self.sliceHeight;
+            
+            if (movetoY < 0) {
+                movetoY = 0.01;
+            }
+            
+            if (movetoY > maxY) {
+                movetoY = maxY;
+            }
+            
+            [self moveTileVertically:slideTile acceleration:yAcceleration];
+        }
+    }
+    
+    self.lastUpdateTime = [NSDate date];
+    
 }
 
 @end
