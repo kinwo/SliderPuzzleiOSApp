@@ -43,7 +43,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCZ-h1-Et3">
                                 <rect key="frame" x="259" y="20" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.95686280729999995" green="0.270588249" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Yrg-6Z-Ydx"/>
                                     <constraint firstAttribute="width" constant="56" id="sEe-hs-IUk"/>
@@ -60,7 +60,7 @@
                                     <action selector="chooseNewPuzzleImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SHa-o8-k1l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL8-wS-gPa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL8-wS-gPa">
                                 <rect key="frame" x="73" y="20" width="175" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,6 +73,12 @@
                                 <state key="normal" title="I am Squarez!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="titleButton"/>
@@ -89,14 +95,14 @@
                                     <constraint firstAttribute="width" constant="42" id="h4q-gE-NLO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.086274512112140656" green="0.49411767721176147" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="emotionLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.91372555489999996" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fCZ-h1-Et3" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="1vQ-j9-ngg"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="leading" secondItem="3gi-Pp-S4I" secondAttribute="leading" id="8Lt-9J-St3"/>

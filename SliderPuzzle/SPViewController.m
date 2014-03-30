@@ -200,6 +200,8 @@
             }
         };
         
+        [self.actionBar setBackgroundColor:[UIColor colorWithRed:0.994 green:0.693 blue:0.036 alpha:1.000]];
+        
         self.actionBar.shareOptions = shareOptions;
     }
 }

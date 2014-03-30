@@ -55,9 +55,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-2M-dVR">
-                                <rect key="frame" x="692" y="20" width="56" height="56"/>
+                                <rect key="frame" x="673" y="20" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.95686280729999995" green="0.270588249" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="3mf-5D-jzO"/>
                                     <constraint firstAttribute="height" constant="56" id="dpm-av-hOi"/>
@@ -75,13 +75,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suH-nS-j7v">
-                                <rect key="frame" x="299" y="20" width="175" height="56"/>
+                                <rect key="frame" x="260" y="20" width="249" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="7dG-rE-5sf"/>
-                                    <constraint firstAttribute="width" constant="175" id="fWi-QO-B2c"/>
+                                    <constraint firstAttribute="width" constant="249" id="fWi-QO-B2c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="I am Squarez!">
@@ -96,32 +96,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": )" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="bkM-SH-fKE">
-                                <rect key="frame" x="15" y="30" width="42" height="35"/>
+                                <rect key="frame" x="363" y="91" width="42" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="O5q-XH-FMy"/>
                                     <constraint firstAttribute="height" constant="35" id="sK3-v9-fuX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.086274512110000007" green="0.49411767719999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="1" green="0.78431379800000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="emotionLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.91372555489999996" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="suH-nS-j7v" firstAttribute="top" secondItem="cRd-vr-v2W" secondAttribute="top" constant="20" symbolic="YES" id="0uH-QZ-qjb"/>
                             <constraint firstItem="suH-nS-j7v" firstAttribute="top" secondItem="bXn-2M-dVR" secondAttribute="top" id="2cA-Rb-zhg"/>
-                            <constraint firstAttribute="trailing" secondItem="bXn-2M-dVR" secondAttribute="trailing" constant="20" id="AGH-SM-soX"/>
-                            <constraint firstItem="bkM-SH-fKE" firstAttribute="top" secondItem="rnL-gk-GhZ" secondAttribute="bottom" constant="30" id="MLI-Y3-dao"/>
+                            <constraint firstAttribute="trailing" secondItem="bXn-2M-dVR" secondAttribute="trailing" constant="39" id="AGH-SM-soX"/>
+                            <constraint firstItem="bkM-SH-fKE" firstAttribute="top" secondItem="rnL-gk-GhZ" secondAttribute="bottom" constant="91" id="MLI-Y3-dao"/>
                             <constraint firstItem="Gdk-F7-Sky" firstAttribute="top" secondItem="suH-nS-j7v" secondAttribute="bottom" constant="65" id="OU5-Bg-G5N"/>
-                            <constraint firstAttribute="centerX" secondItem="suH-nS-j7v" secondAttribute="centerX" constant="-2.5" id="WQY-AV-Xfd"/>
+                            <constraint firstAttribute="centerX" secondItem="suH-nS-j7v" secondAttribute="centerX" constant="-0.5" id="WQY-AV-Xfd"/>
                             <constraint firstAttribute="centerX" secondItem="j7j-GU-9lh" secondAttribute="centerX" id="gBF-4f-des"/>
                             <constraint firstItem="j7j-GU-9lh" firstAttribute="top" secondItem="suH-nS-j7v" secondAttribute="bottom" constant="65" id="i0v-wd-9Yb"/>
                             <constraint firstAttribute="centerX" secondItem="Gdk-F7-Sky" secondAttribute="centerX" id="nGX-sW-cxr"/>
-                            <constraint firstItem="bkM-SH-fKE" firstAttribute="leading" secondItem="cRd-vr-v2W" secondAttribute="leading" constant="15" id="p6c-R9-iLc"/>
+                            <constraint firstItem="bkM-SH-fKE" firstAttribute="leading" secondItem="cRd-vr-v2W" secondAttribute="leading" constant="363" id="p6c-R9-iLc"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
