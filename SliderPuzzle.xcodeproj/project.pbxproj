@@ -21,6 +21,15 @@
 		BA99096318BA0B9B00CFBE3E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BA99095D18BA0B9B00CFBE3E /* README.md */; };
 		BA99096418BA0B9B00CFBE3E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = BA99095E18BA0B9B00CFBE3E /* release_notes.md */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
+		BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */; };
+		BAAB8DC81914A6F300042F0E /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC21914A6F300042F0E /* box.wav */; };
+		BAAB8DC91914A6F300042F0E /* button_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC31914A6F300042F0E /* button_press.wav */; };
+		BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC51914A6F300042F0E /* horn.wav */; };
+		BAAB8DCC1914A6F300042F0E /* lap.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC61914A6F300042F0E /* lap.wav */; };
+		BAAB8DCD1914A6F300042F0E /* nitro.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC71914A6F300042F0E /* nitro.wav */; };
+		BAAB8DD31914A70300042F0E /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD01914A70300042F0E /* GameKitHelper.m */; };
+		BAAB8DD41914A70300042F0E /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD21914A70300042F0E /* SKTAudio.m */; };
+		BAAB8DD71914B85200042F0E /* NSObject+SoundPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
 		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
@@ -41,7 +50,7 @@
 		BAF63BA8187EA2AF00D247D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BA7187EA2AF00D247D2 /* main.m */; };
 		BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */; };
 		BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */; };
-		BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPViewController.m */; };
+		BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */; };
 		BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BB3187EA2AF00D247D2 /* Images.xcassets */; };
 		BAF63BBB187EA2AF00D247D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63BBA187EA2AF00D247D2 /* XCTest.framework */; };
 		BAF63BBC187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
@@ -87,6 +96,19 @@
 		BA99096018BA0B9B00CFBE3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		BA99096118BA0B9B00CFBE3E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHomeViewController.h; sourceTree = "<group>"; };
+		BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHomeViewController.m; sourceTree = "<group>"; };
+		BAAB8DC21914A6F300042F0E /* box.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = box.wav; sourceTree = "<group>"; };
+		BAAB8DC31914A6F300042F0E /* button_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_press.wav; sourceTree = "<group>"; };
+		BAAB8DC51914A6F300042F0E /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
+		BAAB8DC61914A6F300042F0E /* lap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lap.wav; sourceTree = "<group>"; };
+		BAAB8DC71914A6F300042F0E /* nitro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nitro.wav; sourceTree = "<group>"; };
+		BAAB8DCF1914A70300042F0E /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		BAAB8DD01914A70300042F0E /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		BAAB8DD11914A70300042F0E /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
+		BAAB8DD21914A70300042F0E /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
+		BAAB8DD51914B85200042F0E /* NSObject+SoundPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SoundPlay.h"; path = "GameUtils/NSObject+SoundPlay.h"; sourceTree = "<group>"; };
+		BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SoundPlay.m"; path = "GameUtils/NSObject+SoundPlay.m"; sourceTree = "<group>"; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -116,8 +138,8 @@
 		BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		BAF63BAE187EA2AF00D247D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
-		BAF63BB0187EA2AF00D247D2 /* SPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPViewController.h; sourceTree = "<group>"; };
-		BAF63BB1187EA2AF00D247D2 /* SPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
+		BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPGameBoardViewController.h; sourceTree = "<group>"; };
+		BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPGameBoardViewController.m; sourceTree = "<group>"; };
 		BAF63BB3187EA2AF00D247D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BAF63BB9187EA2AF00D247D2 /* SliderPuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderPuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63BBA187EA2AF00D247D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -208,6 +230,29 @@
 			path = TestFlightSDK3.0.0;
 			sourceTree = "<group>";
 		};
+		BAAB8DC11914A6F300042F0E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BAAB8DC21914A6F300042F0E /* box.wav */,
+				BAAB8DC31914A6F300042F0E /* button_press.wav */,
+				BAAB8DC51914A6F300042F0E /* horn.wav */,
+				BAAB8DC61914A6F300042F0E /* lap.wav */,
+				BAAB8DC71914A6F300042F0E /* nitro.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		BAAB8DCE1914A70300042F0E /* GameUtils */ = {
+			isa = PBXGroup;
+			children = (
+				BAAB8DCF1914A70300042F0E /* GameKitHelper.h */,
+				BAAB8DD01914A70300042F0E /* GameKitHelper.m */,
+				BAAB8DD11914A70300042F0E /* SKTAudio.h */,
+				BAAB8DD21914A70300042F0E /* SKTAudio.m */,
+			);
+			path = GameUtils;
+			sourceTree = "<group>";
+		};
 		BAB67C9A187FF9430013F331 /* Array Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */,
+				BAAB8DC11914A6F300042F0E /* Sounds */,
 				BA99095218BA07B700CFBE3E /* Fonts */,
 				BABBDF8718868C1D0070CD24 /* ThirdPartyLibs */,
 				BAF63BC0187EA2AF00D247D2 /* SliderPuzzleTests */,
@@ -273,6 +319,7 @@
 		BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				BAAB8DCE1914A70300042F0E /* GameUtils */,
 				BAB67C9A187FF9430013F331 /* Array Utility */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
@@ -284,11 +331,15 @@
 				BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */,
 				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
 				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
-				BAF63BB0187EA2AF00D247D2 /* SPViewController.h */,
-				BAF63BB1187EA2AF00D247D2 /* SPViewController.m */,
+				BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */,
+				BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */,
+				BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */,
+				BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */,
 				BAA3C7771882370C0053D42B /* README.md */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
 				BAF63BA2187EA2AF00D247D2 /* Supporting Files */,
+				BAAB8DD51914B85200042F0E /* NSObject+SoundPlay.h */,
+				BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */,
 			);
 			path = SliderPuzzle;
 			sourceTree = "<group>";
@@ -433,13 +484,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAAB8DC91914A6F300042F0E /* button_press.wav in Resources */,
+				BAAB8DCD1914A6F300042F0E /* nitro.wav in Resources */,
 				BABEF9FF18E79F6A00EAF3EE /* Main-iPad.storyboard in Resources */,
 				BA99096418BA0B9B00CFBE3E /* release_notes.md in Resources */,
 				BA99096318BA0B9B00CFBE3E /* README.md in Resources */,
 				BA99095518BA081300CFBE3E /* HappyFox-Condensed.otf in Resources */,
 				BA99095618BA081600CFBE3E /* HennyPenny-Regular.ttf in Resources */,
+				BAAB8DCC1914A6F300042F0E /* lap.wav in Resources */,
 				BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */,
+				BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */,
 				BA99095118BA061B00CFBE3E /* default.css in Resources */,
+				BAAB8DC81914A6F300042F0E /* box.wav in Resources */,
 				BAA3C7781882370C0053D42B /* README.md in Resources */,
 				BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */,
 				BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */,
@@ -499,14 +555,18 @@
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
 				BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */,
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
-				BAF63BB2187EA2AF00D247D2 /* SPViewController.m in Sources */,
+				BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
 				BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */,
 				BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */,
+				BAAB8DD71914B85200042F0E /* NSObject+SoundPlay.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
+				BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
+				BAAB8DD31914A70300042F0E /* GameKitHelper.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
 				BA78393418B827EE00434653 /* MKGyroManager.m in Sources */,
+				BAAB8DD41914A70300042F0E /* SKTAudio.m in Sources */,
 				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

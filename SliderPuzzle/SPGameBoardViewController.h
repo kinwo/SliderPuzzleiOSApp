@@ -11,6 +11,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPViewController : UIViewController
+@interface SPGameBoardViewController : UIViewController
 
 @end

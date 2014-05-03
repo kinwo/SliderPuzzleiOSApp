@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Kinwo.net. All rights reserved.
 //
 
-#import "SPViewController.h"
+#import "SPGameBoardViewController.h"
 
 #import "UIImage+SliceImages.h"
 #import "UIImage+ResizeImage.h"
@@ -18,11 +18,13 @@
 #import "SPPuzzleBoard.h"
 #import "MKParallaxView.h"
 #import "SPConstants.h"
+#import "SPHomeViewController.h"
+#import "NSObject+SoundPlay.h"
 
 #import <Socialize/Socialize.h>
 @import CoreMotion;
 
-@interface SPViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(nonatomic) NSInteger sliceWidth;
 @property(nonatomic) NSInteger sliceHeight;
@@ -49,7 +51,7 @@
 
 @end
 
-@implementation SPViewController
+@implementation SPGameBoardViewController
 
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -70,7 +72,7 @@
     // display slice images for the resized image
     [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
     
-    [self addSocializeBar];
+//    [self addSocializeBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -281,7 +283,8 @@
     }
 }
 
-- (CGFloat)radiansToDegrees:(CGFloat)radians {
+- (CGFloat)radiansToDegrees:(CGFloat)radians
+{
     return radians * 180 / M_PI;
 }
 
@@ -303,7 +306,8 @@
 }
 
 # pragma mark IBActions
-- (IBAction)chooseNewPuzzleImage:(id)sender {
+- (IBAction)chooseNewPuzzleImage:(id)sender
+{
     UIImagePickerController *imagePickerVC = [[UIImagePickerController alloc] init];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
@@ -312,12 +316,14 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (IBAction)calibrateMotionDetection:(id)sender {
+- (IBAction)calibrateMotionDetection:(id)sender
+{
     self.averageXOffset = 0.0f;
     self.averageYOffset = 0.0f;
 }
 
-- (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer {
+- (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer
+{
     BOOL isShowOriginalImage = NO;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         isShowOriginalImage = YES;
@@ -327,6 +333,13 @@
     senderLabel.highlighted = isShowOriginalImage;
     self.originalView.hidden = !isShowOriginalImage;
     self.puzzleBoardView.hidden = isShowOriginalImage;
+}
+
+- (IBAction)backToHome:(id)sender
+{
+    [self playButtonPressed];
+    SPHomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
+    [self presentViewController:homeVC animated:YES completion:nil];
 }
 
 # pragma mark UIImagePickerControllerDelegate
