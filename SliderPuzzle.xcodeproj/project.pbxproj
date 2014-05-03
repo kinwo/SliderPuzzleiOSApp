@@ -33,6 +33,7 @@
 		BAC6FF1D18AF7446007BCF62 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1C18AF7446007BCF62 /* MapKit.framework */; };
 		BAC6FF1F18AF744F007BCF62 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1E18AF744F007BCF62 /* QuartzCore.framework */; };
 		BAC6FF2118AF745B007BCF62 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF2018AF745B007BCF62 /* AdSupport.framework */; };
+		BAEFB7B118F186210016F921 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEFB7B018F186210016F921 /* GameKit.framework */; };
 		BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */; };
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
@@ -103,6 +104,7 @@
 		BAC6FF1C18AF7446007BCF62 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAC6FF1E18AF744F007BCF62 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BAC6FF2018AF745B007BCF62 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BAEFB7B018F186210016F921 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BAF63B98187EA2AF00D247D2 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B9B187EA2AF00D247D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +143,7 @@
 				BAC6FF1B18AF743D007BCF62 /* MessageUI.framework in Frameworks */,
 				BAC6FF1918AF7437007BCF62 /* CoreLocation.framework in Frameworks */,
 				BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */,
+				BAEFB7B118F186210016F921 /* GameKit.framework in Frameworks */,
 				BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */,
 				BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */,
 				BABBDF8D18868CA70070CD24 /* libz.dylib in Frameworks */,
@@ -249,6 +252,7 @@
 		BAF63B9A187EA2AF00D247D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAEFB7B018F186210016F921 /* GameKit.framework */,
 				BA99095918BA0B4A00CFBE3E /* PixateFreestyle.framework */,
 				BA78393B18B83FCE00434653 /* CoreMotion.framework */,
 				BAC6FF2018AF745B007BCF62 /* AdSupport.framework */,
@@ -394,6 +398,11 @@
 				TargetAttributes = {
 					BAF63B97187EA2AF00D247D2 = {
 						DevelopmentTeam = 62FMGDF5G5;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					BAF63BB8187EA2AF00D247D2 = {
 						TestTargetID = BAF63B97187EA2AF00D247D2;
@@ -633,7 +642,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/henry/Documents/SliderPuzzle/ThirdPartyLibs/Socialize.embeddedframework,
@@ -654,7 +664,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BB32E734-0ED0-424D-9B25-61A95F170029";
+				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
@@ -668,7 +678,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/henry/Documents/SliderPuzzle/ThirdPartyLibs/Socialize.embeddedframework,
@@ -687,7 +698,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BB32E734-0ED0-424D-9B25-61A95F170029";
+				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
