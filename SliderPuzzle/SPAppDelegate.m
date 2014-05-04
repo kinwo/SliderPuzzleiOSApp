@@ -8,7 +8,7 @@
 
 #import "SPAppDelegate.h"
 #import "TestFlight.h"
-#import <Socialize/Socialize.h>
+
 
 @implementation SPAppDelegate
 
@@ -17,9 +17,6 @@
     // Override point for customization after application launch.
     
     [TestFlight takeOff:@"36f82601-5c77-46cc-877a-f42659eb685c"];
-    
-    [Socialize storeConsumerKey:@"799652a4-22d9-479c-9fab-1a987fb61ce2"];
-    [Socialize storeConsumerSecret:@"62954b1e-ee90-4127-abb8-3781ee3b9e9c"];
     
     // status bar
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
