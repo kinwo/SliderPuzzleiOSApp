@@ -27,9 +27,10 @@
 		BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC51914A6F300042F0E /* horn.wav */; };
 		BAAB8DCC1914A6F300042F0E /* lap.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC61914A6F300042F0E /* lap.wav */; };
 		BAAB8DCD1914A6F300042F0E /* nitro.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC71914A6F300042F0E /* nitro.wav */; };
-		BAAB8DD31914A70300042F0E /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD01914A70300042F0E /* GameKitHelper.m */; };
-		BAAB8DD41914A70300042F0E /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD21914A70300042F0E /* SKTAudio.m */; };
-		BAAB8DD71914B85200042F0E /* NSObject+SoundPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */; };
+		BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CE9E19160136002AF300 /* GameKitHelper.m */; };
+		BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */; };
+		BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA219160136002AF300 /* SKTAudio.m */; };
+		BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
 		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
@@ -103,12 +104,14 @@
 		BAAB8DC51914A6F300042F0E /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
 		BAAB8DC61914A6F300042F0E /* lap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lap.wav; sourceTree = "<group>"; };
 		BAAB8DC71914A6F300042F0E /* nitro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nitro.wav; sourceTree = "<group>"; };
-		BAAB8DCF1914A70300042F0E /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
-		BAAB8DD01914A70300042F0E /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
-		BAAB8DD11914A70300042F0E /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
-		BAAB8DD21914A70300042F0E /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
-		BAAB8DD51914B85200042F0E /* NSObject+SoundPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SoundPlay.h"; path = "GameUtils/NSObject+SoundPlay.h"; sourceTree = "<group>"; };
-		BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SoundPlay.m"; path = "GameUtils/NSObject+SoundPlay.m"; sourceTree = "<group>"; };
+		BAB5CE9D19160136002AF300 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		BAB5CE9E19160136002AF300 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		BAB5CE9F19160136002AF300 /* NSObject+SoundPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SoundPlay.h"; sourceTree = "<group>"; };
+		BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SoundPlay.m"; sourceTree = "<group>"; };
+		BAB5CEA119160136002AF300 /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
+		BAB5CEA219160136002AF300 /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
+		BAB5CEA7191601C2002AF300 /* SPAlertPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAlertPresenter.h; path = "SliderPuzzle/UI Utility/SPAlertPresenter.h"; sourceTree = SOURCE_ROOT; };
+		BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAlertPresenter.m; path = "SliderPuzzle/UI Utility/SPAlertPresenter.m"; sourceTree = SOURCE_ROOT; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -242,15 +245,26 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		BAAB8DCE1914A70300042F0E /* GameUtils */ = {
+		BAB5CE9C19160136002AF300 /* Game Utility */ = {
 			isa = PBXGroup;
 			children = (
-				BAAB8DCF1914A70300042F0E /* GameKitHelper.h */,
-				BAAB8DD01914A70300042F0E /* GameKitHelper.m */,
-				BAAB8DD11914A70300042F0E /* SKTAudio.h */,
-				BAAB8DD21914A70300042F0E /* SKTAudio.m */,
+				BAB5CE9D19160136002AF300 /* GameKitHelper.h */,
+				BAB5CE9E19160136002AF300 /* GameKitHelper.m */,
+				BAB5CE9F19160136002AF300 /* NSObject+SoundPlay.h */,
+				BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */,
+				BAB5CEA119160136002AF300 /* SKTAudio.h */,
+				BAB5CEA219160136002AF300 /* SKTAudio.m */,
 			);
-			path = GameUtils;
+			path = "Game Utility";
+			sourceTree = "<group>";
+		};
+		BAB5CEA619160175002AF300 /* UI Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BAB5CEA7191601C2002AF300 /* SPAlertPresenter.h */,
+				BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */,
+			);
+			path = "UI Utility";
 			sourceTree = "<group>";
 		};
 		BAB67C9A187FF9430013F331 /* Array Utility */ = {
@@ -319,7 +333,8 @@
 		BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				BAAB8DCE1914A70300042F0E /* GameUtils */,
+				BAB5CEA619160175002AF300 /* UI Utility */,
+				BAB5CE9C19160136002AF300 /* Game Utility */,
 				BAB67C9A187FF9430013F331 /* Array Utility */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
@@ -338,8 +353,6 @@
 				BAA3C7771882370C0053D42B /* README.md */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
 				BAF63BA2187EA2AF00D247D2 /* Supporting Files */,
-				BAAB8DD51914B85200042F0E /* NSObject+SoundPlay.h */,
-				BAAB8DD61914B85200042F0E /* NSObject+SoundPlay.m */,
 			);
 			path = SliderPuzzle;
 			sourceTree = "<group>";
@@ -555,18 +568,19 @@
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
 				BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */,
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
+				BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */,
+				BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */,
 				BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
 				BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */,
 				BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */,
-				BAAB8DD71914B85200042F0E /* NSObject+SoundPlay.m in Sources */,
+				BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */,
+				BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 				BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
-				BAAB8DD31914A70300042F0E /* GameKitHelper.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
 				BA78393418B827EE00434653 /* MKGyroManager.m in Sources */,
-				BAAB8DD41914A70300042F0E /* SKTAudio.m in Sources */,
 				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,7 +739,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -759,7 +773,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

@@ -11,6 +11,13 @@
 
 #import <UIKit/UIKit.h>
 
+@import GameKit;
+
 @interface SPGameBoardViewController : UIViewController
+
+@property(nonatomic, strong) GKTurnBasedMatch *match;
+@property(nonatomic, strong) NSMutableDictionary *gameDictionary;
+@property(nonatomic, strong) NSString *myPlayerCharacter;
+@property(nonatomic, strong) IBOutlet UILabel *identifyUserLabel;
 
 @end

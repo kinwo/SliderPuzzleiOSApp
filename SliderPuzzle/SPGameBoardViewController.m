@@ -21,7 +21,6 @@
 #import "SPHomeViewController.h"
 #import "NSObject+SoundPlay.h"
 
-#import <Socialize/Socialize.h>
 @import CoreMotion;
 
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -29,8 +28,6 @@
 @property(nonatomic) NSInteger sliceWidth;
 @property(nonatomic) NSInteger sliceHeight;
 
-@property (nonatomic, strong) SZActionBar *actionBar;
-@property (nonatomic, strong) id<SZEntity> entity;
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 @property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
 @property (weak, nonatomic) IBOutlet UIView *puzzleBoardContainer;
@@ -71,8 +68,6 @@
     
     // display slice images for the resized image
     [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
-    
-//    [self addSocializeBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -168,44 +163,6 @@
     tile.yPos = yPos;
     
     return tile;
-}
-
-
-#pragma mark Social Bar
-- (void)addSocializeBar
-{
-    if (self.actionBar == nil) {
-        self.entity = [SZEntity entityWithKey:@"sp_board" name:@"Slider Puzzle Board"];
-        self.actionBar = [SZActionBarUtils showActionBarWithViewController:self entity:self.entity options:nil];
-        
-        SZShareOptions *shareOptions = [SZShareUtils userShareOptions];
-        shareOptions.dontShareLocation = YES;
-        
-        shareOptions.willAttemptPostingToSocialNetworkBlock = ^(SZSocialNetwork network, SZSocialNetworkPostData *postData) {
-            if (network == SZSocialNetworkTwitter) {
-                NSString *entityURL = [[postData.propagationInfo objectForKey:@"twitter"] objectForKey:@"entity_url"];
-                NSString *displayName = [postData.entity displayName];
-                NSString *customStatus = [NSString stringWithFormat:@"Custom status for %@ with url %@", displayName, entityURL];
-                
-                [postData.params setObject:customStatus forKey:@"status"];
-                
-            } else if (network == SZSocialNetworkFacebook) {
-                NSString *entityURL = [[postData.propagationInfo objectForKey:@"facebook"] objectForKey:@"entity_url"];
-                NSString *displayName = [postData.entity displayName];
-                NSString *customMessage = [NSString stringWithFormat:@"Custom status for %@ ", displayName];
-                
-                [postData.params setObject:customMessage forKey:@"message"];
-                [postData.params setObject:entityURL forKey:@"link"];
-                [postData.params setObject:@"A caption" forKey:@"caption"];
-                [postData.params setObject:@"Custom Name" forKey:@"name"];
-                [postData.params setObject:@"A Site" forKey:@"description"];
-            }
-        };
-        
-        [self.actionBar setBackgroundColor:[UIColor colorWithRed:0.994 green:0.693 blue:0.036 alpha:1.000]];
-        
-        self.actionBar.shareOptions = shareOptions;
-    }
 }
 
 #pragma mark Tiles Movement
@@ -340,6 +297,71 @@
     [self playButtonPressed];
     SPHomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
     [self presentViewController:homeVC animated:YES completion:nil];
+}
+
+- (IBAction)forfeitGame:(id)sender
+{
+    if (![self isGameCenterMatch]) {
+        return;
+    }
+    
+    if ([self isCurrentPlayer]) {
+        GKTurnBasedParticipant *nextParticipant = [self nextParticipant];
+        
+        if(self.match.currentParticipant == [self.match.participants objectAtIndex:0]) {
+            nextParticipant = [[self.match participants] lastObject];
+        } else {
+            nextParticipant = [[self.match participants] objectAtIndex:0];
+        }
+        
+        [self.match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipants:@[nextParticipant] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
+            if(error) {
+                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
+            }
+            
+        }];
+
+    } else {
+        [self.match participantQuitOutOfTurnWithOutcome:GKTurnBasedMatchOutcomeQuit withCompletionHandler:^(NSError *error) {
+             if(error) {
+                 NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
+             }
+         }];
+    }
+    
+    [self backToHome:self];
+
+}
+
+- (GKTurnBasedParticipant*)nextParticipant
+{
+    NSUInteger currentIndex = [self.match.participants
+                               indexOfObject:self.match.currentParticipant];
+    GKTurnBasedParticipant *nextParticipant = [self.match.participants objectAtIndex:
+                                               ((currentIndex + 1) % [self.match.participants count ])];
+    return nextParticipant;
+}
+
+- (IBAction)nextTurn:(id)sender
+{
+    [self.match endTurnWithNextParticipants:@[[self nextParticipant]] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
+         if(error) {
+             NSLog(@"An error occurred updating turn: %@", [error localizedDescription]);
+         }
+         
+         [self backToHome:self];
+     }];
+}
+
+- (BOOL)isCurrentPlayer
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    return [self.match.currentParticipant.playerID isEqualToString:localPlayer.playerID];
+}
+
+- (BOOL)isGameCenterMatch
+{
+    return self.match != nil;
 }
 
 # pragma mark UIImagePickerControllerDelegate

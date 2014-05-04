@@ -85,7 +85,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": )" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.70000000000000018" translatesAutoresizingMaskIntoConstraints="NO" id="Sva-BC-2Ge">
-                                <rect key="frame" x="227" y="465" width="42" height="35"/>
+                                <rect key="frame" x="139" y="467" width="42" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gyH-Sl-ms0"/>
@@ -99,7 +99,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-Av-vzP">
-                                <rect key="frame" x="117" y="473" width="87" height="36"/>
+                                <rect key="frame" x="117" y="433" width="87" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -133,33 +133,61 @@
                                     <action selector="backToHome:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AGT-lf-ELh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiO-Ic-DbD">
+                                <rect key="frame" x="20" y="436" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forfeit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="forfeitGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="x4i-cY-byQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEH-Eq-6Fa">
+                                <rect key="frame" x="249" y="436" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pass">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextTurn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K8t-kw-NNQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qiO-Ic-DbD" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" constant="23" id="17j-KH-P9R"/>
                             <constraint firstItem="fCZ-h1-Et3" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="1vQ-j9-ngg"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="2p9-YB-qUB"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="leading" secondItem="3gi-Pp-S4I" secondAttribute="leading" id="8Lt-9J-St3"/>
-                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" constant="52" id="96L-YI-gGe"/>
+                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" constant="54" id="96L-YI-gGe"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="leading" secondItem="fgT-W0-gpr" secondAttribute="leading" id="BNb-Jh-uR0"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="EMW-hk-4aj"/>
                             <constraint firstItem="3gi-Pp-S4I" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="83" id="FfE-2Z-Bk7"/>
+                            <constraint firstItem="VEH-Eq-6Fa" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" constant="23" id="GLi-8s-ia8"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="width" secondItem="fgT-W0-gpr" secondAttribute="width" id="KGG-7P-cRF"/>
                             <constraint firstAttribute="trailing" secondItem="fgT-W0-gpr" secondAttribute="trailing" constant="5" id="Q7O-sG-Erq"/>
                             <constraint firstItem="3gi-Pp-S4I" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="top" constant="-20" id="Rqr-ab-L0J"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="S5o-vx-X6S"/>
                             <constraint firstItem="cL8-wS-gPa" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="bER-Da-Plj"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="e3i-Pr-6Br"/>
-                            <constraint firstItem="FVZ-Az-uFM" firstAttribute="top" secondItem="q0c-Av-vzP" secondAttribute="bottom" constant="59" id="eD7-ym-Dki"/>
-                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="leading" secondItem="q0c-Av-vzP" secondAttribute="trailing" constant="23" id="eX6-6C-pIC"/>
+                            <constraint firstItem="Sva-BC-2Ge" firstAttribute="leading" secondItem="q0c-Av-vzP" secondAttribute="trailing" constant="-65" id="eX6-6C-pIC"/>
+                            <constraint firstItem="q0c-Av-vzP" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="bottom" constant="20" id="gyh-nf-0W7"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="width" secondItem="3gi-Pp-S4I" secondAttribute="width" id="hYl-Ho-oNr"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="height" secondItem="fgT-W0-gpr" secondAttribute="height" id="i1N-kn-3KE"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="top" id="i1j-2j-g7Z"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="height" secondItem="3gi-Pp-S4I" secondAttribute="height" id="iL3-Vh-TIn"/>
+                            <constraint firstItem="VEH-Eq-6Fa" firstAttribute="leading" secondItem="q0c-Av-vzP" secondAttribute="trailing" constant="45" id="kUH-P8-pss"/>
+                            <constraint firstItem="qiO-Ic-DbD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="kZv-3f-tLY"/>
+                            <constraint firstAttribute="trailing" secondItem="VEH-Eq-6Fa" secondAttribute="trailing" constant="20" id="luc-wd-ezd"/>
                             <constraint firstAttribute="trailing" secondItem="fCZ-h1-Et3" secondAttribute="trailing" constant="5" id="oZ0-9R-EEN"/>
                             <constraint firstAttribute="centerX" secondItem="cL8-wS-gPa" secondAttribute="centerX" id="oZZ-es-GPx"/>
                             <constraint firstItem="fgT-W0-gpr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="qen-q3-GIW"/>
                             <constraint firstAttribute="centerX" secondItem="q0c-Av-vzP" secondAttribute="centerX" id="sde-0T-5om"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="gameBoardSuperView"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -190,9 +218,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-6m-2uj">
-                                <rect key="frame" x="75" y="218" width="170" height="30"/>
+                                <rect key="frame" x="93" y="218" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Single Player Game">
+                                <state key="normal" title="Single Player Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -200,9 +228,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNR-JS-yzU">
-                                <rect key="frame" x="90" y="287" width="141" height="30"/>
+                                <rect key="frame" x="107" y="287" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New Matched Game">
+                                <state key="normal" title="Matched Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -223,6 +251,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="5pP-iS-AI6" secondAttribute="centerX" id="4CF-Xp-PQb"/>
+                            <constraint firstAttribute="centerX" secondItem="EVS-6m-2uj" secondAttribute="centerX" id="57r-un-1tA"/>
                             <constraint firstItem="5pP-iS-AI6" firstAttribute="top" secondItem="VNR-JS-yzU" secondAttribute="bottom" constant="43" id="KsI-0e-1uu"/>
                             <constraint firstAttribute="centerX" secondItem="EVS-6m-2uj" secondAttribute="centerX" id="VXh-pn-mHf"/>
                             <constraint firstAttribute="centerY" secondItem="EVS-6m-2uj" secondAttribute="centerY" constant="51" id="iRb-ju-Xz8"/>
