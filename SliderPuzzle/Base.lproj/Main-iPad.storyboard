@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Nt-vY-DQd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Nt-vY-DQd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -126,11 +126,26 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="animationIntent" destination="Yfy-PQ-QeV" id="zXZ-fS-97P"/>
+                        <outlet property="model" destination="fgb-Ul-PKV" id="wum-fV-F1x"/>
+                        <outlet property="motionHandler" destination="rOv-cs-tfD" id="Eti-Fx-UgI"/>
                         <outlet property="originalView" destination="UQH-hy-AWO" id="AHi-hq-Xrj"/>
                         <outlet property="puzzleBoardContainer" destination="Gdk-F7-Sky" id="eZI-Mk-XtQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwc-MP-qjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="fgb-Ul-PKV" customClass="SPGameBoardModelContainer"/>
+                <customObject id="Yfy-PQ-QeV" customClass="SPTileAnimationIntention">
+                    <connections>
+                        <outlet property="model" destination="fgb-Ul-PKV" id="1jz-97-Tgq"/>
+                    </connections>
+                </customObject>
+                <customObject id="rOv-cs-tfD" customClass="SPTileMotionHandler">
+                    <connections>
+                        <outlet property="animationIntent" destination="Yfy-PQ-QeV" id="fys-89-Use"/>
+                        <outlet property="model" destination="fgb-Ul-PKV" id="9ZI-RP-6Zd"/>
+                    </connections>
+                </customObject>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="awz-7E-T1s">
                     <connections>
                         <action selector="toggleOriginalImage:" destination="7Nt-vY-DQd" id="ifw-Ps-hrv"/>

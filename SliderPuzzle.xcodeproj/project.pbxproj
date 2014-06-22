@@ -20,6 +20,9 @@
 		BA99096218BA0B9B00CFBE3E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99095C18BA0B9B00CFBE3E /* libTestFlight.a */; };
 		BA99096318BA0B9B00CFBE3E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BA99095D18BA0B9B00CFBE3E /* README.md */; };
 		BA99096418BA0B9B00CFBE3E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = BA99095E18BA0B9B00CFBE3E /* release_notes.md */; };
+		BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */; };
+		BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */; };
+		BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */; };
 		BAAB8DC81914A6F300042F0E /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC21914A6F300042F0E /* box.wav */; };
@@ -96,6 +99,12 @@
 		BA99095F18BA0B9B00CFBE3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		BA99096018BA0B9B00CFBE3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		BA99096118BA0B9B00CFBE3E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		BAA24C3E19566F76000792C6 /* SPTileMotionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTileMotionHandler.h; sourceTree = "<group>"; };
+		BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTileMotionHandler.m; sourceTree = "<group>"; };
+		BAA24C4219566F97000792C6 /* SPGameBoardModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGameBoardModelContainer.h; sourceTree = "<group>"; };
+		BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGameBoardModelContainer.m; sourceTree = "<group>"; };
+		BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTileAnimationIntention.h; sourceTree = "<group>"; };
+		BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTileAnimationIntention.m; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHomeViewController.h; sourceTree = "<group>"; };
 		BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHomeViewController.m; sourceTree = "<group>"; };
@@ -233,6 +242,24 @@
 			path = TestFlightSDK3.0.0;
 			sourceTree = "<group>";
 		};
+		BAA24C3D19566F76000792C6 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				BAA24C3E19566F76000792C6 /* SPTileMotionHandler.h */,
+				BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		BAA24C4119566F7E000792C6 /* Intention */ = {
+			isa = PBXGroup;
+			children = (
+				BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */,
+				BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */,
+			);
+			path = Intention;
+			sourceTree = "<group>";
+		};
 		BAAB8DC11914A6F300042F0E /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +360,8 @@
 		BAF63BA1187EA2AF00D247D2 /* SliderPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				BAA24C4119566F7E000792C6 /* Intention */,
+				BAA24C3D19566F76000792C6 /* Handler */,
 				BAB5CEA619160175002AF300 /* UI Utility */,
 				BAB5CE9C19160136002AF300 /* Game Utility */,
 				BAB67C9A187FF9430013F331 /* Array Utility */,
@@ -389,6 +418,8 @@
 		BAF9DFA0187EA5680098D7B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BAA24C4219566F97000792C6 /* SPGameBoardModelContainer.h */,
+				BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */,
 				BAF9DFA1187EA6120098D7B4 /* SPTile.h */,
 				BAF9DFA2187EA6120098D7B4 /* SPTile.m */,
 				BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */,
@@ -568,7 +599,10 @@
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
 				BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */,
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
+				BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */,
+				BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */,
 				BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */,
+				BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */,
 				BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */,
 				BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
@@ -739,7 +773,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -773,7 +807,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

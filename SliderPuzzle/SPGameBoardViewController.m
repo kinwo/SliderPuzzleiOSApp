@@ -16,35 +16,23 @@
 #import "SPTile.h"
 #import "SPTilesMatrix.h"
 #import "SPPuzzleBoard.h"
+#import "SPGameBoardModelContainer.h"
+#import "SPTileMotionHandler.h"
+#import "SPTileAnimationIntention.h"
 #import "MKParallaxView.h"
 #import "SPConstants.h"
 #import "SPHomeViewController.h"
 #import "NSObject+SoundPlay.h"
 
-@import CoreMotion;
-
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-
-@property(nonatomic) NSInteger sliceWidth;
-@property(nonatomic) NSInteger sliceHeight;
 
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
 @property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
 @property (weak, nonatomic) IBOutlet UIView *puzzleBoardContainer;
 
-
-// properties for motion detection
-@property (nonatomic) CGFloat accumDistance;
-@property (nonatomic, strong) NSDate *lastUpdateTime;
-@property (nonatomic) CGFloat averageXOffset;
-@property (nonatomic) CGFloat averageYOffset;
-@property (nonatomic, strong) SPTile *currentTile;
-
-
-// Model for Puzzle tiles
-@property(nonatomic, strong) SPTilesMatrix *tilesMatrix;
-
-@property(nonatomic, strong) CMMotionManager *motionManager;
+@property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
+@property (nonatomic, strong) IBOutlet SPTileMotionHandler *motionHandler;
+@property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
 
 @end
 
@@ -54,7 +42,6 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.tilesMatrix = [[SPTilesMatrix alloc] initWithNumColumns:NumColumns withNumRows:NumRows];
     }
     return self;
 }
@@ -77,10 +64,11 @@
 
 - (void)initCommon
 {
-    self.lastUpdateTime = [NSDate date];
-    self.accumDistance = 0;
-    self.averageYOffset = 0.0f;
-    self.averageXOffset = 0.0f;
+    self.model.tilesMatrix = [[SPTilesMatrix alloc] initWithNumColumns:NumColumns withNumRows:NumRows];
+    self.model.lastUpdateTime = [NSDate date];
+    self.model.accumDistance = 0;
+    self.model.averageYOffset = 0.0f;
+    self.model.averageXOffset = 0.0f;
 }
 
 - (void)displaySliceImagesFor:(UIImage*)srcImage
@@ -103,8 +91,8 @@
     CGRect containerFrame = CGRectMake(PuzzleBoardFrameX, PuzzleBoardFrameY, targetFrameWidth, targetFrameHeight);
     SPPuzzleBoard *boardView = [[SPPuzzleBoard alloc] initWithFrame:containerFrame];
     
-    self.sliceWidth = (targetFrameWidth / NumColumns);
-    self.sliceHeight = (targetFrameHeight / NumRows);
+    self.model.sliceWidth = (targetFrameWidth / NumColumns);
+    self.model.sliceHeight = (targetFrameHeight / NumRows);
     
     NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
 
@@ -112,7 +100,7 @@
     [sliceImageList scramble];
     
     // select top left corner element as spacer
-    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.sliceWidth, self.sliceHeight)];
+    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.model.sliceWidth, self.model.sliceHeight)];
     sliceImageList[spacerIndex] = spacerImage;
     
     NSInteger index=0;
@@ -123,10 +111,10 @@
             SPTile *tileImageView = [self createTile:sliceImageList[index] tileX:j tileY:i];
             [self addGestureRecogizer:tileImageView];
             [boardView addSubview:tileImageView];
-            [self.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
+            [self.model.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
             
             if (index == spacerIndex) {
-                [self.tilesMatrix setSpacer:tileImageView];
+                [self.model.tilesMatrix setSpacer:tileImageView];
             }
             
             index++;
@@ -153,9 +141,9 @@
 
 - (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
 {
-    NSInteger originX = xPos * self.sliceWidth;
-    NSInteger originY = yPos * self.sliceHeight;
-    CGRect frame = CGRectMake(originX, originY, self.sliceWidth, self.sliceHeight);
+    NSInteger originX = xPos * self.model.sliceWidth;
+    NSInteger originY = yPos * self.model.sliceHeight;
+    CGRect frame = CGRectMake(originX, originY, self.model.sliceWidth, self.model.sliceHeight);
     
     SPTile *tile = [[SPTile alloc] initWithFrame:frame];
     tile.backgroundImage = sliceImage;
@@ -165,101 +153,9 @@
     return tile;
 }
 
-#pragma mark Tiles Movement
-- (void)moveTileVertically:(SPTile*)slideTile acceleration:(CGFloat)acceleration
-{
-    if (self.accumDistance == 0) {
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-        }
-        
-        // NSLog(@"Start sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-        [self.tilesMatrix saveTileState:slideTile];
-        self.accumDistance += -(acceleration*StepMoveFactor);
-        [self.tilesMatrix translateTile:slideTile withX:0 withY:self.accumDistance];
-        self.currentTile = slideTile;
-        
-    } else if (fabs(self.accumDistance) >= TileSwitchOverTheshold) {
-        // NSLog(@"Finish sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-        } else {
-            [self.tilesMatrix saveTileState:slideTile];
-            // finish the sliding
-            [self animateSlideTile:slideTile];
-        }
-        
-        self.accumDistance = 0;
-        self.currentTile = nil;
-        
-    } else {
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-            self.currentTile = nil;
-        } else {
-            self.accumDistance += -(acceleration*StepMoveFactor);
-            [self.tilesMatrix translateTile:slideTile withX:0 withY:self.accumDistance];
-        }
-    }
-}
-
-- (void)moveTileHorizontally:(SPTile*)slideTile acceleration:(CGFloat)acceleration
-{
-    if (self.accumDistance == 0) {
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-        }
-        
-        // NSLog(@"Start sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-        [self.tilesMatrix saveTileState:slideTile];
-        self.accumDistance += -(acceleration*StepMoveFactor);
-        [self.tilesMatrix translateTile:slideTile withX:self.accumDistance withY:0];
-        self.currentTile = slideTile;
-        
-    } else if (fabs(self.accumDistance) >= TileSwitchOverTheshold) {
-        // NSLog(@"Finish sliding tile x=%d, y=%d", slideTile.xPos, slideTile.yPos);
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-        } else {
-            [self.tilesMatrix saveTileState:slideTile];
-            // finish the sliding
-            [self animateSlideTile:slideTile];
-        }
-        
-        self.accumDistance = 0;
-        self.currentTile = nil;
-        
-    } else {
-        if (self.currentTile && self.currentTile != slideTile) {
-            [self.currentTile restoreState];
-            self.currentTile = nil;
-        } else {
-            self.accumDistance += -(acceleration*StepMoveFactor);
-            [self.tilesMatrix translateTile:slideTile withX:self.accumDistance withY:0];
-        }
-    }
-}
-
 - (CGFloat)radiansToDegrees:(CGFloat)radians
 {
     return radians * 180 / M_PI;
-}
-
-// Add animation to slide tile action
-- (void)animateSlideTile:(SPTile*)senderTile
-{
-    // slide tile only if this tile has intersection with spacer tile and with animation
-    if ([senderTile hasIntersect:self.tilesMatrix.spacer]) {
-        [UIView animateWithDuration:0.2f
-                              delay:0.0f
-                            options:UIViewAnimationOptionBeginFromCurrentState|
-                                    UIViewAnimationOptionAllowUserInteraction|
-                                    UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                                [self.tilesMatrix slideTile:senderTile];
-                         }
-                         completion:nil];
-    }
 }
 
 # pragma mark IBActions
@@ -275,8 +171,8 @@
 
 - (IBAction)calibrateMotionDetection:(id)sender
 {
-    self.averageXOffset = 0.0f;
-    self.averageYOffset = 0.0f;
+    self.model.averageXOffset = 0.0f;
+    self.model.averageYOffset = 0.0f;
 }
 
 - (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer
@@ -383,7 +279,7 @@
 - (void)handleTileTap:(UIGestureRecognizer*)gestureRecognizer
 {
     SPTile *senderTile = (SPTile*) gestureRecognizer.view;
-    [self animateSlideTile:senderTile];
+    [self.animationIntent animateSlideTile:senderTile];
 }
 
 - (void)handleTileDrag:(UIPanGestureRecognizer*)dragGestureRecognizer
@@ -392,166 +288,31 @@
 
     if (dragGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // save original tile state
-        [self.tilesMatrix saveTileState:senderTile];
-        [self.motionManager stopAccelerometerUpdates];
+        [self.model.tilesMatrix saveTileState:senderTile];
+        [self.motionHandler.motionManager stopAccelerometerUpdates];
 
     } if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
 
-        if ([self.tilesMatrix isMovementInRightDirection:translation tile:senderTile]) {
-            [self.tilesMatrix translateTile:senderTile withX:translation.x withY:translation.y];
+        if ([self.model.tilesMatrix isMovementInRightDirection:translation tile:senderTile]) {
+            [self.model.tilesMatrix translateTile:senderTile withX:translation.x withY:translation.y];
         }
 
     } else if (dragGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
 
-        if ([self.tilesMatrix isMovementInRightDirection:translation tile:senderTile] && [self.tilesMatrix isMovementMoreThanHalfWay:translation tile:senderTile]) {
+        if ([self.model.tilesMatrix isMovementInRightDirection:translation tile:senderTile] && [self.model.tilesMatrix isMovementMoreThanHalfWay:translation tile:senderTile]) {
             // finish the sliding
-            [self animateSlideTile:senderTile];
+            [self.animationIntent animateSlideTile:senderTile];
         } else {
             // restore original tile state
-            [self.tilesMatrix restoreTileState:senderTile];
+            [self.model.tilesMatrix restoreTileState:senderTile];
         }
     }
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
-}
-
-#pragma mark Motion Detection
-- (void)startDeviceMotionUpdate
-{
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.deviceMotionUpdateInterval = CORE_MOTION_UPDATE_INTERVAL;
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-        if (!error) {
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               [self respondToMotionUpdate:accelerometerData];
-                           });
-        }
-    }];
-    
-}
-
-- (void)respondToMotionUpdate:(CMAccelerometerData*)motionData
-{
-    // Response Algorithm
-    CGFloat xAcceleration = -motionData.acceleration.x;
-    CGFloat yAcceleration = motionData.acceleration.y;
-    
-    if (self.averageYOffset == 0.0f) {
-        self.averageYOffset = yAcceleration;
-    }
-    yAcceleration = yAcceleration - self.averageYOffset;
-    
-    if (self.averageXOffset == 0.0f) {
-        self.averageXOffset = xAcceleration;
-    }
-    xAcceleration = xAcceleration - self.averageXOffset;
-    
-    
-    BOOL isXAccerleration = YES;
-    CGFloat selectedAcceleration = xAcceleration;
-    
-    if (fabs(yAcceleration) > fabs(xAcceleration)) {
-        isXAccerleration = NO;
-        selectedAcceleration = yAcceleration;
-    }
-    
-    // skip if acceleration is below the threshold
-    if (fabs(selectedAcceleration) < MotionDetectionSensitivity) {
-        return;
-    }
-    
-    // if X rotation, get tile on right of spacer if accleration > 0, else get tile on left
-    if (isXAccerleration) {
-        SPTile *slideTile = self.currentTile;
-        SPTile *spacer = self.tilesMatrix.spacer;
-        
-        if (!slideTile) {
-            if (xAcceleration > self.averageXOffset) {
-                NSInteger slideTileX = spacer.xPos + 1;
-                NSInteger slideTileY = spacer.yPos;
-                
-                if (slideTileX < NumRows) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-                
-            } else {
-                NSInteger slideTileX = spacer.xPos - 1;
-                NSInteger slideTileY = spacer.yPos;
-                
-                if (slideTileX >= 0) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-            }
-        }
-        
-        if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // X axis
-            float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
-            float maxX = rect.origin.x + (float)self.sliceWidth;
-            
-            if (movetoX < 0) {
-                movetoX = 0.01;
-            }
-            
-            if (movetoX > maxX) {
-                movetoX = maxX;
-            }
-            
-            [self moveTileHorizontally:slideTile acceleration:xAcceleration];
-        }
-        
-    } else {
-        // if Y rotation, get tile on top of spacer if acceleration > 0, else get tile on bottom
-        SPTile *slideTile = self.currentTile;
-        SPTile *spacer = self.tilesMatrix.spacer;
-        
-        if (!slideTile) {
-            if (yAcceleration > self.averageYOffset) {
-                NSInteger slideTileX = spacer.xPos;
-                NSInteger slideTileY = spacer.yPos + 1;
-                
-                if (slideTileY < NumColumns) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-                
-            } else {
-                NSInteger slideTileX = spacer.xPos;
-                NSInteger slideTileY = spacer.yPos - 1;
-                
-                if (slideTileY >= 0) {
-                    slideTile = [self.tilesMatrix getSPTileAtXPos:slideTileX atYPos:slideTileY];
-                }
-            }
-        }
-        
-        if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // Y axis
-            float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
-            float maxY = (rect.origin.y + rect.size.height) + (float)self.sliceHeight;
-            
-            if (movetoY < 0) {
-                movetoY = 0.01;
-            }
-            
-            if (movetoY > maxY) {
-                movetoY = maxY;
-            }
-            
-            [self moveTileVertically:slideTile acceleration:yAcceleration];
-        }
-    }
-    
-    self.lastUpdateTime = [NSDate date];
-    
 }
 
 @end
