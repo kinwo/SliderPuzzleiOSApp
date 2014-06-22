@@ -1,56 +1,51 @@
+view * {
+    font-family: "Henny Penny";
+}
+
 #gameBoardSuperView button {
-  font-family: "Henny Penny";
+
 }
 
 #titleButton {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 26px;
 }
 
 #showOriginalButton {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 20px;
 }
 
 #guessMeTextField {
-  font-family: "Henny Penny";
   font-size: 22px;
 }
 
 #newButton {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 26px;
 }
 
 #homeButton {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 26px;
 }
 
 #emotionLabel {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 24px;
 }
 
 #calibrateButton {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 26px;
 }
 
 #messageLabel {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 52px;
 }
 
 #instructionsLabel {
-  font-family: "Henny Penny";
   font-weight: bold;
   font-size: 15px;
 }
