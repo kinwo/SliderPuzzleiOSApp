@@ -9,6 +9,7 @@
 
 #import "SPTilesMatrix.h"
 #import "SPTile.h"
+#import "SPConstants.h"
 
 typedef void (^SenderXBiggerBlock)(SPTile* tile, NSInteger index);
 typedef void (^SenderXSmallerBlock)(SPTile* tile, NSInteger index);
@@ -36,6 +37,18 @@ typedef void (^SenderYSmallerBlock)(SPTile* tile, NSInteger index);
         }
     }
     return self;
+}
+
+// Return array of tiles
+- (NSArray*)flattenTilesArray
+{
+    NSMutableArray *singleDimArray = [[NSMutableArray alloc] initWithCapacity:NumRows * NumColumns];
+    
+    for (NSArray *colArray in self.matrix) {
+        [singleDimArray addObjectsFromArray:colArray];
+    }
+    
+    return singleDimArray;
 }
 
 - (void)setSPTileWithXPos:(NSInteger)xPos withYPos:(NSInteger)yPos tile:(SPTile*)tile

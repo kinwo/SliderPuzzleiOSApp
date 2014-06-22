@@ -19,6 +19,7 @@
 #import "SPGameBoardModelContainer.h"
 #import "SPTileMotionHandler.h"
 #import "SPTileAnimationIntention.h"
+#import "SPShuffleIntention.h"
 #import "MKParallaxView.h"
 #import "SPConstants.h"
 #import "SPHomeViewController.h"
@@ -33,6 +34,7 @@
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
 @property (nonatomic, strong) IBOutlet SPTileMotionHandler *motionHandler;
 @property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
+@property (nonatomic, strong) IBOutlet SPShuffleIntention *shuffleIntent;
 
 @end
 
@@ -60,6 +62,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)initCommon
@@ -96,9 +102,6 @@
     
     NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
 
-    // randomize
-    [sliceImageList scramble];
-    
     // select top left corner element as spacer
     UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.model.sliceWidth, self.model.sliceHeight)];
     sliceImageList[spacerIndex] = spacerImage;
@@ -121,22 +124,11 @@
         }
     }
     
+    // shuffle tilesMatrix
+    [self.shuffleIntent shuffle];
+    
     self.puzzleBoardView = boardView;
     [self.puzzleBoardContainer addSubview:boardView];
-}
-
-// register Tap and Dragging gestures to a tile
-- (void)addGestureRecogizer:(SPTile*)tile
-{
-    // tap
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
-    [tile addGestureRecognizer:tapGesture];
-    
-    // dragging
-    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
-    dragGesture.minimumNumberOfTouches = 1;
-    [tile addGestureRecognizer:dragGesture];
-    
 }
 
 - (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
@@ -153,11 +145,6 @@
     return tile;
 }
 
-- (CGFloat)radiansToDegrees:(CGFloat)radians
-{
-    return radians * 180 / M_PI;
-}
-
 # pragma mark IBActions
 - (IBAction)chooseNewPuzzleImage:(id)sender
 {
@@ -169,10 +156,16 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
+// DISABLED
 - (IBAction)calibrateMotionDetection:(id)sender
 {
     self.model.averageXOffset = 0.0f;
     self.model.averageYOffset = 0.0f;
+}
+
+- (IBAction)shuffleTiles:(id)sender
+{
+    [self.shuffleIntent shuffle];
 }
 
 - (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer
@@ -266,16 +259,28 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     [self displaySliceImagesFor:chosenImage];
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 #pragma mark Gesture handler
+// register Tap and Dragging gestures to a tile
+- (void)addGestureRecogizer:(SPTile*)tile
+{
+    // tap
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileTap:)];
+    [tile addGestureRecognizer:tapGesture];
+    
+    // dragging
+    UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
+    dragGesture.minimumNumberOfTouches = 1;
+    [tile addGestureRecognizer:dragGesture];
+    
+}
+
 - (void)handleTileTap:(UIGestureRecognizer*)gestureRecognizer
 {
     SPTile *senderTile = (SPTile*) gestureRecognizer.view;
@@ -291,16 +296,14 @@
         [self.model.tilesMatrix saveTileState:senderTile];
         [self.motionHandler.motionManager stopAccelerometerUpdates];
 
-    } if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+    } else if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
-
         if ([self.model.tilesMatrix isMovementInRightDirection:translation tile:senderTile]) {
             [self.model.tilesMatrix translateTile:senderTile withX:translation.x withY:translation.y];
         }
 
     } else if (dragGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
-
         if ([self.model.tilesMatrix isMovementInRightDirection:translation tile:senderTile] && [self.model.tilesMatrix isMovementMoreThanHalfWay:translation tile:senderTile]) {
             // finish the sliding
             [self.animationIntent animateSlideTile:senderTile];
@@ -309,10 +312,6 @@
             [self.model.tilesMatrix restoreTileState:senderTile];
         }
     }
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end

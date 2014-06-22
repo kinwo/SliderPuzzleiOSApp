@@ -153,6 +153,16 @@
                                     <action selector="nextTurn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="K8t-kw-NNQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H0-6K-tUb">
+                                <rect key="frame" x="20" y="474" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Shuffle">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuffleTiles:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gr7-aL-jN1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -169,6 +179,8 @@
                             <constraint firstAttribute="trailing" secondItem="fgT-W0-gpr" secondAttribute="trailing" constant="5" id="Q7O-sG-Erq"/>
                             <constraint firstItem="3gi-Pp-S4I" firstAttribute="top" secondItem="fgT-W0-gpr" secondAttribute="top" constant="-20" id="Rqr-ab-L0J"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="S5o-vx-X6S"/>
+                            <constraint firstItem="9H0-6K-tUb" firstAttribute="leading" secondItem="qiO-Ic-DbD" secondAttribute="leading" id="U5Y-pl-HB3"/>
+                            <constraint firstItem="9H0-6K-tUb" firstAttribute="top" secondItem="qiO-Ic-DbD" secondAttribute="bottom" constant="8" id="Ubw-3x-LiO"/>
                             <constraint firstItem="cL8-wS-gPa" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="bER-Da-Plj"/>
                             <constraint firstItem="CgL-Ph-7QI" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="20" id="e3i-Pr-6Br"/>
                             <constraint firstItem="Sva-BC-2Ge" firstAttribute="leading" secondItem="q0c-Av-vzP" secondAttribute="trailing" constant="-41" id="eX6-6C-pIC"/>
@@ -197,6 +209,7 @@
                         <outlet property="motionHandler" destination="1bK-Wa-X3E" id="WcI-Bz-xeK"/>
                         <outlet property="originalView" destination="fgT-W0-gpr" id="p5R-OG-lZo"/>
                         <outlet property="puzzleBoardContainer" destination="mDz-7U-BId" id="BeJ-2H-Pwp"/>
+                        <outlet property="shuffleIntent" destination="j3q-bu-3fj" id="7RS-QE-f6q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -209,6 +222,11 @@
                 <customObject id="Hle-5U-aeM" customClass="SPTileAnimationIntention">
                     <connections>
                         <outlet property="model" destination="YYO-FY-ups" id="ERu-EA-wRh"/>
+                    </connections>
+                </customObject>
+                <customObject id="j3q-bu-3fj" customClass="SPShuffleIntention">
+                    <connections>
+                        <outlet property="model" destination="YYO-FY-ups" id="hiD-r5-wyA"/>
                     </connections>
                 </customObject>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bRZ-up-bnV">

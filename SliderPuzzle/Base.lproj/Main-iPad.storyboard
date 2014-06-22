@@ -146,6 +146,11 @@
                         <outlet property="model" destination="fgb-Ul-PKV" id="9ZI-RP-6Zd"/>
                     </connections>
                 </customObject>
+                <customObject id="iRx-29-FPO" customClass="SPShuffleIntention">
+                    <connections>
+                        <outlet property="model" destination="fgb-Ul-PKV" id="sEg-0f-Kms"/>
+                    </connections>
+                </customObject>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="awz-7E-T1s">
                     <connections>
                         <action selector="toggleOriginalImage:" destination="7Nt-vY-DQd" id="ifw-Ps-hrv"/>

@@ -16,6 +16,8 @@
 
 @property(nonatomic, strong) SPTile *spacer;
 
+- (NSArray*)flattenTilesArray;
+
 - (id)initWithNumColumns:(NSInteger)columns withNumRows:(NSInteger)rows;
 
 - (void)setSPTileWithXPos:(NSInteger)xPos withYPos:(NSInteger)yPos tile:(SPTile*)tile;

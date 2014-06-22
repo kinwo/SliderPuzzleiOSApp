@@ -23,6 +23,7 @@
 		BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */; };
 		BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */; };
 		BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */; };
+		BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */; };
 		BAAB8DC81914A6F300042F0E /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC21914A6F300042F0E /* box.wav */; };
@@ -105,6 +106,8 @@
 		BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGameBoardModelContainer.m; sourceTree = "<group>"; };
 		BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTileAnimationIntention.h; sourceTree = "<group>"; };
 		BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTileAnimationIntention.m; sourceTree = "<group>"; };
+		BAA24C4819568CBC000792C6 /* SPShuffleIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPShuffleIntention.h; sourceTree = "<group>"; };
+		BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPShuffleIntention.m; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHomeViewController.h; sourceTree = "<group>"; };
 		BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHomeViewController.m; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */,
 				BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */,
+				BAA24C4819568CBC000792C6 /* SPShuffleIntention.h */,
+				BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */,
 			);
 			path = Intention;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
 				BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */,
+				BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
 				BA78393418B827EE00434653 /* MKGyroManager.m in Sources */,
