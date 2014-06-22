@@ -148,6 +148,7 @@
                 </customObject>
                 <customObject id="iRx-29-FPO" customClass="SPShuffleIntention">
                     <connections>
+                        <outlet property="animationIntent" destination="Yfy-PQ-QeV" id="vto-B9-fFF"/>
                         <outlet property="model" destination="fgb-Ul-PKV" id="sEg-0f-Kms"/>
                     </connections>
                 </customObject>

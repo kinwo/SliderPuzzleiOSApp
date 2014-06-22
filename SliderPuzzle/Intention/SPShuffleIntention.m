@@ -10,6 +10,7 @@
 #import "SPTile.h"
 #import "SPConstants.h"
 #import "SPGameBoardModelContainer.h"
+#import "SPTileAnimationIntention.h"
 
 // Shuffle
 NS_ENUM(NSInteger, ShuffleMove)
@@ -26,6 +27,7 @@ static NSInteger const SHUFFLE_NUMBER = 20;
 @interface SPShuffleIntention()
 
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
+@property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
 
 @end
 
@@ -84,19 +86,19 @@ static NSInteger const SHUFFLE_NUMBER = 20;
 	switch ([self validMove:tile]) {
 		case UP:
             [self.model.tilesMatrix translateTile:tile withX:0 withY:-1];
-            [self.model.tilesMatrix slideTile:tile];
+            [self.animationIntent animateSlideTile:tile];
 			break;
 		case DOWN:
             [self.model.tilesMatrix translateTile:tile withX:0 withY:1];
-            [self.model.tilesMatrix slideTile:tile];
+            [self.animationIntent animateSlideTile:tile];
 			break;
 		case LEFT:
             [self.model.tilesMatrix translateTile:tile withX:-1 withY:0];
-            [self.model.tilesMatrix slideTile:tile];
+            [self.animationIntent animateSlideTile:tile];
 			break;
 		case RIGHT:
             [self.model.tilesMatrix translateTile:tile withX:1 withY:0];
-            [self.model.tilesMatrix slideTile:tile];
+            [self.animationIntent animateSlideTile:tile];
 			break;
 		default:
 			break;

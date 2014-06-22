@@ -226,6 +226,7 @@
                 </customObject>
                 <customObject id="j3q-bu-3fj" customClass="SPShuffleIntention">
                     <connections>
+                        <outlet property="animationIntent" destination="Hle-5U-aeM" id="hZ8-7C-KB4"/>
                         <outlet property="model" destination="YYO-FY-ups" id="hiD-r5-wyA"/>
                     </connections>
                 </customObject>

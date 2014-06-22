@@ -26,11 +26,13 @@
                               delay:0.0f
                             options:UIViewAnimationOptionBeginFromCurrentState|
          UIViewAnimationOptionAllowUserInteraction|
-         UIViewAnimationOptionCurveEaseOut
+         UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              [self.model.tilesMatrix slideTile:senderTile];
                          }
-                         completion:nil];
+                         completion:^(BOOL finished) {
+                             
+                         }];
     }
 }
 
