@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPHomeViewController : UIViewController
+@interface SPMultiGameHomeViewController : UIViewController
 
 @end

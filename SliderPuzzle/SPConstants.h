@@ -16,8 +16,9 @@ static NSInteger const NumColumns = 3;
 static NSInteger const PuzzleBoardFrameX = 0;
 static NSInteger const PuzzleBoardFrameY = 0;
 
-static NSString* const SourceImage = @"OpeningPuzzlePhoto";
+static NSString* const SourceImage = @"Puzzle";
 static NSInteger const spacerIndex = 0;
+static NSInteger const NumSourceImage = 2;
 
 static CGFloat StepMoveFactor = 8;
 static CGFloat MotionDetectionSensitivity = 0.13;

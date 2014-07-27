@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Kinwo.net. All rights reserved.
 //
 
-#import "SPHomeViewController.h"
+#import "SPMultiGameHomeViewController.h"
 #import "SPGameBoardViewController.h"
 #import "GameKitHelper.h"
 #import "NSObject+SoundPlay.h"
@@ -14,11 +14,11 @@
 
 @import GameKit;
 
-@interface SPHomeViewController() <GKTurnBasedMatchmakerViewControllerDelegate>
+@interface SPMultiGameHomeViewController() <GKTurnBasedMatchmakerViewControllerDelegate>
 
 @end
 
-@implementation SPHomeViewController
+@implementation SPMultiGameHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

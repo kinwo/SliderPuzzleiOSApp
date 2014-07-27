@@ -5,14 +5,17 @@ PODS:
   - CocoaLumberjack/Core (1.6.5.1)
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
+  - RQShineLabel (0.1.1)
   - SIAlertView (1.3)
 
 DEPENDENCIES:
   - CocoaLumberjack (~> 1.6.4)
+  - RQShineLabel (~> 0.1)
   - SIAlertView (~> 1.3)
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
-  SIAlertView: e6d0d786c3a3f6e456b0e8b9376d0c34d68e827b
+  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  RQShineLabel: aa840ab0daec4a327d43c069dc7aaf545763e7be
+  SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1

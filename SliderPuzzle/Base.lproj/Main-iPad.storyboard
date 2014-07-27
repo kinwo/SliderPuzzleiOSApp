@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="T0C-JP-y3C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="T0C-JP-y3C">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Multi Game Home View Controller-->
         <scene sceneID="up7-A2-TID">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="T0C-JP-y3C" customClass="SPHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="T0C-JP-y3C" customClass="SPMultiGameHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="avC-Jf-zGT"/>
                         <viewControllerLayoutGuide type="bottom" id="v0G-KI-gik"/>
@@ -90,7 +90,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="messageLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdk-F7-Sky">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdk-F7-Sky" userLabel="Puzzle Board">
                                 <rect key="frame" x="74" y="141" width="620" height="620"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>

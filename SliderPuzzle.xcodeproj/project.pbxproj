@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
 		BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */; };
-		BA78393418B827EE00434653 /* MKGyroManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78392F18B827EE00434653 /* MKGyroManager.m */; };
-		BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78393118B827EE00434653 /* MKParallaxManager.m */; };
-		BA78393618B827EE00434653 /* MKParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78393318B827EE00434653 /* MKParallaxView.m */; };
 		BA78393C18B83FCE00434653 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78393B18B83FCE00434653 /* CoreMotion.framework */; };
 		BA99095118BA061B00CFBE3E /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = BA99095018BA061B00CFBE3E /* default.css */; };
 		BA99095518BA081300CFBE3E /* HappyFox-Condensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = BA99095318BA07DB00CFBE3E /* HappyFox-Condensed.otf */; };
@@ -25,7 +22,7 @@
 		BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */; };
 		BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
-		BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */; };
+		BAAB8DC019148DC000042F0E /* SPMultiGameHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */; };
 		BAAB8DC81914A6F300042F0E /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC21914A6F300042F0E /* box.wav */; };
 		BAAB8DC91914A6F300042F0E /* button_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC31914A6F300042F0E /* button_press.wav */; };
 		BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC51914A6F300042F0E /* horn.wav */; };
@@ -41,6 +38,7 @@
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
 		BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */; };
 		BABBDF8D18868CA70070CD24 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBDF8C18868CA70070CD24 /* libz.dylib */; };
+		BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE6236198499B7003A69B7 /* SPGestureDelegate.m */; };
 		BABEF9FF18E79F6A00EAF3EE /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABEF9FD18E79F6A00EAF3EE /* Main-iPad.storyboard */; };
 		BAC6FF1918AF7437007BCF62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */; };
 		BAC6FF1B18AF743D007BCF62 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */; };
@@ -82,12 +80,6 @@
 		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
 		BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
 		BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
-		BA78392E18B827EE00434653 /* MKGyroManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGyroManager.h; sourceTree = "<group>"; };
-		BA78392F18B827EE00434653 /* MKGyroManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGyroManager.m; sourceTree = "<group>"; };
-		BA78393018B827EE00434653 /* MKParallaxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParallaxManager.h; sourceTree = "<group>"; };
-		BA78393118B827EE00434653 /* MKParallaxManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParallaxManager.m; sourceTree = "<group>"; };
-		BA78393218B827EE00434653 /* MKParallaxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKParallaxView.h; sourceTree = "<group>"; };
-		BA78393318B827EE00434653 /* MKParallaxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKParallaxView.m; sourceTree = "<group>"; };
 		BA78393B18B83FCE00434653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		BA78393D18B8580300434653 /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
 		BA99095018BA061B00CFBE3E /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
@@ -109,8 +101,8 @@
 		BAA24C4819568CBC000792C6 /* SPShuffleIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPShuffleIntention.h; sourceTree = "<group>"; };
 		BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPShuffleIntention.m; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHomeViewController.h; sourceTree = "<group>"; };
-		BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHomeViewController.m; sourceTree = "<group>"; };
+		BAAB8DBE19148DC000042F0E /* SPMultiGameHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMultiGameHomeViewController.h; sourceTree = "<group>"; };
+		BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMultiGameHomeViewController.m; sourceTree = "<group>"; };
 		BAAB8DC21914A6F300042F0E /* box.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = box.wav; sourceTree = "<group>"; };
 		BAAB8DC31914A6F300042F0E /* button_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_press.wav; sourceTree = "<group>"; };
 		BAAB8DC51914A6F300042F0E /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
@@ -135,6 +127,8 @@
 		BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPuzzleBoard.h; sourceTree = "<group>"; };
 		BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPuzzleBoard.m; sourceTree = "<group>"; };
 		BABBDF8C18868CA70070CD24 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		BABE6235198499B7003A69B7 /* SPGestureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGestureDelegate.h; sourceTree = "<group>"; };
+		BABE6236198499B7003A69B7 /* SPGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGestureDelegate.m; sourceTree = "<group>"; };
 		BABEF9FE18E79F6A00EAF3EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
 		BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -208,19 +202,6 @@
 				BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */,
 			);
 			path = MGImageUtilities;
-			sourceTree = "<group>";
-		};
-		BA78392D18B827EE00434653 /* MKParallaxView */ = {
-			isa = PBXGroup;
-			children = (
-				BA78392E18B827EE00434653 /* MKGyroManager.h */,
-				BA78392F18B827EE00434653 /* MKGyroManager.m */,
-				BA78393018B827EE00434653 /* MKParallaxManager.h */,
-				BA78393118B827EE00434653 /* MKParallaxManager.m */,
-				BA78393218B827EE00434653 /* MKParallaxView.h */,
-				BA78393318B827EE00434653 /* MKParallaxView.m */,
-			);
-			path = MKParallaxView;
 			sourceTree = "<group>";
 		};
 		BA99095218BA07B700CFBE3E /* Fonts */ = {
@@ -312,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				BA99095B18BA0B9B00CFBE3E /* TestFlightSDK3.0.0 */,
-				BA78392D18B827EE00434653 /* MKParallaxView */,
 				BA5B19C218B04297005DCBE8 /* MGImageUtilities */,
 			);
 			path = ThirdPartyLibs;
@@ -380,8 +360,10 @@
 				BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */,
 				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
 				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
-				BAAB8DBE19148DC000042F0E /* SPHomeViewController.h */,
-				BAAB8DBF19148DC000042F0E /* SPHomeViewController.m */,
+				BAAB8DBE19148DC000042F0E /* SPMultiGameHomeViewController.h */,
+				BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */,
+				BABE6235198499B7003A69B7 /* SPGestureDelegate.h */,
+				BABE6236198499B7003A69B7 /* SPGestureDelegate.m */,
 				BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */,
 				BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */,
 				BAA3C7771882370C0053D42B /* README.md */,
@@ -600,9 +582,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
-				BA78393618B827EE00434653 /* MKParallaxView.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
-				BA78393518B827EE00434653 /* MKParallaxManager.m in Sources */,
+				BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */,
 				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
 				BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */,
 				BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */,
@@ -616,11 +597,10 @@
 				BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */,
 				BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */,
 				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
-				BAAB8DC019148DC000042F0E /* SPHomeViewController.m in Sources */,
+				BAAB8DC019148DC000042F0E /* SPMultiGameHomeViewController.m in Sources */,
 				BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
-				BA78393418B827EE00434653 /* MKGyroManager.m in Sources */,
 				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -767,6 +747,7 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
+				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -801,6 +782,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SliderPuzzle/SliderPuzzle-Prefix.pch";
+				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = "SliderPuzzle/SliderPuzzle-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (

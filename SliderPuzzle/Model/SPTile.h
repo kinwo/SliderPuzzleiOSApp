@@ -10,9 +10,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKParallaxView.h"
 
-@interface SPTile : MKParallaxView
+@interface SPTile : UIImageView
 
 @property(nonatomic) NSInteger xPos;
 @property(nonatomic) NSInteger yPos;

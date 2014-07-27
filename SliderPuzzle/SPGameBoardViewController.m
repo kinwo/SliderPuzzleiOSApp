@@ -20,21 +20,24 @@
 #import "SPTileMotionHandler.h"
 #import "SPTileAnimationIntention.h"
 #import "SPShuffleIntention.h"
-#import "MKParallaxView.h"
 #import "SPConstants.h"
-#import "SPHomeViewController.h"
+#import "SPMultiGameHomeViewController.h"
 #import "NSObject+SoundPlay.h"
+#import <PixateFreestyle/PixateFreestyle.h>
+#import "SPGestureDelegate.h"
 
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) SPPuzzleBoard *puzzleBoardView;
-@property (weak, nonatomic) IBOutlet MKParallaxView *originalView;
+@property (weak, nonatomic) IBOutlet UIImageView *originalView;
 @property (weak, nonatomic) IBOutlet UIView *puzzleBoardContainer;
 
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
 @property (nonatomic, strong) IBOutlet SPTileMotionHandler *motionHandler;
 @property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
 @property (nonatomic, strong) IBOutlet SPShuffleIntention *shuffleIntent;
+
+@property (nonatomic, assign) NSInteger currentPuzzleSourceImageIndex;
 
 @end
 
@@ -44,6 +47,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
+        self.currentPuzzleSourceImageIndex = 0;
     }
     return self;
 }
@@ -53,10 +57,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self initCommon];
-    
     // display slice images for the resized image
-    [self displaySliceImagesFor:[UIImage imageNamed:SourceImage]];
+    NSString *initialSourceImage = [NSString stringWithFormat:@"%@%ld", SourceImage, (long)self.currentPuzzleSourceImageIndex];
+    [self displaySliceImagesFor:[UIImage imageNamed:initialSourceImage]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -81,7 +84,10 @@
 {
     if (self.puzzleBoardView) {
         [self.puzzleBoardView removeFromSuperview];
+        self.puzzleBoardView = nil;
     }
+    
+    [self initCommon];
     
     // PuzzleBoard target High-res image width
     NSInteger HighResTargetImageWidth = self.puzzleBoardContainer.frame.size.width * 2;
@@ -89,7 +95,7 @@
     
     // resize to fit into the container
     UIImage *resizedImage = [srcImage resizeImageToSize:CGSizeMake(HighResTargetImageWidth, HighResTargetImageHeight)];
-    self.originalView.backgroundImage = resizedImage;
+    self.originalView.image = resizedImage;
     
     float targetFrameWidth = resizedImage.size.width / 2;
     float targetFrameHeight = resizedImage.size.height / 2;
@@ -101,11 +107,6 @@
     self.model.sliceHeight = (targetFrameHeight / NumRows);
     
     NSMutableArray *sliceImageList = [resizedImage sliceImagesWithNumRows:NumRows numColumns:NumColumns];
-
-    // select top left corner element as spacer
-    UIImage *spacerImage = [UIImage imageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, self.model.sliceWidth, self.model.sliceHeight)];
-    sliceImageList[spacerIndex] = spacerImage;
-    
     NSInteger index=0;
     
     // add SPTile to container view
@@ -117,6 +118,9 @@
             [self.model.tilesMatrix setSPTileWithXPos:j withYPos:i tile:tileImageView];
             
             if (index == spacerIndex) {
+                tileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+                tileImageView.layer.borderWidth = 5.0;
+                tileImageView.alpha = 0.25;
                 [self.model.tilesMatrix setSpacer:tileImageView];
             }
             
@@ -138,7 +142,7 @@
     CGRect frame = CGRectMake(originX, originY, self.model.sliceWidth, self.model.sliceHeight);
     
     SPTile *tile = [[SPTile alloc] initWithFrame:frame];
-    tile.backgroundImage = sliceImage;
+    tile.image = sliceImage;
     tile.xPos = xPos;
     tile.yPos = yPos;
     
@@ -154,13 +158,6 @@
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-}
-
-// DISABLED
-- (IBAction)calibrateMotionDetection:(id)sender
-{
-    self.model.averageXOffset = 0.0f;
-    self.model.averageYOffset = 0.0f;
 }
 
 - (IBAction)shuffleTiles:(id)sender
@@ -184,10 +181,12 @@
 - (IBAction)backToHome:(id)sender
 {
     [self playButtonPressed];
-    SPHomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
+    SPMultiGameHomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
     [self presentViewController:homeVC animated:YES completion:nil];
 }
 
+
+#pragma mark Game Center integration
 - (IBAction)forfeitGame:(id)sender
 {
     if (![self isGameCenterMatch]) {
@@ -281,6 +280,16 @@
     
 }
 
+- (void)cleanupTiles
+{
+    for (SPTile *tile in [self.model.tilesMatrix flattenTilesArray] ){
+        for (UIGestureRecognizer *recognizer in [tile gestureRecognizers]) {
+            [tile removeGestureRecognizer:recognizer];
+            [tile removeFromSuperview];
+        }
+    }
+}
+
 - (void)handleTileTap:(UIGestureRecognizer*)gestureRecognizer
 {
     SPTile *senderTile = (SPTile*) gestureRecognizer.view;
@@ -313,5 +322,43 @@
         }
     }
 }
+
+- (IBAction)handleSwipeRight:(id)sender
+{
+    NSInteger nextSourceImageIndex = self.currentPuzzleSourceImageIndex - 1;
+    [self displayNextSourceImageBy:nextSourceImageIndex];
+}
+
+- (IBAction)handleSwipeLeft:(id)sender
+{
+    NSInteger nextSourceImageIndex = self.currentPuzzleSourceImageIndex + 1;
+    [self displayNextSourceImageBy:nextSourceImageIndex];
+}
+
+- (void)displayNextSourceImageBy:(NSInteger)nextSourceImageIndex
+{
+    if (nextSourceImageIndex < 0) {
+        nextSourceImageIndex = NumSourceImage-1;
+    } else {
+        nextSourceImageIndex = nextSourceImageIndex % NumSourceImage;
+    }
+    
+    self.currentPuzzleSourceImageIndex = nextSourceImageIndex;
+    NSString *sourceImage = [NSString stringWithFormat:@"%@%ld", SourceImage, (long)nextSourceImageIndex];
+    
+    [self cleanupTiles];
+    
+    [UIView animateWithDuration:0.5f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         [self displaySliceImagesFor:[UIImage imageNamed:sourceImage]];
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
+    
+}
+
 
 @end
