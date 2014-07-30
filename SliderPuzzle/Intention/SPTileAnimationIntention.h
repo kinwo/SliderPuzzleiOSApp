@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "SPTile.h"
 
+typedef void (^AnimateSlideCompletionBlock)(BOOL finished);
+
 @interface SPTileAnimationIntention : NSObject
 
 - (void)animateSlideTile:(SPTile*)senderTile;
+
+- (void)animateSlideTile:(SPTile*)senderTile completion:(AnimateSlideCompletionBlock)completion;
 
 @end

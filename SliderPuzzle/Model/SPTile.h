@@ -16,6 +16,11 @@
 @property(nonatomic) NSInteger xPos;
 @property(nonatomic) NSInteger yPos;
 
+@property(nonatomic) NSInteger xMatchPos;
+@property(nonatomic) NSInteger yMatchPos;
+
+- (BOOL)isMatched;
+
 - (BOOL)hasIntersect:(SPTile*)otherTile;
 
 - (void)moveToXPos:(NSInteger)xPos yPos:(NSInteger)yPos;

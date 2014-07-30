@@ -22,7 +22,7 @@ NS_ENUM(NSInteger, ShuffleMove)
 	RIGHT			= 4
 };
 
-static NSInteger const SHUFFLE_NUMBER = 20;
+static NSInteger const SHUFFLE_NUMBER = 5;
 
 @interface SPShuffleIntention()
 

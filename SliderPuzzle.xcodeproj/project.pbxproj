@@ -23,11 +23,8 @@
 		BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */; };
 		BAA3C7781882370C0053D42B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAA3C7771882370C0053D42B /* README.md */; };
 		BAAB8DC019148DC000042F0E /* SPMultiGameHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */; };
-		BAAB8DC81914A6F300042F0E /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC21914A6F300042F0E /* box.wav */; };
-		BAAB8DC91914A6F300042F0E /* button_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC31914A6F300042F0E /* button_press.wav */; };
-		BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC51914A6F300042F0E /* horn.wav */; };
-		BAAB8DCC1914A6F300042F0E /* lap.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC61914A6F300042F0E /* lap.wav */; };
-		BAAB8DCD1914A6F300042F0E /* nitro.wav in Resources */ = {isa = PBXBuildFile; fileRef = BAAB8DC71914A6F300042F0E /* nitro.wav */; };
+		BAABA42719891D37007A83E0 /* Retro Game Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAABA42619891D37007A83E0 /* Retro Game Music.mp3 */; };
+		BAABA4291989202A007A83E0 /* 8 bit level cleared and lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAABA4281989202A007A83E0 /* 8 bit level cleared and lost.mp3 */; };
 		BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CE9E19160136002AF300 /* GameKitHelper.m */; };
 		BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */; };
 		BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA219160136002AF300 /* SKTAudio.m */; };
@@ -103,11 +100,8 @@
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BAAB8DBE19148DC000042F0E /* SPMultiGameHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMultiGameHomeViewController.h; sourceTree = "<group>"; };
 		BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMultiGameHomeViewController.m; sourceTree = "<group>"; };
-		BAAB8DC21914A6F300042F0E /* box.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = box.wav; sourceTree = "<group>"; };
-		BAAB8DC31914A6F300042F0E /* button_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_press.wav; sourceTree = "<group>"; };
-		BAAB8DC51914A6F300042F0E /* horn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = horn.wav; sourceTree = "<group>"; };
-		BAAB8DC61914A6F300042F0E /* lap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lap.wav; sourceTree = "<group>"; };
-		BAAB8DC71914A6F300042F0E /* nitro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nitro.wav; sourceTree = "<group>"; };
+		BAABA42619891D37007A83E0 /* Retro Game Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Retro Game Music.mp3"; sourceTree = "<group>"; };
+		BAABA4281989202A007A83E0 /* 8 bit level cleared and lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8 bit level cleared and lost.mp3"; sourceTree = "<group>"; };
 		BAB5CE9D19160136002AF300 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		BAB5CE9E19160136002AF300 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		BAB5CE9F19160136002AF300 /* NSObject+SoundPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SoundPlay.h"; sourceTree = "<group>"; };
@@ -249,11 +243,8 @@
 		BAAB8DC11914A6F300042F0E /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				BAAB8DC21914A6F300042F0E /* box.wav */,
-				BAAB8DC31914A6F300042F0E /* button_press.wav */,
-				BAAB8DC51914A6F300042F0E /* horn.wav */,
-				BAAB8DC61914A6F300042F0E /* lap.wav */,
-				BAAB8DC71914A6F300042F0E /* nitro.wav */,
+				BAABA4281989202A007A83E0 /* 8 bit level cleared and lost.mp3 */,
+				BAABA42619891D37007A83E0 /* Retro Game Music.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -515,18 +506,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAB8DC91914A6F300042F0E /* button_press.wav in Resources */,
-				BAAB8DCD1914A6F300042F0E /* nitro.wav in Resources */,
 				BABEF9FF18E79F6A00EAF3EE /* Main-iPad.storyboard in Resources */,
 				BA99096418BA0B9B00CFBE3E /* release_notes.md in Resources */,
 				BA99096318BA0B9B00CFBE3E /* README.md in Resources */,
 				BA99095518BA081300CFBE3E /* HappyFox-Condensed.otf in Resources */,
 				BA99095618BA081600CFBE3E /* HennyPenny-Regular.ttf in Resources */,
-				BAAB8DCC1914A6F300042F0E /* lap.wav in Resources */,
 				BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */,
-				BAAB8DCB1914A6F300042F0E /* horn.wav in Resources */,
+				BAABA42719891D37007A83E0 /* Retro Game Music.mp3 in Resources */,
 				BA99095118BA061B00CFBE3E /* default.css in Resources */,
-				BAAB8DC81914A6F300042F0E /* box.wav in Resources */,
+				BAABA4291989202A007A83E0 /* 8 bit level cleared and lost.mp3 in Resources */,
 				BAA3C7781882370C0053D42B /* README.md in Resources */,
 				BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */,
 				BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */,
@@ -759,8 +747,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "EF163772-7876-417C-B290-0FFED821EB3D";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -794,8 +782,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "25CA7C76-5AF1-4B6A-87A6-23D6245EED3B";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "EF163772-7876-417C-B290-0FFED821EB3D";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

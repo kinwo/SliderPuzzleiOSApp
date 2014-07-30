@@ -96,18 +96,12 @@
                     <connections>
                         <outlet property="animationIntent" destination="Hle-5U-aeM" id="CYN-yH-pUA"/>
                         <outlet property="model" destination="YYO-FY-ups" id="pr0-tF-qa3"/>
-                        <outlet property="motionHandler" destination="1bK-Wa-X3E" id="WcI-Bz-xeK"/>
                         <outlet property="originalView" destination="4GY-Jh-6qt" id="mKi-f8-GhW"/>
                         <outlet property="puzzleBoardContainer" destination="mDz-7U-BId" id="BeJ-2H-Pwp"/>
                         <outlet property="shuffleIntent" destination="j3q-bu-3fj" id="7RS-QE-f6q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <customObject id="1bK-Wa-X3E" customClass="SPTileMotionHandler">
-                    <connections>
-                        <outlet property="model" destination="YYO-FY-ups" id="1C2-70-puG"/>
-                    </connections>
-                </customObject>
                 <customObject id="YYO-FY-ups" customClass="SPGameBoardModelContainer"/>
                 <customObject id="Hle-5U-aeM" customClass="SPTileAnimationIntention">
                     <connections>

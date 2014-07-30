@@ -17,7 +17,6 @@
 #import "SPTilesMatrix.h"
 #import "SPPuzzleBoard.h"
 #import "SPGameBoardModelContainer.h"
-#import "SPTileMotionHandler.h"
 #import "SPTileAnimationIntention.h"
 #import "SPShuffleIntention.h"
 #import "SPConstants.h"
@@ -25,6 +24,7 @@
 #import "NSObject+SoundPlay.h"
 #import <PixateFreestyle/PixateFreestyle.h>
 #import "SPGestureDelegate.h"
+#import "SKTAudio.h"
 
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -33,7 +33,6 @@
 @property (weak, nonatomic) IBOutlet UIView *puzzleBoardContainer;
 
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
-@property (nonatomic, strong) IBOutlet SPTileMotionHandler *motionHandler;
 @property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
 @property (nonatomic, strong) IBOutlet SPShuffleIntention *shuffleIntent;
 
@@ -60,6 +59,8 @@
     // display slice images for the resized image
     NSString *initialSourceImage = [NSString stringWithFormat:@"%@%ld", SourceImage, (long)self.currentPuzzleSourceImageIndex];
     [self displaySliceImagesFor:[UIImage imageNamed:initialSourceImage]];
+    
+    [self playBackgroundMusic];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -145,8 +146,40 @@
     tile.image = sliceImage;
     tile.xPos = xPos;
     tile.yPos = yPos;
+    tile.xMatchPos = xPos;
+    tile.yMatchPos = yPos;
     
     return tile;
+}
+
+#pragma mark Music
+- (void)playBackgroundMusic
+{
+    [[SKTAudio sharedInstance] playBackgroundMusic:@"Retro Game Music.mp3"];
+}
+
+- (void)playAllMatchesMusic
+{
+    [[SKTAudio sharedInstance] pauseBackgroundMusic];
+    [[SKTAudio sharedInstance] playSoundEffect:@"8 bit level cleared and lost.mp3"];
+}
+
+#pragma mark Game Rules
+- (void)checkPuzzlesMatching
+{
+    // play success music if all tiles are matched
+    for (SPTile *tile in [self.model.tilesMatrix flattenTilesArray] ){
+        if (![tile isMatched]) {
+            return;
+        }
+    }
+    
+    // ALL GOOD ! Play success music
+    [self playAllMatchesMusic];
+    
+    // show original image
+    self.originalView.hidden = NO;
+    self.puzzleBoardView.hidden = YES;
 }
 
 # pragma mark IBActions
@@ -277,7 +310,6 @@
     UIPanGestureRecognizer *dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTileDrag:)];
     dragGesture.minimumNumberOfTouches = 1;
     [tile addGestureRecognizer:dragGesture];
-    
 }
 
 - (void)cleanupTiles
@@ -293,7 +325,9 @@
 - (void)handleTileTap:(UIGestureRecognizer*)gestureRecognizer
 {
     SPTile *senderTile = (SPTile*) gestureRecognizer.view;
-    [self.animationIntent animateSlideTile:senderTile];
+    [self.animationIntent animateSlideTile:senderTile completion:^(BOOL finished) {
+        [self checkPuzzlesMatching];
+    }];
 }
 
 - (void)handleTileDrag:(UIPanGestureRecognizer*)dragGestureRecognizer
@@ -303,7 +337,6 @@
     if (dragGestureRecognizer.state == UIGestureRecognizerStateBegan) {
         // save original tile state
         [self.model.tilesMatrix saveTileState:senderTile];
-        [self.motionHandler.motionManager stopAccelerometerUpdates];
 
     } else if (dragGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
@@ -315,7 +348,9 @@
         CGPoint translation = [dragGestureRecognizer translationInView:dragGestureRecognizer.view];
         if ([self.model.tilesMatrix isMovementInRightDirection:translation tile:senderTile] && [self.model.tilesMatrix isMovementMoreThanHalfWay:translation tile:senderTile]) {
             // finish the sliding
-            [self.animationIntent animateSlideTile:senderTile];
+            [self.animationIntent animateSlideTile:senderTile completion:^(BOOL finished) {
+                [self checkPuzzlesMatching];
+            }];
         } else {
             // restore original tile state
             [self.model.tilesMatrix restoreTileState:senderTile];
@@ -337,6 +372,10 @@
 
 - (void)displayNextSourceImageBy:(NSInteger)nextSourceImageIndex
 {
+    // make sure original image is hidden
+    self.originalView.hidden = YES;
+    self.puzzleBoardView.hidden = NO;
+    
     if (nextSourceImageIndex < 0) {
         nextSourceImageIndex = NumSourceImage-1;
     } else {

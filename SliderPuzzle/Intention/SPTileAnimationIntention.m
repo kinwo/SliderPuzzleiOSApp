@@ -9,6 +9,7 @@
 #import "SPTileAnimationIntention.h"
 #import "SPGameBoardModelContainer.h"
 
+
 @interface SPTileAnimationIntention()
 
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
@@ -17,8 +18,12 @@
 
 @implementation SPTileAnimationIntention
 
+- (void)animateSlideTile:(SPTile*)senderTile {
+    [self animateSlideTile:senderTile completion:nil];
+}
+
 // Add animation to slide tile action
-- (void)animateSlideTile:(SPTile*)senderTile
+- (void)animateSlideTile:(SPTile*)senderTile completion:(AnimateSlideCompletionBlock)completion
 {
     // slide tile only if this tile has intersection with spacer tile and with animation
     if ([senderTile hasIntersect:self.model.tilesMatrix.spacer]) {
@@ -30,9 +35,7 @@
                          animations:^{
                              [self.model.tilesMatrix slideTile:senderTile];
                          }
-                         completion:^(BOOL finished) {
-                             
-                         }];
+                         completion:completion];
     }
 }
 

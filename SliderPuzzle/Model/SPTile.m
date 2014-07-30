@@ -36,6 +36,11 @@
     return self;
 }
 
+- (BOOL)isMatched
+{
+    return self.xPos == self.xMatchPos && self.yPos == self.yMatchPos;
+}
+
 - (void)addShadow
 {
     self.layer.shadowColor = [UIColor grayColor].CGColor;
