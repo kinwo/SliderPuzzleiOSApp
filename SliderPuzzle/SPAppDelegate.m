@@ -8,7 +8,7 @@
 
 #import "SPAppDelegate.h"
 #import "TestFlight.h"
-
+#import <Instabug/Instabug.h>
 
 @implementation SPAppDelegate
 
@@ -18,12 +18,26 @@
     
     [TestFlight takeOff:@"36f82601-5c77-46cc-877a-f42659eb685c"];
     
+    [self initializeInstabug];
+    
     // status bar
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     return YES;
 }
-							
+
+- (void)initializeInstabug
+{
+    [Instabug startWithToken:@"ac74ae75d26571b645acdf09b58a292a" captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventShake];
+
+    [Instabug setButtonsFontColor:[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0]];
+    [Instabug setButtonsColor:[UIColor colorWithRed:(56/255.0) green:(55/255.0) blue:(55/255.0) alpha:1.0]];
+    [Instabug setHeaderFontColor:[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0]];
+    [Instabug setHeaderColor:[UIColor colorWithRed:(46/255.0) green:(45/255.0) blue:(45/255.0) alpha:1.0]];
+    [Instabug setTextFontColor:[UIColor colorWithRed:(82/255.0) green:(83/255.0) blue:(83/255.0) alpha:1.0]];
+    [Instabug setTextBackgroundColor:[UIColor colorWithRed:(249/255.0) green:(249/255.0) blue:(249/255.0) alpha:1.0]];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
