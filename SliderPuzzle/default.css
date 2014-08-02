@@ -11,8 +11,12 @@ view * {
   font-size: 28px;
 }
 
+#menuView {
+  background-image: url(puzzlebackgroundblur.png);
+}
+
 #gameBoardSuperView {
-//  background-image: url(puzzlebackgroundblur.png);
+    //background-image: url(puzzlebackgroundblur.png);
 }
 
 #boardContainer {

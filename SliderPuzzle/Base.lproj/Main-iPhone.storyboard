@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCB-Yj-wV5">
-                                <rect key="frame" x="54" y="12" width="212" height="33"/>
+                                <rect key="frame" x="54" y="16" width="212" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="HMF-iw-adD"/>
@@ -178,7 +178,7 @@
                                 </connections>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4GY-Jh-6qt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="5" id="1Ty-0G-LmL"/>
                             <constraint firstItem="V8X-My-U5u" firstAttribute="centerY" secondItem="1k4-X5-sbY" secondAttribute="centerY" id="27d-sA-feQ"/>
@@ -194,7 +194,7 @@
                             <constraint firstItem="TeB-xA-TlD" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="58" id="T1w-4L-q5J"/>
                             <constraint firstItem="vb4-5x-it0" firstAttribute="leading" secondItem="V8X-My-U5u" secondAttribute="trailing" constant="13" id="ZJA-w8-Mzc"/>
                             <constraint firstItem="FVZ-Az-uFM" firstAttribute="top" secondItem="1k4-X5-sbY" secondAttribute="bottom" constant="12" id="aFi-rq-alT"/>
-                            <constraint firstItem="XCB-Yj-wV5" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="12" id="aut-AS-LMf"/>
+                            <constraint firstItem="XCB-Yj-wV5" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="16" id="aut-AS-LMf"/>
                             <constraint firstItem="1k4-X5-sbY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="34" id="fge-Vu-LaJ"/>
                             <constraint firstItem="4GY-Jh-6qt" firstAttribute="top" secondItem="R6M-K6-Uor" secondAttribute="bottom" constant="64" id="ji6-QS-Uql"/>
                             <constraint firstItem="mDz-7U-BId" firstAttribute="top" secondItem="4GY-Jh-6qt" secondAttribute="top" id="sKe-cy-n1m"/>
@@ -248,17 +248,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PuzzleTitleBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tpg-BF-Kgf">
-                                <rect key="frame" x="30" y="0.0" width="180" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="146" id="Vyl-1U-ZHJ"/>
-                                    <constraint firstAttribute="width" constant="180" id="xyy-68-Oyz"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCj-Oc-fo7" customClass="BFPaperButton">
-                                <rect key="frame" x="5" y="141" width="230" height="78"/>
+                                <rect key="frame" x="5" y="100" width="230" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="jUd-Tk-DZN"/>
@@ -268,55 +259,55 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="1" green="0.14669565460296946" blue="0.24246823461370612" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.14669565460296946" blue="0.24246823461370612" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSg-Xl-agL" customClass="BFPaperButton">
-                                <rect key="frame" x="5" y="227" width="230" height="77"/>
+                                <rect key="frame" x="5" y="172" width="230" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="How To Play">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.92941182851791382" green="0.364705890417099" blue="0.63137257099151611" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.92941182851791382" green="0.364705890417099" blue="0.63137257099151611" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXU-SE-Lqb" customClass="BFPaperButton">
-                                <rect key="frame" x="5" y="312" width="230" height="78"/>
+                                <rect key="frame" x="5" y="244" width="230" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Game Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.98823535442352295" green="0.7568628191947937" blue="0.18823531270027161" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.98823535442352295" green="0.7568628191947937" blue="0.18823531270027161" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-Bj-f9I" customClass="BFPaperButton">
-                                <rect key="frame" x="5" y="398" width="230" height="77"/>
+                                <rect key="frame" x="5" y="317" width="230" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Photos Credits">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.31372550129890442" green="0.76078438758850098" blue="0.81568634510040283" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.31372550129890442" green="0.76078438758850098" blue="0.81568634510040283" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-yu-Tb7" customClass="BFPaperButton">
-                                <rect key="frame" x="5" y="483" width="230" height="77"/>
+                                <rect key="frame" x="5" y="389" width="230" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="User Voice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" red="0.50980395078659058" green="0.72549021244049072" blue="0.32549020648002625" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="value" red="0.50980395078659058" green="0.72549021244049072" blue="0.32549020648002625" alpha="0.80000000000000004" colorSpace="deviceRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -324,27 +315,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Goj-Bj-f9I" firstAttribute="top" secondItem="PXU-SE-Lqb" secondAttribute="bottom" constant="8" id="0vy-WT-qJN"/>
+                            <constraint firstItem="HCj-Oc-fo7" firstAttribute="top" secondItem="Jr3-Pn-AE9" secondAttribute="bottom" constant="80" id="1n2-CN-9vx"/>
                             <constraint firstItem="PXU-SE-Lqb" firstAttribute="top" secondItem="ZSg-Xl-agL" secondAttribute="bottom" constant="8" id="6rA-RH-o8g"/>
                             <constraint firstItem="Goj-Bj-f9I" firstAttribute="leading" secondItem="PXU-SE-Lqb" secondAttribute="leading" id="7x5-cQ-w5j"/>
-                            <constraint firstItem="tpg-BF-Kgf" firstAttribute="top" secondItem="F0N-dc-EKu" secondAttribute="top" id="96m-8A-gjI"/>
                             <constraint firstItem="PXU-SE-Lqb" firstAttribute="leading" secondItem="ZSg-Xl-agL" secondAttribute="leading" id="BFZ-uK-mnp"/>
-                            <constraint firstItem="dHq-y2-p9i" firstAttribute="top" secondItem="8Aa-yu-Tb7" secondAttribute="bottom" constant="8" id="FqT-YD-w85"/>
+                            <constraint firstItem="dHq-y2-p9i" firstAttribute="top" secondItem="8Aa-yu-Tb7" secondAttribute="bottom" constant="120" id="FqT-YD-w85"/>
                             <constraint firstItem="8Aa-yu-Tb7" firstAttribute="top" secondItem="Goj-Bj-f9I" secondAttribute="bottom" constant="8" id="LAf-Rz-cTs"/>
                             <constraint firstItem="HCj-Oc-fo7" firstAttribute="leading" secondItem="ZSg-Xl-agL" secondAttribute="leading" id="OoF-lc-Fnq"/>
                             <constraint firstItem="PXU-SE-Lqb" firstAttribute="width" secondItem="ZSg-Xl-agL" secondAttribute="width" id="Oqi-lK-sdU"/>
                             <constraint firstItem="HCj-Oc-fo7" firstAttribute="width" secondItem="ZSg-Xl-agL" secondAttribute="width" id="WvF-us-zTJ"/>
-                            <constraint firstItem="tpg-BF-Kgf" firstAttribute="leading" secondItem="F0N-dc-EKu" secondAttribute="leading" constant="30" id="abq-Ej-MpX"/>
                             <constraint firstItem="8Aa-yu-Tb7" firstAttribute="width" secondItem="Goj-Bj-f9I" secondAttribute="width" id="clb-Pr-hjQ"/>
                             <constraint firstItem="8Aa-yu-Tb7" firstAttribute="height" secondItem="ZSg-Xl-agL" secondAttribute="height" id="dQv-7c-dnn"/>
                             <constraint firstItem="HCj-Oc-fo7" firstAttribute="height" secondItem="PXU-SE-Lqb" secondAttribute="height" id="gjd-ob-xay"/>
                             <constraint firstItem="Goj-Bj-f9I" firstAttribute="height" secondItem="ZSg-Xl-agL" secondAttribute="height" id="hf2-Ip-OR8"/>
                             <constraint firstItem="HCj-Oc-fo7" firstAttribute="height" secondItem="8Aa-yu-Tb7" secondAttribute="height" id="lLU-gV-LEW"/>
                             <constraint firstItem="HCj-Oc-fo7" firstAttribute="leading" secondItem="F0N-dc-EKu" secondAttribute="leading" constant="5" id="pth-dy-QRx"/>
-                            <constraint firstItem="HCj-Oc-fo7" firstAttribute="top" secondItem="tpg-BF-Kgf" secondAttribute="bottom" constant="-5" id="syy-Me-OVI"/>
                             <constraint firstItem="8Aa-yu-Tb7" firstAttribute="leading" secondItem="Goj-Bj-f9I" secondAttribute="leading" id="yJV-Hi-bcc"/>
                             <constraint firstItem="Goj-Bj-f9I" firstAttribute="width" secondItem="PXU-SE-Lqb" secondAttribute="width" id="zBB-xl-2Zx"/>
                             <constraint firstItem="ZSg-Xl-agL" firstAttribute="top" secondItem="HCj-Oc-fo7" secondAttribute="bottom" constant="8" id="zaa-zX-QKL"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleId" value="menuView"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyA-RW-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,7 +382,6 @@
     </scenes>
     <resources>
         <image name="Home" width="26" height="26"/>
-        <image name="PuzzleTitleBackground" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
