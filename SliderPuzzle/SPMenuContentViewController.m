@@ -8,6 +8,7 @@
 
 #import "SPMenuContentViewController.h"
 #import <RESideMenu/RESideMenu.h>
+#import <Instabug/Instabug.h>
 
 @interface SPMenuContentViewController ()
 
@@ -53,7 +54,7 @@
 
 - (IBAction)showUserVoice:(id)sender
 {
-
+    [Instabug invoke];
 }
 
 - (void)presentVC:(NSString*)storyBoardId
