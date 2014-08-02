@@ -2,8 +2,23 @@ view * {
     font-family: "Henny Penny";
 }
 
-#gameBoardSuperView button {
+.normalShadow {
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5)
+}
 
+#timerLabel {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+#gameBoardSuperView {
+//  background-image: url(puzzlebackgroundblur.png);
+}
+
+#boardContainer {
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #FF333;
 }
 
 #titleButton {

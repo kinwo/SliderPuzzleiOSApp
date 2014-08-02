@@ -18,7 +18,7 @@ static NSInteger const PuzzleBoardFrameY = 0;
 
 static NSString* const SourceImage = @"Puzzle";
 static NSInteger const spacerIndex = 0;
-static NSInteger const NumSourceImage = 3;
+static NSInteger const NumSourceImage = 8;
 
 static CGFloat StepMoveFactor = 8;
 static CGFloat MotionDetectionSensitivity = 0.13;

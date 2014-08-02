@@ -2,5 +2,5 @@ platform :ios ,'7.0'
 
 pod 'CocoaLumberjack', '~>1.6.4'
 pod 'SIAlertView', '~> 1.3'
-pod 'RQShineLabel', '~> 0.1'
 pod 'RESideMenu', '~> 4.0'
+pod 'BFPaperButton', '~> 1.2'

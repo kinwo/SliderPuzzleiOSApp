@@ -12,6 +12,7 @@
 #import "UIImage+ResizeImage.h"
 #import "UIImage+Color.h"
 #import "NSMutableArray+ScramblePosition.h"
+#import <RESideMenu/RESideMenu.h>
 
 #import "SPTile.h"
 #import "SPTilesMatrix.h"
@@ -25,6 +26,7 @@
 #import <PixateFreestyle/PixateFreestyle.h>
 #import "SPGestureDelegate.h"
 #import "SKTAudio.h"
+#import "CALayer+Additions.h"
 
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -35,7 +37,11 @@
 @property (nonatomic, strong) IBOutlet SPGameBoardModelContainer *model;
 @property (nonatomic, strong) IBOutlet SPTileAnimationIntention *animationIntent;
 @property (nonatomic, strong) IBOutlet SPShuffleIntention *shuffleIntent;
+@property (weak, nonatomic) IBOutlet UILabel *levelTitle;
+@property (weak, nonatomic) IBOutlet UILabel *timerTitle;
 
+@property (atomic, assign) NSInteger secondsAccum;
+@property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger currentPuzzleSourceImageIndex;
 
 @end
@@ -61,6 +67,8 @@
     [self displaySliceImagesFor:[UIImage imageNamed:initialSourceImage]];
     
     [self playBackgroundMusic];
+
+    [self startTimer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -134,6 +142,10 @@
     
     self.puzzleBoardView = boardView;
     [self.puzzleBoardContainer addSubview:boardView];
+    
+    // update level title
+    self.levelTitle.text = [NSString stringWithFormat:@"Level %ld", self.currentPuzzleSourceImageIndex + 1];
+    
 }
 
 - (SPTile*)createTile:(UIImage*)sliceImage tileX:(NSInteger)xPos tileY:(NSInteger)yPos
@@ -152,9 +164,38 @@
     return tile;
 }
 
+#pragma mark Timer
+- (void)updateCountdown {
+    NSInteger hours, minutes, seconds;
+    
+    self.secondsAccum++;
+    hours = self.secondsAccum / 3600;
+    minutes = (self.secondsAccum % 3600) / 60;
+    seconds = (self.secondsAccum % 3600) % 60;
+    self.timerTitle.text = [NSString stringWithFormat:@"%02ld %02ld %02ld", (long)hours, (long)minutes, (long)seconds];
+}
+
+- (void)startTimer
+{
+    self.secondsAccum = 0;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];
+}
+
+- (void)stopTimer
+{
+    [self.timer invalidate];
+}
+
+- (void)resetTimer
+{
+    [self stopTimer];
+    [self startTimer];
+}
+
 #pragma mark Music
 - (void)playBackgroundMusic
 {
+    [[SKTAudio sharedInstance] stopSoundEffect];
     [[SKTAudio sharedInstance] playBackgroundMusic:@"Retro Game Music.mp3"];
 }
 
@@ -173,7 +214,9 @@
             return;
         }
     }
-    
+
+    [self stopTimer];
+
     // ALL GOOD ! Play success music
     [self playAllMatchesMusic];
     
@@ -211,91 +254,9 @@
     self.puzzleBoardView.hidden = isShowOriginalImage;
 }
 
-- (IBAction)backToHome:(id)sender
+- (IBAction)showMenu:(id)sender
 {
-    [self playButtonPressed];
-    SPMultiGameHomeViewController *homeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
-    [self presentViewController:homeVC animated:YES completion:nil];
-}
-
-
-#pragma mark Game Center integration
-- (IBAction)forfeitGame:(id)sender
-{
-    if (![self isGameCenterMatch]) {
-        return;
-    }
-    
-    if ([self isCurrentPlayer]) {
-        GKTurnBasedParticipant *nextParticipant = [self nextParticipant];
-        
-        if(self.match.currentParticipant == [self.match.participants objectAtIndex:0]) {
-            nextParticipant = [[self.match participants] lastObject];
-        } else {
-            nextParticipant = [[self.match participants] objectAtIndex:0];
-        }
-        
-        [self.match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipants:@[nextParticipant] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
-            if(error) {
-                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
-            }
-            
-        }];
-
-    } else {
-        [self.match participantQuitOutOfTurnWithOutcome:GKTurnBasedMatchOutcomeQuit withCompletionHandler:^(NSError *error) {
-             if(error) {
-                 NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
-             }
-         }];
-    }
-    
-    [self backToHome:self];
-
-}
-
-- (GKTurnBasedParticipant*)nextParticipant
-{
-    NSUInteger currentIndex = [self.match.participants
-                               indexOfObject:self.match.currentParticipant];
-    GKTurnBasedParticipant *nextParticipant = [self.match.participants objectAtIndex:
-                                               ((currentIndex + 1) % [self.match.participants count ])];
-    return nextParticipant;
-}
-
-- (IBAction)nextTurn:(id)sender
-{
-    [self.match endTurnWithNextParticipants:@[[self nextParticipant]] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
-         if(error) {
-             NSLog(@"An error occurred updating turn: %@", [error localizedDescription]);
-         }
-         
-         [self backToHome:self];
-     }];
-}
-
-- (BOOL)isCurrentPlayer
-{
-    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
-    return [self.match.currentParticipant.playerID isEqualToString:localPlayer.playerID];
-}
-
-- (BOOL)isGameCenterMatch
-{
-    return self.match != nil;
-}
-
-# pragma mark UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    [self displaySliceImagesFor:chosenImage];
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self.sideMenuViewController presentLeftMenuViewController];
 }
 
 #pragma mark Gesture handler
@@ -375,6 +336,8 @@
     // make sure original image is hidden
     self.originalView.hidden = YES;
     self.puzzleBoardView.hidden = NO;
+    [self resetTimer];
+    [self playBackgroundMusic];
     
     if (nextSourceImageIndex < 0) {
         nextSourceImageIndex = NumSourceImage-1;
@@ -399,5 +362,80 @@
     
 }
 
+#pragma mark Game Center integration
+- (IBAction)forfeitGame:(id)sender
+{
+    if (![self isGameCenterMatch]) {
+        return;
+    }
+    
+    if ([self isCurrentPlayer]) {
+        GKTurnBasedParticipant *nextParticipant = [self nextParticipant];
+        
+        if(self.match.currentParticipant == [self.match.participants objectAtIndex:0]) {
+            nextParticipant = [[self.match participants] lastObject];
+        } else {
+            nextParticipant = [[self.match participants] objectAtIndex:0];
+        }
+        
+        [self.match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipants:@[nextParticipant] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
+            if(error) {
+                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
+            }
+            
+        }];
+        
+    } else {
+        [self.match participantQuitOutOfTurnWithOutcome:GKTurnBasedMatchOutcomeQuit withCompletionHandler:^(NSError *error) {
+            if(error) {
+                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
+            }
+        }];
+    }
+    
+}
+
+- (GKTurnBasedParticipant*)nextParticipant
+{
+    NSUInteger currentIndex = [self.match.participants
+                               indexOfObject:self.match.currentParticipant];
+    GKTurnBasedParticipant *nextParticipant = [self.match.participants objectAtIndex:
+                                               ((currentIndex + 1) % [self.match.participants count ])];
+    return nextParticipant;
+}
+
+- (IBAction)nextTurn:(id)sender
+{
+    [self.match endTurnWithNextParticipants:@[[self nextParticipant]] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
+        if(error) {
+            NSLog(@"An error occurred updating turn: %@", [error localizedDescription]);
+        }
+        
+    }];
+}
+
+- (BOOL)isCurrentPlayer
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    return [self.match.currentParticipant.playerID isEqualToString:localPlayer.playerID];
+}
+
+- (BOOL)isGameCenterMatch
+{
+    return self.match != nil;
+}
+
+# pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    [self displaySliceImagesFor:chosenImage];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end

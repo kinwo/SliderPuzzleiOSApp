@@ -45,5 +45,9 @@
     [self.soundEffectPlayer play];
 }
 
+- (void)stopSoundEffect
+{
+    [self.soundEffectPlayer stop];
+}
 
 @end

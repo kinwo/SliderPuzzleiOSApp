@@ -16,5 +16,6 @@
 - (void)playBackgroundMusic:(NSString *)filename;
 - (void)pauseBackgroundMusic;
 - (void)playSoundEffect:(NSString*)filename;
+- (void)stopSoundEffect;
 
 @end
