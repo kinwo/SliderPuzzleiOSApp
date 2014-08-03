@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface SPMenuContentViewController : UIViewController
+@interface SPMenuContentViewController : GAITrackedViewController
 
 @end

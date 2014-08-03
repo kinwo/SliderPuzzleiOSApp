@@ -7,6 +7,7 @@ PODS:
   - CocoaLumberjack/Core (1.6.5.1)
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
+  - MYBlurIntroductionView (1.0.3)
   - RESideMenu (4.0.5)
   - SIAlertView (1.3)
   - UIColor+BFPaperColors (1.1)
@@ -14,12 +15,14 @@ PODS:
 DEPENDENCIES:
   - BFPaperButton (~> 1.2)
   - CocoaLumberjack (~> 1.6.4)
+  - MYBlurIntroductionView (~> 1.0)
   - RESideMenu (~> 4.0)
   - SIAlertView (~> 1.3)
 
 SPEC CHECKSUMS:
   BFPaperButton: 8fb7d157a72a36c9595e40e3831288253b3eae30
   CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  MYBlurIntroductionView: 6caf60805eaa555538aba9e2615820fd6f07cd23
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
   SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
   UIColor+BFPaperColors: 1245016a9cf4f2c1c7c03c90d40869dab5bebf4a

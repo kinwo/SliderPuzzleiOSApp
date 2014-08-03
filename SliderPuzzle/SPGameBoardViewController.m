@@ -26,6 +26,9 @@
 #import "SPGestureDelegate.h"
 #import "SKTAudio.h"
 #import "CALayer+Additions.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "UIViewController+Analytics.h"
 
 @interface SPGameBoardViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -63,6 +66,9 @@
     
     // display slice images for the resized image
     NSString *initialSourceImage = [NSString stringWithFormat:@"%@%ld", SourceImage, (long)self.currentPuzzleSourceImageIndex];
+    
+    [self logWithCategory:@"ui_action" action:@"show_puzzle" label:[NSString stringWithFormat:@"image-%ld", (long)self.currentPuzzleSourceImageIndex]];
+    
     [self displaySliceImagesFor:[UIImage imageNamed:initialSourceImage]];
     
     [self playBackgroundMusic];
@@ -72,6 +78,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.screenName = @"Main Game Board View";
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -341,6 +349,9 @@
     }
     
     self.currentPuzzleSourceImageIndex = nextSourceImageIndex;
+    
+    [self logWithCategory:@"ui_action" action:@"show_puzzle" label:[NSString stringWithFormat:@"image-%ld", (long)self.currentPuzzleSourceImageIndex]];
+    
     NSString *sourceImage = [NSString stringWithFormat:@"%@%ld", SourceImage, (long)nextSourceImageIndex];
     
     [self cleanupTiles];

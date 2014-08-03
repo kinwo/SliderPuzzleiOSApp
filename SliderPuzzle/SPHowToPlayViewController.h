@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface SPHowToPlayViewController : UIViewController
+@interface SPHowToPlayViewController : GAITrackedViewController
 
 @end

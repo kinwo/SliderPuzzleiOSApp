@@ -12,6 +12,7 @@
 #import <BFPaperButton/BFPaperButton.h>
 #import "SPConstants.h"
 #import "SKTAudio.h"
+#import "UIViewController+Analytics.h"
 
 @interface SPGameSettingsViewController ()
 
@@ -45,6 +46,12 @@
     self.gameDifficulty.selectedSegmentIndex = difficulty;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.screenName = @"Game Settings View";
+}
+
 #pragma mark IBActions
 - (IBAction)showMenu:(id)sender
 {
@@ -57,6 +64,13 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:self.soundOffButton.selected forKey:USER_PREF_SOUNDOFF];
     [userDefaults synchronize];
+    
+    NSString *uiAction = @"on";
+    if (self.soundOffButton.selected) {
+        uiAction = @"off";
+    }
+    
+    [self logWithCategory:@"user_preference" action:uiAction label:@"sound_volume"];
     
     if (self.soundOffButton.selected) {
         [[SKTAudio sharedInstance] pauseBackgroundMusic];
@@ -71,5 +85,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:self.gameDifficulty.selectedSegmentIndex forKey:USER_PREF_GAMEDIFFICULTY];
     [userDefaults synchronize];
+    
+    [self logWithCategory:@"user_preference" action:@"difficulty" label:[[NSNumber numberWithInteger:self.gameDifficulty.selectedSegmentIndex] stringValue]];
 }
 @end

@@ -10,6 +10,7 @@
 #import "TestFlight.h"
 #import "SPConstants.h"
 #import <Instabug/Instabug.h>
+#import "GAI.h"
 
 @implementation SPAppDelegate
 
@@ -17,14 +18,31 @@
 {
     // Override point for customization after application launch.
     
-    [TestFlight takeOff:@"36f82601-5c77-46cc-877a-f42659eb685c"];
+    [TestFlight takeOff:TESTFLIGHT_ID];
     
     [self initializeInstabug];
+    
+    [self initializeGA];
     
     // status bar
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     return YES;
+}
+
+- (void)initializeGA
+{
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = NO;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 60;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelWarning];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:GA_TRACKING_ID];
 }
 
 - (void)initializeInstabug

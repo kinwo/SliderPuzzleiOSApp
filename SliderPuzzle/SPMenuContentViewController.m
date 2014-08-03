@@ -31,6 +31,12 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.screenName = @"Menu Content View";
+}
+
 #pragma mark IBActions
 - (IBAction)showGameBoard:(id)sender
 {

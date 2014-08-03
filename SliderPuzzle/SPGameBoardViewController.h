@@ -10,10 +10,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
 @import GameKit;
 
-@interface SPGameBoardViewController : UIViewController
+@interface SPGameBoardViewController : GAITrackedViewController
 
 @property(nonatomic, strong) GKTurnBasedMatch *match;
 @property(nonatomic, strong) NSMutableDictionary *gameDictionary;

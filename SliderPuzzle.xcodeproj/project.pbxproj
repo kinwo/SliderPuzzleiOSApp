@@ -19,6 +19,10 @@
 		BA2E6124198D21DD0019DAAF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */; };
 		BA2E612C198D227B0019DAAF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E6126198D227B0019DAAF /* libTestFlight.a */; };
 		BA2E612F198D22C10019DAAF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBDF8C18868CA70070CD24 /* libz.dylib */; };
+		BA77EAE8198DF01500DBD014 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA77EAE7198DF01500DBD014 /* libGoogleAnalyticsServices.a */; };
+		BA77EAEA198DF03C00DBD014 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA77EAE9198DF03C00DBD014 /* CoreData.framework */; };
+		BA77EAED198DF32F00DBD014 /* UIViewController+Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */; };
+		BA77EAEF198DF6BA00DBD014 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA77EAEE198DF6BA00DBD014 /* libsqlite3.dylib */; };
 		BA8F6781198CC4C1001BC97D /* SPMenuContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6780198CC4C1001BC97D /* SPMenuContentViewController.m */; };
 		BA8F6784198CC678001BC97D /* SPGameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6783198CC678001BC97D /* SPGameSettingsViewController.m */; };
 		BA8F6787198CC6D6001BC97D /* SPPhotosCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */; };
@@ -93,6 +97,20 @@
 		BA2E6129198D227B0019DAAF /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		BA2E612A198D227B0019DAAF /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		BA2E612B198D227B0019DAAF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		BA77EADE198DF01500DBD014 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		BA77EADF198DF01500DBD014 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		BA77EAE0198DF01500DBD014 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		BA77EAE1198DF01500DBD014 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		BA77EAE2198DF01500DBD014 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		BA77EAE3198DF01500DBD014 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		BA77EAE4198DF01500DBD014 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		BA77EAE5198DF01500DBD014 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		BA77EAE6198DF01500DBD014 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		BA77EAE7198DF01500DBD014 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		BA77EAE9198DF03C00DBD014 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BA77EAEB198DF32F00DBD014 /* UIViewController+Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Analytics.h"; sourceTree = "<group>"; };
+		BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Analytics.m"; sourceTree = "<group>"; };
+		BA77EAEE198DF6BA00DBD014 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BA78393B18B83FCE00434653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		BA78393D18B8580300434653 /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
 		BA8F677F198CC4C1001BC97D /* SPMenuContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuContentViewController.h; sourceTree = "<group>"; };
@@ -190,7 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4AB03E5B45C4743B3C4C3E3 /* libPods.a in Frameworks */,
+				BAC6FF2118AF745B007BCF62 /* AdSupport.framework in Frameworks */,
+				BA77EAEA198DF03C00DBD014 /* CoreData.framework in Frameworks */,
 				BA2A29BD198D24B500365377 /* CoreFoundation.framework in Frameworks */,
 				BA2A29BC198D24A500365377 /* GLKit.framework in Frameworks */,
 				BAE154EA198D272900A0DA56 /* Instabug.framework in Frameworks */,
@@ -200,8 +219,6 @@
 				BA2A29B9198D247200365377 /* CoreTelephony.framework in Frameworks */,
 				BA2A29B8198D246700365377 /* MobileCoreServices.framework in Frameworks */,
 				BA2A29B7198D245E00365377 /* CoreMotion.framework in Frameworks */,
-				BA2A29B6198D23CD00365377 /* libc++.dylib in Frameworks */,
-				BAC6FF2118AF745B007BCF62 /* AdSupport.framework in Frameworks */,
 				BA8F6794198D1CA9001BC97D /* AVFoundation.framework in Frameworks */,
 				BA8F6796198D1CB5001BC97D /* AudioToolbox.framework in Frameworks */,
 				BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */,
@@ -212,6 +229,10 @@
 				BA99095A18BA0B4A00CFBE3E /* PixateFreestyle.framework in Frameworks */,
 				BAC6FF1F18AF744F007BCF62 /* QuartzCore.framework in Frameworks */,
 				BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */,
+				BA77EAEF198DF6BA00DBD014 /* libsqlite3.dylib in Frameworks */,
+				C4AB03E5B45C4743B3C4C3E3 /* libPods.a in Frameworks */,
+				BA77EAE8198DF01500DBD014 /* libGoogleAnalyticsServices.a in Frameworks */,
+				BA2A29B6198D23CD00365377 /* libc++.dylib in Frameworks */,
 				BA2E612C198D227B0019DAAF /* libTestFlight.a in Frameworks */,
 				BA2E612F198D22C10019DAAF /* libz.dylib in Frameworks */,
 			);
@@ -241,6 +262,23 @@
 				BA2E612B198D227B0019DAAF /* TestFlight.h */,
 			);
 			path = TestFlightSDK3.0.0;
+			sourceTree = "<group>";
+		};
+		BA77EADD198DF01500DBD014 /* GoogleAnalyticsV3.09 */ = {
+			isa = PBXGroup;
+			children = (
+				BA77EADE198DF01500DBD014 /* GAI.h */,
+				BA77EADF198DF01500DBD014 /* GAIDictionaryBuilder.h */,
+				BA77EAE0198DF01500DBD014 /* GAIEcommerceProduct.h */,
+				BA77EAE1198DF01500DBD014 /* GAIEcommerceProductAction.h */,
+				BA77EAE2198DF01500DBD014 /* GAIEcommercePromotion.h */,
+				BA77EAE3198DF01500DBD014 /* GAIFields.h */,
+				BA77EAE4198DF01500DBD014 /* GAILogger.h */,
+				BA77EAE5198DF01500DBD014 /* GAITrackedViewController.h */,
+				BA77EAE6198DF01500DBD014 /* GAITracker.h */,
+				BA77EAE7198DF01500DBD014 /* libGoogleAnalyticsServices.a */,
+			);
+			path = GoogleAnalyticsV3.09;
 			sourceTree = "<group>";
 		};
 		BA8F6776198C7CCF001BC97D /* Game Center */ = {
@@ -323,6 +361,7 @@
 		BABBDF8718868C1D0070CD24 /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				BA77EADD198DF01500DBD014 /* GoogleAnalyticsV3.09 */,
 				BAE154E7198D272900A0DA56 /* Instabug.bundle */,
 				BAE154E8198D272900A0DA56 /* Instabug.framework */,
 				BA2E6125198D227B0019DAAF /* TestFlightSDK3.0.0 */,
@@ -357,6 +396,8 @@
 		BAF63B9A187EA2AF00D247D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA77EAEE198DF6BA00DBD014 /* libsqlite3.dylib */,
+				BA77EAE9198DF03C00DBD014 /* CoreData.framework */,
 				BA8F679F198D1D21001BC97D /* CoreFoundation.framework */,
 				BA8F679D198D1D08001BC97D /* GLKit.framework */,
 				BA8F679B198D1CF7001BC97D /* OpenGLES.framework */,
@@ -415,6 +456,8 @@
 				BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */,
 				BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */,
 				BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */,
+				BA77EAEB198DF32F00DBD014 /* UIViewController+Analytics.h */,
+				BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */,
 				BAA3C7771882370C0053D42B /* README.md */,
 				BAF63BB3187EA2AF00D247D2 /* Images.xcassets */,
 				BAF63BA2187EA2AF00D247D2 /* Supporting Files */,
@@ -634,6 +677,7 @@
 				BA8F678A198CC733001BC97D /* SPHowToPlayViewController.m in Sources */,
 				BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */,
 				BAAD58B5198A464800C74BFB /* SPRESideMenuViewController.m in Sources */,
+				BA77EAED198DF32F00DBD014 /* UIViewController+Analytics.m in Sources */,
 				BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */,
 				BAAD58A7198A276100C74BFB /* CALayer+Additions.m in Sources */,
 				BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */,
@@ -796,6 +840,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyLibs/TestFlightSDK3.0.0",
+					"$(PROJECT_DIR)/ThirdPartyLibs/GoogleAnalyticsV3.09",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -832,6 +877,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyLibs/TestFlightSDK3.0.0",
+					"$(PROJECT_DIR)/ThirdPartyLibs/GoogleAnalyticsV3.09",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

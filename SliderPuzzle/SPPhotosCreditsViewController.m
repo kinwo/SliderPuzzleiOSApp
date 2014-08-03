@@ -31,6 +31,12 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.screenName = @"Photos Credits View";
+}
+
 #pragma mark IBActions
 - (IBAction)showMenu:(id)sender
 {

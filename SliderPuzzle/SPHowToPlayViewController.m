@@ -31,6 +31,12 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.screenName = @"How To Play View";
+}
+
 #pragma mark IBActions
 - (IBAction)showMenu:(id)sender
 {

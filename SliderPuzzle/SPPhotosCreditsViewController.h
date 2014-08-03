@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface SPPhotosCreditsViewController : UIViewController
+@interface SPPhotosCreditsViewController : GAITrackedViewController
 
 @end

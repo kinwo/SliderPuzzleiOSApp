@@ -11,6 +11,9 @@
 
 #define CORE_MOTION_UPDATE_INTERVAL (1.0f / 10.0f)
 
+static NSString* const GA_TRACKING_ID = @"UA-39157126-9";
+static NSString* const TESTFLIGHT_ID = @"36f82601-5c77-46cc-877a-f42659eb685c";
+
 static NSInteger const NumRows = 3;
 static NSInteger const NumColumns = 3;
 static NSInteger const PuzzleBoardFrameX = 0;
