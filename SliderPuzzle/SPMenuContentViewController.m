@@ -60,7 +60,7 @@
 - (void)presentVC:(NSString*)storyBoardId
 {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
-    if (self.sideMenuViewController.contentViewController.class != vc.class) {
+    if (vc && self.sideMenuViewController.contentViewController.class != vc.class) {
         [self.sideMenuViewController setContentViewController:vc animated:YES];
     }
     [self.sideMenuViewController hideMenuViewController];

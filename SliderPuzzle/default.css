@@ -1,4 +1,4 @@
-view * {
+.topView * {
     font-family: "Henny Penny";
 }
 
@@ -11,6 +11,10 @@ view * {
   font-size: 28px;
 }
 
+.smallText {
+  font-size: 12px;
+}
+
 #timerLabel {
   font-weight: bold;
   font-size: 28px;
@@ -20,8 +24,12 @@ view * {
   background-image: url(puzzlebackgroundblur.png);
 }
 
-#gameBoardSuperView {
-    //background-image: url(puzzlebackgroundblur.png);
+#menuView * {
+  font-family: "Henny Penny";
+}
+
+#gameBoardSuperView * {
+  font-family: "Henny Penny";
 }
 
 #boardContainer {

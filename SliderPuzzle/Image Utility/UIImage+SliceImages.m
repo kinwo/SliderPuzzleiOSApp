@@ -38,8 +38,13 @@
 - (UIImage*)createSliceImage:(UIImage*)srcImage originX:(CGFloat)xPos originY:(CGFloat)yPos width:(CGFloat)sliceWidth height:(CGFloat)sliceHeight
 {
     CGRect sliceRect = CGRectMake(xPos, yPos, sliceWidth, sliceHeight);
-    CGImageRef imageRef = CGImageCreateWithImageInRect([srcImage CGImage], sliceRect);
-    return [[UIImage alloc] initWithCGImage:imageRef];
+    CGImageRef srcImageRef = [srcImage CGImage];
+    CGImageRef imageRef = CGImageCreateWithImageInRect(srcImageRef, sliceRect);
+
+    UIImage *newImage = [[UIImage alloc] initWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return newImage;
 }
 
 @end

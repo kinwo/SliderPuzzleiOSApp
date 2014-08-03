@@ -8,6 +8,7 @@
 
 #import "SPAppDelegate.h"
 #import "TestFlight.h"
+#import "SPConstants.h"
 #import <Instabug/Instabug.h>
 
 @implementation SPAppDelegate
@@ -28,7 +29,7 @@
 
 - (void)initializeInstabug
 {
-    [Instabug startWithToken:@"ac74ae75d26571b645acdf09b58a292a" captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventShake];
+    [Instabug startWithToken:@"ac74ae75d26571b645acdf09b58a292a" captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventNone];
 
     [Instabug setButtonsFontColor:[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1.0]];
     [Instabug setButtonsColor:[UIColor colorWithRed:(56/255.0) green:(55/255.0) blue:(55/255.0) alpha:1.0]];

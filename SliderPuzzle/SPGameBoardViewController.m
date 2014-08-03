@@ -11,7 +11,6 @@
 #import "UIImage+SliceImages.h"
 #import "UIImage+ResizeImage.h"
 #import "UIImage+Color.h"
-#import "NSMutableArray+ScramblePosition.h"
 #import <RESideMenu/RESideMenu.h>
 
 #import "SPTile.h"
@@ -82,6 +81,7 @@
 
 - (void)initCommon
 {
+    self.model.tilesMatrix = nil;
     self.model.tilesMatrix = [[SPTilesMatrix alloc] initWithNumColumns:NumColumns withNumRows:NumRows];
     self.model.lastUpdateTime = [NSDate date];
     self.model.accumDistance = 0;
@@ -138,7 +138,7 @@
     }
     
     // shuffle tilesMatrix
-    [self.shuffleIntent shuffle];
+    [self.shuffleIntent shuffle:self.currentPuzzleSourceImageIndex];
     
     self.puzzleBoardView = boardView;
     [self.puzzleBoardContainer addSubview:boardView];
@@ -196,13 +196,13 @@
 - (void)playBackgroundMusic
 {
     [[SKTAudio sharedInstance] stopSoundEffect];
-    [[SKTAudio sharedInstance] playBackgroundMusic:@"Retro Game Music.mp3"];
+    [[SKTAudio sharedInstance] playBackgroundMusic:BACKGROUND_MUSIC];
 }
 
 - (void)playAllMatchesMusic
 {
     [[SKTAudio sharedInstance] pauseBackgroundMusic];
-    [[SKTAudio sharedInstance] playSoundEffect:@"8 bit level cleared and lost.mp3"];
+    [[SKTAudio sharedInstance] playSoundEffect:SUCCESS_MUSIC];
 }
 
 #pragma mark Game Rules
@@ -234,11 +234,6 @@
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-}
-
-- (IBAction)shuffleTiles:(id)sender
-{
-    [self.shuffleIntent shuffle];
 }
 
 - (IBAction)toggleOriginalImage:(UIGestureRecognizer*)gestureRecognizer
@@ -370,20 +365,20 @@
     }
     
     if ([self isCurrentPlayer]) {
-        GKTurnBasedParticipant *nextParticipant = [self nextParticipant];
-        
-        if(self.match.currentParticipant == [self.match.participants objectAtIndex:0]) {
-            nextParticipant = [[self.match participants] lastObject];
-        } else {
-            nextParticipant = [[self.match participants] objectAtIndex:0];
-        }
-        
-        [self.match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipants:@[nextParticipant] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
-            if(error) {
-                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
-            }
-            
-        }];
+//        GKTurnBasedParticipant *nextParticipant = [self nextParticipant];
+//        
+//        if(self.match.currentParticipant == [self.match.participants objectAtIndex:0]) {
+//            nextParticipant = [[self.match participants] lastObject];
+//        } else {
+//            nextParticipant = [[self.match participants] objectAtIndex:0];
+//        }
+//        
+//        [self.match participantQuitInTurnWithOutcome:GKTurnBasedMatchOutcomeQuit nextParticipants:@[nextParticipant] turnTimeout:360000 matchData:self.match.matchData completionHandler:^(NSError *error) {
+//            if(error) {
+//                NSLog(@"An error occurred ending match: %@", [error localizedDescription]);
+//            }
+//            
+//        }];
         
     } else {
         [self.match participantQuitOutOfTurnWithOutcome:GKTurnBasedMatchOutcomeQuit withCompletionHandler:^(NSError *error) {

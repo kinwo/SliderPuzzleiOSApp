@@ -92,20 +92,6 @@
         }
         
         if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // X axis
-            float movetoX = rect.origin.x + (-xAcceleration * StepMoveFactor);
-            float maxX = rect.origin.x + (float)self.model.sliceWidth;
-            
-            if (movetoX < 0) {
-                movetoX = 0.01;
-            }
-            
-            if (movetoX > maxX) {
-                movetoX = maxX;
-            }
-            
             [self moveTileHorizontally:slideTile acceleration:xAcceleration];
         }
         
@@ -134,20 +120,6 @@
         }
         
         if (slideTile) {
-            CGRect rect = slideTile.frame;
-            
-            // Y axis
-            float movetoY = (rect.origin.y + rect.size.height) - (-yAcceleration * StepMoveFactor);
-            float maxY = (rect.origin.y + rect.size.height) + (float)self.model.sliceHeight;
-            
-            if (movetoY < 0) {
-                movetoY = 0.01;
-            }
-            
-            if (movetoY > maxY) {
-                movetoY = maxY;
-            }
-            
             [self moveTileVertically:slideTile acceleration:yAcceleration];
         }
     }

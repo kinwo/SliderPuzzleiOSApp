@@ -10,6 +10,6 @@
 
 @interface SPShuffleIntention : NSObject
 
-- (void)shuffle;
+- (void)shuffle:(NSInteger)level;
 
 @end

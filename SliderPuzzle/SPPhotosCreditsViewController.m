@@ -7,6 +7,7 @@
 //
 
 #import "SPPhotosCreditsViewController.h"
+#import <PixateFreestyle/PixateFreestyle.h>
 #import <RESideMenu/RESideMenu.h>
 
 @interface SPPhotosCreditsViewController ()

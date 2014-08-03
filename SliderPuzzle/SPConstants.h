@@ -20,6 +20,19 @@ static NSString* const SourceImage = @"Puzzle";
 static NSInteger const spacerIndex = 0;
 static NSInteger const NumSourceImage = 8;
 
+static NSString* const USER_PREF_SOUNDOFF = @"soundOff";
+static NSString* const USER_PREF_GAMEDIFFICULTY = @"gameDifficulty";
+
+static NSInteger const DEFAULT_GAMEDIFFICULTY = 0;
+static BOOL const DEFAULT_SOUNDOFF = FALSE;
+
+static NSInteger const SHUFFLE_EASY_NUMBER = 5;
+static NSInteger const SHUFFLE_MEDIUM_NUMBER = 100;
+static NSInteger const SHUFFLE_DIFFICULT_NUMBER = 1000;
+
+static NSString* const BACKGROUND_MUSIC = @"Retro Game Music.mp3";
+static NSString* const SUCCESS_MUSIC = @"8 bit level cleared and lost.mp3";
+
 static CGFloat StepMoveFactor = 8;
 static CGFloat MotionDetectionSensitivity = 0.13;
 static CGFloat TileSwitchOverTheshold = 20;

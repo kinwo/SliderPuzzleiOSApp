@@ -22,7 +22,7 @@ NS_ENUM(NSInteger, ShuffleMove)
 	RIGHT			= 4
 };
 
-static NSInteger const SHUFFLE_NUMBER = 5;
+
 
 @interface SPShuffleIntention()
 
@@ -34,11 +34,29 @@ static NSInteger const SHUFFLE_NUMBER = 5;
 @implementation SPShuffleIntention
 
 #pragma mark Shuffle moves
-- (void)shuffle
+- (void)shuffle:(NSInteger)level
 {
 	NSMutableArray *validMoves = [[NSMutableArray alloc] init];
+    
+    NSInteger difficulty = [[NSUserDefaults standardUserDefaults] integerForKey:USER_PREF_GAMEDIFFICULTY];
+    NSInteger shuffleNumber = 0;
+    switch (difficulty) {
+        case 0:
+            shuffleNumber = SHUFFLE_EASY_NUMBER;
+            break;
+        case 1:
+            shuffleNumber = SHUFFLE_MEDIUM_NUMBER;
+            break;
+        case 2:
+            shuffleNumber = SHUFFLE_DIFFICULT_NUMBER;
+            break;
+        default:
+            break;
+    }
 	
-	for (int i=0; i<SHUFFLE_NUMBER; i++) {
+    shuffleNumber += (level * 3);
+    
+	for (int i=0; i<shuffleNumber; i++) {
 		[validMoves removeAllObjects];
 		
 		// get all of the pieces that can move

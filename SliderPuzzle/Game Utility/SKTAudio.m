@@ -7,6 +7,7 @@
 //
 
 #import "SKTAudio.h"
+#import "SPConstants.h"
 
 @interface SKTAudio()
 @property (nonatomic) AVAudioPlayer * backgroundMusicPlayer;
@@ -23,6 +24,11 @@
 }
 
 - (void)playBackgroundMusic:(NSString *)filename {
+    BOOL soundOff = [[NSUserDefaults standardUserDefaults] boolForKey:USER_PREF_SOUNDOFF];
+    if (soundOff) return;
+    
+    if (self.backgroundMusicPlayer.playing) return;
+    
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:filename withExtension:nil];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];

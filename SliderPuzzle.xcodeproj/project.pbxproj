@@ -19,7 +19,6 @@
 		BA2E6124198D21DD0019DAAF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */; };
 		BA2E612C198D227B0019DAAF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E6126198D227B0019DAAF /* libTestFlight.a */; };
 		BA2E612F198D22C10019DAAF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BABBDF8C18868CA70070CD24 /* libz.dylib */; };
-		BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */; };
 		BA8F6781198CC4C1001BC97D /* SPMenuContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6780198CC4C1001BC97D /* SPMenuContentViewController.m */; };
 		BA8F6784198CC678001BC97D /* SPGameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6783198CC678001BC97D /* SPGameSettingsViewController.m */; };
 		BA8F6787198CC6D6001BC97D /* SPPhotosCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */; };
@@ -46,7 +45,6 @@
 		BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
-		BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */; };
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
 		BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */; };
 		BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE6236198499B7003A69B7 /* SPGestureDelegate.m */; };
@@ -95,8 +93,6 @@
 		BA2E6129198D227B0019DAAF /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		BA2E612A198D227B0019DAAF /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		BA2E612B198D227B0019DAAF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ProportionalFill.h"; sourceTree = "<group>"; };
-		BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ProportionalFill.m"; sourceTree = "<group>"; };
 		BA78393B18B83FCE00434653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		BA78393D18B8580300434653 /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
 		BA8F677F198CC4C1001BC97D /* SPMenuContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuContentViewController.h; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
-		BAB67C9B187FF9500013F331 /* NSMutableArray+ScramblePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ScramblePosition.h"; sourceTree = "<group>"; };
-		BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ScramblePosition.m"; sourceTree = "<group>"; };
 		BAB67C9E188004660013F331 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		BAB67C9F188004660013F331 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPuzzleBoard.h; sourceTree = "<group>"; };
@@ -249,15 +243,6 @@
 			path = TestFlightSDK3.0.0;
 			sourceTree = "<group>";
 		};
-		BA5B19C218B04297005DCBE8 /* MGImageUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				BA5B19C318B04297005DCBE8 /* UIImage+ProportionalFill.h */,
-				BA5B19C418B04297005DCBE8 /* UIImage+ProportionalFill.m */,
-			);
-			path = MGImageUtilities;
-			sourceTree = "<group>";
-		};
 		BA8F6776198C7CCF001BC97D /* Game Center */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,22 +320,12 @@
 			path = "UI Utility";
 			sourceTree = "<group>";
 		};
-		BAB67C9A187FF9430013F331 /* Array Utility */ = {
-			isa = PBXGroup;
-			children = (
-				BAB67C9B187FF9500013F331 /* NSMutableArray+ScramblePosition.h */,
-				BAB67C9C187FF9500013F331 /* NSMutableArray+ScramblePosition.m */,
-			);
-			path = "Array Utility";
-			sourceTree = "<group>";
-		};
 		BABBDF8718868C1D0070CD24 /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
 				BAE154E7198D272900A0DA56 /* Instabug.bundle */,
 				BAE154E8198D272900A0DA56 /* Instabug.framework */,
 				BA2E6125198D227B0019DAAF /* TestFlightSDK3.0.0 */,
-				BA5B19C218B04297005DCBE8 /* MGImageUtilities */,
 			);
 			path = ThirdPartyLibs;
 			sourceTree = "<group>";
@@ -417,7 +392,6 @@
 				BAA24C3D19566F76000792C6 /* Handler */,
 				BAB5CEA619160175002AF300 /* UI Utility */,
 				BAB5CE9C19160136002AF300 /* Game Utility */,
-				BAB67C9A187FF9430013F331 /* Array Utility */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
 				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
@@ -656,7 +630,6 @@
 				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
 				BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */,
-				BAB67C9D187FF9500013F331 /* NSMutableArray+ScramblePosition.m in Sources */,
 				BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */,
 				BA8F678A198CC733001BC97D /* SPHowToPlayViewController.m in Sources */,
 				BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */,
@@ -679,7 +652,6 @@
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
 				BA8F6787198CC6D6001BC97D /* SPPhotosCreditsViewController.m in Sources */,
 				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
-				BA5B19C518B04297005DCBE8 /* UIImage+ProportionalFill.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
