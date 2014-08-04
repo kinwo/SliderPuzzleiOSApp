@@ -7,7 +7,7 @@
         <!--Side Menu View Controller-->
         <scene sceneID="7Hr-ax-ZsJ">
             <objects>
-                <viewController id="Dlr-WN-7Zk" customClass="SPRESideMenuViewController" sceneMemberID="viewController">
+                <viewController id="Dlr-WN-7Zk" customClass="SPZRESideMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R7U-dO-IYH"/>
                         <viewControllerLayoutGuide type="bottom" id="7N1-mr-1CM"/>
@@ -25,7 +25,7 @@
         <!--Game Board View Controller - GameBoard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="contentViewController" title="GameBoard" extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="SPGameBoardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contentViewController" title="GameBoard" extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="SPZGameBoardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R6M-K6-Uor"/>
                         <viewControllerLayoutGuide type="bottom" id="FVZ-Az-uFM"/>
@@ -216,13 +216,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <customObject id="YYO-FY-ups" customClass="SPGameBoardModelContainer"/>
-                <customObject id="Hle-5U-aeM" customClass="SPTileAnimationIntention">
+                <customObject id="YYO-FY-ups" customClass="SPZGameBoardModelContainer"/>
+                <customObject id="Hle-5U-aeM" customClass="SPZTileAnimationIntention">
                     <connections>
                         <outlet property="model" destination="YYO-FY-ups" id="ERu-EA-wRh"/>
                     </connections>
                 </customObject>
-                <customObject id="j3q-bu-3fj" customClass="SPShuffleIntention">
+                <customObject id="j3q-bu-3fj" customClass="SPZShuffleIntention">
                     <connections>
                         <outlet property="animationIntent" destination="Hle-5U-aeM" id="hZ8-7C-KB4"/>
                         <outlet property="model" destination="YYO-FY-ups" id="hiD-r5-wyA"/>
@@ -239,7 +239,7 @@
         <!--Menu Content View Controller-->
         <scene sceneID="OyD-UL-Ak8">
             <objects>
-                <viewController storyboardIdentifier="leftMenuController" id="xKY-Y8-DCF" customClass="SPMenuContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenuController" id="xKY-Y8-DCF" customClass="SPZMenuContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jr3-Pn-AE9"/>
                         <viewControllerLayoutGuide type="bottom" id="dHq-y2-p9i"/>
@@ -361,7 +361,7 @@
         <!--Game Settings View Controller-->
         <scene sceneID="IDP-iJ-lq4">
             <objects>
-                <viewController storyboardIdentifier="gameSettingsVC" id="xNr-c8-XD5" customClass="SPGameSettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameSettingsVC" id="xNr-c8-XD5" customClass="SPZGameSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EYJ-PW-xC9"/>
                         <viewControllerLayoutGuide type="bottom" id="F5K-Jd-v2Z"/>
@@ -475,7 +475,7 @@
         <!--Photos Credits View Controller-->
         <scene sceneID="ndv-uo-IEi">
             <objects>
-                <viewController storyboardIdentifier="photosCreditsVC" id="6t1-co-rAi" customClass="SPPhotosCreditsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photosCreditsVC" id="6t1-co-rAi" customClass="SPZPhotosCreditsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8YT-1B-Toz"/>
                         <viewControllerLayoutGuide type="bottom" id="99L-E0-R3b"/>
@@ -543,7 +543,7 @@ http://picjumbo.com/</string>
         <!--How To Play View Controller-->
         <scene sceneID="8Mx-y8-VsQ">
             <objects>
-                <viewController storyboardIdentifier="howToPlayVC" id="1LL-sQ-HjH" customClass="SPHowToPlayViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="howToPlayVC" id="1LL-sQ-HjH" customClass="SPZHowToPlayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tvQ-F7-10j"/>
                         <viewControllerLayoutGuide type="bottom" id="XRV-VB-sur"/>
@@ -587,7 +587,7 @@ http://picjumbo.com/</string>
         <!--Multi Game Home View Controller-->
         <scene sceneID="cY8-BZ-iYS">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="qyp-Ok-79c" customClass="SPMultiGameHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="qyp-Ok-79c" customClass="SPZMultiGameHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mnq-Bq-VDD"/>
                         <viewControllerLayoutGuide type="bottom" id="y1l-1B-xwk"/>

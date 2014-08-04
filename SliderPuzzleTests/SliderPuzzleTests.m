@@ -10,7 +10,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "SPTile.h"
+#import "SPZTile.h"
 
 @interface SliderPuzzleTests : XCTestCase
 
@@ -32,11 +32,11 @@
 
 - (void)testSPTileHasXIntersect
 {
-    SPTile *tile1 = [[SPTile alloc] init];
+    SPZTile *tile1 = [[SPZTile alloc] init];
     tile1.xPos = 0;
     tile1.yPos = 0;
     
-    SPTile *tile2 = [[SPTile alloc] init];
+    SPZTile *tile2 = [[SPZTile alloc] init];
     tile2.xPos = 0;
     tile2.yPos = 2;
 
@@ -46,11 +46,11 @@
 
 - (void)testSPTileHasYIntersect
 {
-    SPTile *tile1 = [[SPTile alloc] init];
+    SPZTile *tile1 = [[SPZTile alloc] init];
     tile1.xPos = 0;
     tile1.yPos = 1;
     
-    SPTile *tile2 = [[SPTile alloc] init];
+    SPZTile *tile2 = [[SPZTile alloc] init];
     tile2.xPos = 2;
     tile2.yPos = 1;
     

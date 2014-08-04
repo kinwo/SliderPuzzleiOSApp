@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */; };
+		BA24058F1880BCF4009BDC5D /* SPZTilesMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24058E1880BCF4009BDC5D /* SPZTilesMatrix.m */; };
 		BA2A29B6198D23CD00365377 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8F6799198D1CE8001BC97D /* libc++.dylib */; };
 		BA2A29B7198D245E00365377 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78393B18B83FCE00434653 /* CoreMotion.framework */; };
 		BA2A29B8198D246700365377 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8F678F198D1C84001BC97D /* MobileCoreServices.framework */; };
@@ -23,35 +23,35 @@
 		BA77EAEA198DF03C00DBD014 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA77EAE9198DF03C00DBD014 /* CoreData.framework */; };
 		BA77EAED198DF32F00DBD014 /* UIViewController+Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */; };
 		BA77EAEF198DF6BA00DBD014 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA77EAEE198DF6BA00DBD014 /* libsqlite3.dylib */; };
-		BA8F6781198CC4C1001BC97D /* SPMenuContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6780198CC4C1001BC97D /* SPMenuContentViewController.m */; };
-		BA8F6784198CC678001BC97D /* SPGameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6783198CC678001BC97D /* SPGameSettingsViewController.m */; };
-		BA8F6787198CC6D6001BC97D /* SPPhotosCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */; };
-		BA8F678A198CC733001BC97D /* SPHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6789198CC733001BC97D /* SPHowToPlayViewController.m */; };
+		BA8F6781198CC4C1001BC97D /* SPZMenuContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6780198CC4C1001BC97D /* SPZMenuContentViewController.m */; };
+		BA8F6784198CC678001BC97D /* SPZGameSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6783198CC678001BC97D /* SPZGameSettingsViewController.m */; };
+		BA8F6787198CC6D6001BC97D /* SPZPhotosCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6786198CC6D6001BC97D /* SPZPhotosCreditsViewController.m */; };
+		BA8F678A198CC733001BC97D /* SPZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8F6789198CC733001BC97D /* SPZHowToPlayViewController.m */; };
 		BA8F6794198D1CA9001BC97D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8F6793198D1CA9001BC97D /* AVFoundation.framework */; };
 		BA8F6796198D1CB5001BC97D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8F6795198D1CB5001BC97D /* AudioToolbox.framework */; };
 		BA99095118BA061B00CFBE3E /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = BA99095018BA061B00CFBE3E /* default.css */; };
 		BA99095518BA081300CFBE3E /* HappyFox-Condensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = BA99095318BA07DB00CFBE3E /* HappyFox-Condensed.otf */; };
 		BA99095618BA081600CFBE3E /* HennyPenny-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA99095418BA07DB00CFBE3E /* HennyPenny-Regular.ttf */; };
 		BA99095A18BA0B4A00CFBE3E /* PixateFreestyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99095918BA0B4A00CFBE3E /* PixateFreestyle.framework */; };
-		BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */; };
-		BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */; };
-		BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */; };
-		BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */; };
-		BAAB8DC019148DC000042F0E /* SPMultiGameHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */; };
+		BAA24C4019566F76000792C6 /* SPZTileMotionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C3F19566F76000792C6 /* SPZTileMotionHandler.m */; };
+		BAA24C4419566F97000792C6 /* SPZGameBoardModelContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4319566F97000792C6 /* SPZGameBoardModelContainer.m */; };
+		BAA24C4719566FB5000792C6 /* SPZTileAnimationIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4619566FB5000792C6 /* SPZTileAnimationIntention.m */; };
+		BAA24C4A19568CBC000792C6 /* SPZShuffleIntention.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA24C4919568CBC000792C6 /* SPZShuffleIntention.m */; };
+		BAAB8DC019148DC000042F0E /* SPZMultiGameHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAB8DBF19148DC000042F0E /* SPZMultiGameHomeViewController.m */; };
 		BAABA42719891D37007A83E0 /* Retro Game Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAABA42619891D37007A83E0 /* Retro Game Music.mp3 */; };
 		BAABA4291989202A007A83E0 /* 8 bit level cleared and lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAABA4281989202A007A83E0 /* 8 bit level cleared and lost.mp3 */; };
 		BAAD58A7198A276100C74BFB /* CALayer+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAD58A6198A276100C74BFB /* CALayer+Additions.m */; };
 		BAAD58B2198A3B7B00C74BFB /* puzzlebackgroundblur.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAD58B1198A3B7B00C74BFB /* puzzlebackgroundblur.png */; };
-		BAAD58B5198A464800C74BFB /* SPRESideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAD58B4198A464800C74BFB /* SPRESideMenuViewController.m */; };
+		BAAD58B5198A464800C74BFB /* SPZRESideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAD58B4198A464800C74BFB /* SPZRESideMenuViewController.m */; };
 		BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CE9E19160136002AF300 /* GameKitHelper.m */; };
 		BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */; };
 		BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA219160136002AF300 /* SKTAudio.m */; };
-		BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */; };
+		BAB5CEA9191601C2002AF300 /* SPZAlertPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5CEA8191601C2002AF300 /* SPZAlertPresenter.m */; };
 		BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */; };
 		BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */; };
 		BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67C9F188004660013F331 /* UIImage+Color.m */; };
-		BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */; };
-		BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE6236198499B7003A69B7 /* SPGestureDelegate.m */; };
+		BAB67CA318801EE40013F331 /* SPZPuzzleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB67CA218801EE40013F331 /* SPZPuzzleBoard.m */; };
+		BABE6237198499B7003A69B7 /* SPZGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABE6236198499B7003A69B7 /* SPZGestureDelegate.m */; };
 		BAC6FF1918AF7437007BCF62 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */; };
 		BAC6FF1D18AF7446007BCF62 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1C18AF7446007BCF62 /* MapKit.framework */; };
 		BAC6FF1F18AF744F007BCF62 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF1E18AF744F007BCF62 /* QuartzCore.framework */; };
@@ -64,16 +64,16 @@
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
 		BAF63BA6187EA2AF00D247D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BA4187EA2AF00D247D2 /* InfoPlist.strings */; };
 		BAF63BA8187EA2AF00D247D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BA7187EA2AF00D247D2 /* main.m */; };
-		BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */; };
+		BAF63BAC187EA2AF00D247D2 /* SPZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BAB187EA2AF00D247D2 /* SPZAppDelegate.m */; };
 		BAF63BAF187EA2AF00D247D2 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */; };
-		BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */; };
+		BAF63BB2187EA2AF00D247D2 /* SPZGameBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BB1187EA2AF00D247D2 /* SPZGameBoardViewController.m */; };
 		BAF63BB4187EA2AF00D247D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BB3187EA2AF00D247D2 /* Images.xcassets */; };
 		BAF63BBB187EA2AF00D247D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63BBA187EA2AF00D247D2 /* XCTest.framework */; };
 		BAF63BBC187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63BBD187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
 		BAF63BC5187EA2AF00D247D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAF63BC3187EA2AF00D247D2 /* InfoPlist.strings */; };
 		BAF63BC7187EA2AF00D247D2 /* SliderPuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF63BC6187EA2AF00D247D2 /* SliderPuzzleTests.m */; };
-		BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF9DFA2187EA6120098D7B4 /* SPTile.m */; };
+		BAF9DFA3187EA6120098D7B4 /* SPZTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF9DFA2187EA6120098D7B4 /* SPZTile.m */; };
 		C4AB03E5B45C4743B3C4C3E3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E44D2F6A3DB345B4848494A7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +89,8 @@
 
 /* Begin PBXFileReference section */
 		490FEF45E58440E494FA125B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTilesMatrix.h; sourceTree = "<group>"; };
-		BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTilesMatrix.m; sourceTree = "<group>"; };
+		BA24058D1880BCF4009BDC5D /* SPZTilesMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZTilesMatrix.h; sourceTree = "<group>"; };
+		BA24058E1880BCF4009BDC5D /* SPZTilesMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZTilesMatrix.m; sourceTree = "<group>"; };
 		BA2E6126198D227B0019DAAF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		BA2E6127198D227B0019DAAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		BA2E6128198D227B0019DAAF /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -112,15 +112,14 @@
 		BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Analytics.m"; sourceTree = "<group>"; };
 		BA77EAEE198DF6BA00DBD014 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BA78393B18B83FCE00434653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		BA78393D18B8580300434653 /* SPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPConstants.h; sourceTree = "<group>"; };
-		BA8F677F198CC4C1001BC97D /* SPMenuContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMenuContentViewController.h; sourceTree = "<group>"; };
-		BA8F6780198CC4C1001BC97D /* SPMenuContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMenuContentViewController.m; sourceTree = "<group>"; };
-		BA8F6782198CC678001BC97D /* SPGameSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGameSettingsViewController.h; sourceTree = "<group>"; };
-		BA8F6783198CC678001BC97D /* SPGameSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGameSettingsViewController.m; sourceTree = "<group>"; };
-		BA8F6785198CC6D6001BC97D /* SPPhotosCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPhotosCreditsViewController.h; sourceTree = "<group>"; };
-		BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPhotosCreditsViewController.m; sourceTree = "<group>"; };
-		BA8F6788198CC733001BC97D /* SPHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHowToPlayViewController.h; sourceTree = "<group>"; };
-		BA8F6789198CC733001BC97D /* SPHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHowToPlayViewController.m; sourceTree = "<group>"; };
+		BA8F677F198CC4C1001BC97D /* SPZMenuContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZMenuContentViewController.h; sourceTree = "<group>"; };
+		BA8F6780198CC4C1001BC97D /* SPZMenuContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZMenuContentViewController.m; sourceTree = "<group>"; };
+		BA8F6782198CC678001BC97D /* SPZGameSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZGameSettingsViewController.h; sourceTree = "<group>"; };
+		BA8F6783198CC678001BC97D /* SPZGameSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZGameSettingsViewController.m; sourceTree = "<group>"; };
+		BA8F6785198CC6D6001BC97D /* SPZPhotosCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZPhotosCreditsViewController.h; sourceTree = "<group>"; };
+		BA8F6786198CC6D6001BC97D /* SPZPhotosCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZPhotosCreditsViewController.m; sourceTree = "<group>"; };
+		BA8F6788198CC733001BC97D /* SPZHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZHowToPlayViewController.h; sourceTree = "<group>"; };
+		BA8F6789198CC733001BC97D /* SPZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZHowToPlayViewController.m; sourceTree = "<group>"; };
 		BA8F678F198D1C84001BC97D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BA8F6791198D1C94001BC97D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BA8F6793198D1CA9001BC97D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -134,48 +133,49 @@
 		BA99095318BA07DB00CFBE3E /* HappyFox-Condensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HappyFox-Condensed.otf"; sourceTree = "<group>"; };
 		BA99095418BA07DB00CFBE3E /* HennyPenny-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HennyPenny-Regular.ttf"; sourceTree = "<group>"; };
 		BA99095918BA0B4A00CFBE3E /* PixateFreestyle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PixateFreestyle.framework; path = ThirdPartyLibs/PixateFreestyle.framework; sourceTree = "<group>"; };
-		BAA24C3E19566F76000792C6 /* SPTileMotionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTileMotionHandler.h; sourceTree = "<group>"; };
-		BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTileMotionHandler.m; sourceTree = "<group>"; };
-		BAA24C4219566F97000792C6 /* SPGameBoardModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGameBoardModelContainer.h; sourceTree = "<group>"; };
-		BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGameBoardModelContainer.m; sourceTree = "<group>"; };
-		BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTileAnimationIntention.h; sourceTree = "<group>"; };
-		BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTileAnimationIntention.m; sourceTree = "<group>"; };
-		BAA24C4819568CBC000792C6 /* SPShuffleIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPShuffleIntention.h; sourceTree = "<group>"; };
-		BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPShuffleIntention.m; sourceTree = "<group>"; };
+		BAA24C3E19566F76000792C6 /* SPZTileMotionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZTileMotionHandler.h; sourceTree = "<group>"; };
+		BAA24C3F19566F76000792C6 /* SPZTileMotionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZTileMotionHandler.m; sourceTree = "<group>"; };
+		BAA24C4219566F97000792C6 /* SPZGameBoardModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZGameBoardModelContainer.h; sourceTree = "<group>"; };
+		BAA24C4319566F97000792C6 /* SPZGameBoardModelContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZGameBoardModelContainer.m; sourceTree = "<group>"; };
+		BAA24C4519566FB5000792C6 /* SPZTileAnimationIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZTileAnimationIntention.h; sourceTree = "<group>"; };
+		BAA24C4619566FB5000792C6 /* SPZTileAnimationIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZTileAnimationIntention.m; sourceTree = "<group>"; };
+		BAA24C4819568CBC000792C6 /* SPZShuffleIntention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZShuffleIntention.h; sourceTree = "<group>"; };
+		BAA24C4919568CBC000792C6 /* SPZShuffleIntention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZShuffleIntention.m; sourceTree = "<group>"; };
 		BAA3C7771882370C0053D42B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BAAB8DBE19148DC000042F0E /* SPMultiGameHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPMultiGameHomeViewController.h; path = ../SPMultiGameHomeViewController.h; sourceTree = "<group>"; };
-		BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPMultiGameHomeViewController.m; path = ../SPMultiGameHomeViewController.m; sourceTree = "<group>"; };
+		BAAB8DBE19148DC000042F0E /* SPZMultiGameHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPZMultiGameHomeViewController.h; path = ../SPZMultiGameHomeViewController.h; sourceTree = "<group>"; };
+		BAAB8DBF19148DC000042F0E /* SPZMultiGameHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPZMultiGameHomeViewController.m; path = ../SPZMultiGameHomeViewController.m; sourceTree = "<group>"; };
 		BAABA42619891D37007A83E0 /* Retro Game Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Retro Game Music.mp3"; sourceTree = "<group>"; };
 		BAABA4281989202A007A83E0 /* 8 bit level cleared and lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8 bit level cleared and lost.mp3"; sourceTree = "<group>"; };
 		BAAD58A5198A276100C74BFB /* CALayer+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Additions.h"; sourceTree = "<group>"; };
 		BAAD58A6198A276100C74BFB /* CALayer+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Additions.m"; sourceTree = "<group>"; };
 		BAAD58B1198A3B7B00C74BFB /* puzzlebackgroundblur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puzzlebackgroundblur.png; sourceTree = "<group>"; };
-		BAAD58B3198A464800C74BFB /* SPRESideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRESideMenuViewController.h; sourceTree = "<group>"; };
-		BAAD58B4198A464800C74BFB /* SPRESideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRESideMenuViewController.m; sourceTree = "<group>"; };
+		BAAD58B3198A464800C74BFB /* SPZRESideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZRESideMenuViewController.h; sourceTree = "<group>"; };
+		BAAD58B4198A464800C74BFB /* SPZRESideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZRESideMenuViewController.m; sourceTree = "<group>"; };
 		BAB5CE9D19160136002AF300 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		BAB5CE9E19160136002AF300 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		BAB5CE9F19160136002AF300 /* NSObject+SoundPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SoundPlay.h"; sourceTree = "<group>"; };
 		BAB5CEA019160136002AF300 /* NSObject+SoundPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SoundPlay.m"; sourceTree = "<group>"; };
 		BAB5CEA119160136002AF300 /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
 		BAB5CEA219160136002AF300 /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
-		BAB5CEA7191601C2002AF300 /* SPAlertPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPAlertPresenter.h; path = "SliderPuzzle/UI Utility/SPAlertPresenter.h"; sourceTree = SOURCE_ROOT; };
-		BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPAlertPresenter.m; path = "SliderPuzzle/UI Utility/SPAlertPresenter.m"; sourceTree = SOURCE_ROOT; };
+		BAB5CEA7191601C2002AF300 /* SPZAlertPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPZAlertPresenter.h; path = "SliderPuzzle/UI Utility/SPZAlertPresenter.h"; sourceTree = SOURCE_ROOT; };
+		BAB5CEA8191601C2002AF300 /* SPZAlertPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPZAlertPresenter.m; path = "SliderPuzzle/UI Utility/SPZAlertPresenter.m"; sourceTree = SOURCE_ROOT; };
 		BAB67C8B187FDEA10013F331 /* UIImage+SliceImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SliceImages.h"; sourceTree = "<group>"; };
 		BAB67C8C187FDEA10013F331 /* UIImage+SliceImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SliceImages.m"; sourceTree = "<group>"; };
 		BAB67C93187FF0590013F331 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		BAB67C94187FF0590013F331 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		BAB67C9E188004660013F331 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		BAB67C9F188004660013F331 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
-		BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPuzzleBoard.h; sourceTree = "<group>"; };
-		BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPuzzleBoard.m; sourceTree = "<group>"; };
+		BAB67CA118801EE40013F331 /* SPZPuzzleBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZPuzzleBoard.h; sourceTree = "<group>"; };
+		BAB67CA218801EE40013F331 /* SPZPuzzleBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZPuzzleBoard.m; sourceTree = "<group>"; };
 		BABBDF8C18868CA70070CD24 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		BABE6235198499B7003A69B7 /* SPGestureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPGestureDelegate.h; sourceTree = "<group>"; };
-		BABE6236198499B7003A69B7 /* SPGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPGestureDelegate.m; sourceTree = "<group>"; };
+		BABE6235198499B7003A69B7 /* SPZGestureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZGestureDelegate.h; sourceTree = "<group>"; };
+		BABE6236198499B7003A69B7 /* SPZGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZGestureDelegate.m; sourceTree = "<group>"; };
 		BAC6FF1818AF7437007BCF62 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BAC6FF1A18AF743D007BCF62 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BAC6FF1C18AF7446007BCF62 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BAC6FF1E18AF744F007BCF62 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BAC6FF2018AF745B007BCF62 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BACC3E1A198F8FCF00679D44 /* SPZConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZConstants.h; sourceTree = "<group>"; };
 		BAE154E7198D272900A0DA56 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
 		BAE154E8198D272900A0DA56 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
 		BAEFB7B018F186210016F921 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -187,19 +187,19 @@
 		BAF63BA5187EA2AF00D247D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF63BA7187EA2AF00D247D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAF63BA9187EA2AF00D247D2 /* SliderPuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SliderPuzzle-Prefix.pch"; sourceTree = "<group>"; };
-		BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
-		BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
+		BAF63BAA187EA2AF00D247D2 /* SPZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPZAppDelegate.h; sourceTree = "<group>"; };
+		BAF63BAB187EA2AF00D247D2 /* SPZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPZAppDelegate.m; sourceTree = "<group>"; };
 		BAF63BAE187EA2AF00D247D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
-		BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPGameBoardViewController.h; sourceTree = "<group>"; };
-		BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPGameBoardViewController.m; sourceTree = "<group>"; };
+		BAF63BB0187EA2AF00D247D2 /* SPZGameBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPZGameBoardViewController.h; sourceTree = "<group>"; };
+		BAF63BB1187EA2AF00D247D2 /* SPZGameBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPZGameBoardViewController.m; sourceTree = "<group>"; };
 		BAF63BB3187EA2AF00D247D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BAF63BB9187EA2AF00D247D2 /* SliderPuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderPuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63BBA187EA2AF00D247D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BAF63BC2187EA2AF00D247D2 /* SliderPuzzleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SliderPuzzleTests-Info.plist"; sourceTree = "<group>"; };
 		BAF63BC4187EA2AF00D247D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF63BC6187EA2AF00D247D2 /* SliderPuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderPuzzleTests.m; sourceTree = "<group>"; };
-		BAF9DFA1187EA6120098D7B4 /* SPTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTile.h; sourceTree = "<group>"; };
-		BAF9DFA2187EA6120098D7B4 /* SPTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTile.m; sourceTree = "<group>"; };
+		BAF9DFA1187EA6120098D7B4 /* SPZTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZTile.h; sourceTree = "<group>"; };
+		BAF9DFA2187EA6120098D7B4 /* SPZTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPZTile.m; sourceTree = "<group>"; };
 		E44D2F6A3DB345B4848494A7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -284,8 +284,8 @@
 		BA8F6776198C7CCF001BC97D /* Game Center */ = {
 			isa = PBXGroup;
 			children = (
-				BAAB8DBE19148DC000042F0E /* SPMultiGameHomeViewController.h */,
-				BAAB8DBF19148DC000042F0E /* SPMultiGameHomeViewController.m */,
+				BAAB8DBE19148DC000042F0E /* SPZMultiGameHomeViewController.h */,
+				BAAB8DBF19148DC000042F0E /* SPZMultiGameHomeViewController.m */,
 			);
 			path = "Game Center";
 			sourceTree = "<group>";
@@ -302,8 +302,8 @@
 		BAA24C3D19566F76000792C6 /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				BAA24C3E19566F76000792C6 /* SPTileMotionHandler.h */,
-				BAA24C3F19566F76000792C6 /* SPTileMotionHandler.m */,
+				BAA24C3E19566F76000792C6 /* SPZTileMotionHandler.h */,
+				BAA24C3F19566F76000792C6 /* SPZTileMotionHandler.m */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -311,10 +311,10 @@
 		BAA24C4119566F7E000792C6 /* Intention */ = {
 			isa = PBXGroup;
 			children = (
-				BAA24C4519566FB5000792C6 /* SPTileAnimationIntention.h */,
-				BAA24C4619566FB5000792C6 /* SPTileAnimationIntention.m */,
-				BAA24C4819568CBC000792C6 /* SPShuffleIntention.h */,
-				BAA24C4919568CBC000792C6 /* SPShuffleIntention.m */,
+				BAA24C4519566FB5000792C6 /* SPZTileAnimationIntention.h */,
+				BAA24C4619566FB5000792C6 /* SPZTileAnimationIntention.m */,
+				BAA24C4819568CBC000792C6 /* SPZShuffleIntention.h */,
+				BAA24C4919568CBC000792C6 /* SPZShuffleIntention.m */,
 			);
 			path = Intention;
 			sourceTree = "<group>";
@@ -352,8 +352,8 @@
 		BAB5CEA619160175002AF300 /* UI Utility */ = {
 			isa = PBXGroup;
 			children = (
-				BAB5CEA7191601C2002AF300 /* SPAlertPresenter.h */,
-				BAB5CEA8191601C2002AF300 /* SPAlertPresenter.m */,
+				BAB5CEA7191601C2002AF300 /* SPZAlertPresenter.h */,
+				BAB5CEA8191601C2002AF300 /* SPZAlertPresenter.m */,
 			);
 			path = "UI Utility";
 			sourceTree = "<group>";
@@ -435,27 +435,27 @@
 				BAB5CE9C19160136002AF300 /* Game Utility */,
 				BAF9DFA4187EA6BC0098D7B4 /* Image Utility */,
 				BAF9DFA0187EA5680098D7B4 /* Model */,
-				BAF63BAA187EA2AF00D247D2 /* SPAppDelegate.h */,
-				BAF63BAB187EA2AF00D247D2 /* SPAppDelegate.m */,
-				BA78393D18B8580300434653 /* SPConstants.h */,
+				BAF63BAA187EA2AF00D247D2 /* SPZAppDelegate.h */,
+				BAF63BAB187EA2AF00D247D2 /* SPZAppDelegate.m */,
+				BACC3E1A198F8FCF00679D44 /* SPZConstants.h */,
 				BA99095018BA061B00CFBE3E /* default.css */,
 				BAF63BAD187EA2AF00D247D2 /* Main-iPhone.storyboard */,
-				BAB67CA118801EE40013F331 /* SPPuzzleBoard.h */,
-				BAB67CA218801EE40013F331 /* SPPuzzleBoard.m */,
-				BAAD58B3198A464800C74BFB /* SPRESideMenuViewController.h */,
-				BAAD58B4198A464800C74BFB /* SPRESideMenuViewController.m */,
-				BA8F677F198CC4C1001BC97D /* SPMenuContentViewController.h */,
-				BA8F6780198CC4C1001BC97D /* SPMenuContentViewController.m */,
-				BABE6235198499B7003A69B7 /* SPGestureDelegate.h */,
-				BABE6236198499B7003A69B7 /* SPGestureDelegate.m */,
-				BA8F6782198CC678001BC97D /* SPGameSettingsViewController.h */,
-				BA8F6783198CC678001BC97D /* SPGameSettingsViewController.m */,
-				BA8F6788198CC733001BC97D /* SPHowToPlayViewController.h */,
-				BA8F6789198CC733001BC97D /* SPHowToPlayViewController.m */,
-				BA8F6785198CC6D6001BC97D /* SPPhotosCreditsViewController.h */,
-				BA8F6786198CC6D6001BC97D /* SPPhotosCreditsViewController.m */,
-				BAF63BB0187EA2AF00D247D2 /* SPGameBoardViewController.h */,
-				BAF63BB1187EA2AF00D247D2 /* SPGameBoardViewController.m */,
+				BAB67CA118801EE40013F331 /* SPZPuzzleBoard.h */,
+				BAB67CA218801EE40013F331 /* SPZPuzzleBoard.m */,
+				BAAD58B3198A464800C74BFB /* SPZRESideMenuViewController.h */,
+				BAAD58B4198A464800C74BFB /* SPZRESideMenuViewController.m */,
+				BA8F677F198CC4C1001BC97D /* SPZMenuContentViewController.h */,
+				BA8F6780198CC4C1001BC97D /* SPZMenuContentViewController.m */,
+				BABE6235198499B7003A69B7 /* SPZGestureDelegate.h */,
+				BABE6236198499B7003A69B7 /* SPZGestureDelegate.m */,
+				BA8F6782198CC678001BC97D /* SPZGameSettingsViewController.h */,
+				BA8F6783198CC678001BC97D /* SPZGameSettingsViewController.m */,
+				BA8F6788198CC733001BC97D /* SPZHowToPlayViewController.h */,
+				BA8F6789198CC733001BC97D /* SPZHowToPlayViewController.m */,
+				BA8F6785198CC6D6001BC97D /* SPZPhotosCreditsViewController.h */,
+				BA8F6786198CC6D6001BC97D /* SPZPhotosCreditsViewController.m */,
+				BAF63BB0187EA2AF00D247D2 /* SPZGameBoardViewController.h */,
+				BAF63BB1187EA2AF00D247D2 /* SPZGameBoardViewController.m */,
 				BA77EAEB198DF32F00DBD014 /* UIViewController+Analytics.h */,
 				BA77EAEC198DF32F00DBD014 /* UIViewController+Analytics.m */,
 				BAA3C7771882370C0053D42B /* README.md */,
@@ -497,12 +497,12 @@
 		BAF9DFA0187EA5680098D7B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BAA24C4219566F97000792C6 /* SPGameBoardModelContainer.h */,
-				BAA24C4319566F97000792C6 /* SPGameBoardModelContainer.m */,
-				BAF9DFA1187EA6120098D7B4 /* SPTile.h */,
-				BAF9DFA2187EA6120098D7B4 /* SPTile.m */,
-				BA24058D1880BCF4009BDC5D /* SPTilesMatrix.h */,
-				BA24058E1880BCF4009BDC5D /* SPTilesMatrix.m */,
+				BAA24C4219566F97000792C6 /* SPZGameBoardModelContainer.h */,
+				BAA24C4319566F97000792C6 /* SPZGameBoardModelContainer.m */,
+				BAF9DFA1187EA6120098D7B4 /* SPZTile.h */,
+				BAF9DFA2187EA6120098D7B4 /* SPZTile.m */,
+				BA24058D1880BCF4009BDC5D /* SPZTilesMatrix.h */,
+				BA24058E1880BCF4009BDC5D /* SPZTilesMatrix.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -568,7 +568,7 @@
 		BAF63B90187EA2AF00D247D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = SP;
+				CLASSPREFIX = SPZ;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Kinwo.net;
 				TargetAttributes = {
@@ -670,32 +670,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAF9DFA3187EA6120098D7B4 /* SPTile.m in Sources */,
+				BAF9DFA3187EA6120098D7B4 /* SPZTile.m in Sources */,
 				BAF63BA8187EA2AF00D247D2 /* main.m in Sources */,
-				BABE6237198499B7003A69B7 /* SPGestureDelegate.m in Sources */,
-				BAA24C4419566F97000792C6 /* SPGameBoardModelContainer.m in Sources */,
-				BA8F678A198CC733001BC97D /* SPHowToPlayViewController.m in Sources */,
-				BAA24C4719566FB5000792C6 /* SPTileAnimationIntention.m in Sources */,
-				BAAD58B5198A464800C74BFB /* SPRESideMenuViewController.m in Sources */,
+				BABE6237198499B7003A69B7 /* SPZGestureDelegate.m in Sources */,
+				BAA24C4419566F97000792C6 /* SPZGameBoardModelContainer.m in Sources */,
+				BA8F678A198CC733001BC97D /* SPZHowToPlayViewController.m in Sources */,
+				BAA24C4719566FB5000792C6 /* SPZTileAnimationIntention.m in Sources */,
+				BAAD58B5198A464800C74BFB /* SPZRESideMenuViewController.m in Sources */,
 				BA77EAED198DF32F00DBD014 /* UIViewController+Analytics.m in Sources */,
 				BAB5CEA519160136002AF300 /* SKTAudio.m in Sources */,
 				BAAD58A7198A276100C74BFB /* CALayer+Additions.m in Sources */,
-				BAA24C4019566F76000792C6 /* SPTileMotionHandler.m in Sources */,
-				BA8F6781198CC4C1001BC97D /* SPMenuContentViewController.m in Sources */,
-				BAB5CEA9191601C2002AF300 /* SPAlertPresenter.m in Sources */,
-				BAF63BB2187EA2AF00D247D2 /* SPGameBoardViewController.m in Sources */,
+				BAA24C4019566F76000792C6 /* SPZTileMotionHandler.m in Sources */,
+				BA8F6781198CC4C1001BC97D /* SPZMenuContentViewController.m in Sources */,
+				BAB5CEA9191601C2002AF300 /* SPZAlertPresenter.m in Sources */,
+				BAF63BB2187EA2AF00D247D2 /* SPZGameBoardViewController.m in Sources */,
 				BAB67C8D187FDEA10013F331 /* UIImage+SliceImages.m in Sources */,
-				BAB67CA318801EE40013F331 /* SPPuzzleBoard.m in Sources */,
+				BAB67CA318801EE40013F331 /* SPZPuzzleBoard.m in Sources */,
 				BAB67CA0188004660013F331 /* UIImage+Color.m in Sources */,
 				BAB5CEA419160136002AF300 /* NSObject+SoundPlay.m in Sources */,
 				BAB5CEA319160136002AF300 /* GameKitHelper.m in Sources */,
-				BAF63BAC187EA2AF00D247D2 /* SPAppDelegate.m in Sources */,
-				BAAB8DC019148DC000042F0E /* SPMultiGameHomeViewController.m in Sources */,
-				BAA24C4A19568CBC000792C6 /* SPShuffleIntention.m in Sources */,
-				BA8F6784198CC678001BC97D /* SPGameSettingsViewController.m in Sources */,
+				BAF63BAC187EA2AF00D247D2 /* SPZAppDelegate.m in Sources */,
+				BAAB8DC019148DC000042F0E /* SPZMultiGameHomeViewController.m in Sources */,
+				BAA24C4A19568CBC000792C6 /* SPZShuffleIntention.m in Sources */,
+				BA8F6784198CC678001BC97D /* SPZGameSettingsViewController.m in Sources */,
 				BAB67C95187FF0590013F331 /* UIImage+ResizeImage.m in Sources */,
-				BA8F6787198CC6D6001BC97D /* SPPhotosCreditsViewController.m in Sources */,
-				BA24058F1880BCF4009BDC5D /* SPTilesMatrix.m in Sources */,
+				BA8F6787198CC6D6001BC97D /* SPZPhotosCreditsViewController.m in Sources */,
+				BA24058F1880BCF4009BDC5D /* SPZTilesMatrix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
