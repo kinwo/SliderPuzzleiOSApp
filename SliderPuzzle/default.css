@@ -3,7 +3,7 @@
 }
 
 .normalShadow {
-    box-shadow: 0 3px 3px rgba(0,0,0,0.5)
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
 }
 
 .viewTitle {
@@ -26,6 +26,10 @@
 
 #menuView * {
   font-family: "Henny Penny";
+}
+
+#gameBoardSuperView {
+  box-shadow: 0 1px 1px rgba(0,0,0,1.0);
 }
 
 #gameBoardSuperView * {

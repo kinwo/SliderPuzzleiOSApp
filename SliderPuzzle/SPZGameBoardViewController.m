@@ -74,7 +74,23 @@
     [self playBackgroundMusic];
 
     [self startTimer];
+    
+    BOOL isLaunchBefore = [[NSUserDefaults standardUserDefaults] boolForKey:USER_PREF_ISLAUNCHBEFORE];
+    if (!isLaunchBefore) {
+        [self presentVC:@"howToPlayVC"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:USER_PREF_ISLAUNCHBEFORE];
+    }
 }
+
+- (void)presentVC:(NSString*)storyBoardId
+{
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
+    if (vc && (self.sideMenuViewController.contentViewController.class != vc.class || vc.class != SPZGameBoardViewController.class)) {
+        [self.sideMenuViewController setContentViewController:vc animated:YES];
+    }
+    [self.sideMenuViewController hideMenuViewController];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {

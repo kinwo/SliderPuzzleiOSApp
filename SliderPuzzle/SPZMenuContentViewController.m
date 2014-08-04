@@ -9,6 +9,7 @@
 #import "SPZMenuContentViewController.h"
 #import <RESideMenu/RESideMenu.h>
 #import <Instabug/Instabug.h>
+#import "SPZGameBoardViewController.h"
 
 @interface SPZMenuContentViewController ()
 
@@ -66,7 +67,7 @@
 - (void)presentVC:(NSString*)storyBoardId
 {
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:storyBoardId];
-    if (vc && self.sideMenuViewController.contentViewController.class != vc.class) {
+    if (vc && (self.sideMenuViewController.contentViewController.class != vc.class || vc.class != SPZGameBoardViewController.class)) {
         [self.sideMenuViewController setContentViewController:vc animated:YES];
     }
     [self.sideMenuViewController hideMenuViewController];

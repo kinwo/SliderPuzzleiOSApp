@@ -25,6 +25,7 @@ static NSInteger const NumSourceImage = 8;
 
 static NSString* const USER_PREF_SOUNDOFF = @"soundOff";
 static NSString* const USER_PREF_GAMEDIFFICULTY = @"gameDifficulty";
+static NSString* const USER_PREF_ISLAUNCHBEFORE = @"isLaunchBefore";
 
 static NSInteger const DEFAULT_GAMEDIFFICULTY = 0;
 static BOOL const DEFAULT_SOUNDOFF = FALSE;
