@@ -21,7 +21,7 @@ static NSInteger const PuzzleBoardFrameY = 0;
 
 static NSString* const SourceImage = @"Puzzle";
 static NSInteger const spacerIndex = 0;
-static NSInteger const NumSourceImage = 8;
+static NSInteger const NumSourceImage = 11;
 
 static NSString* const USER_PREF_SOUNDOFF = @"soundOff";
 static NSString* const USER_PREF_GAMEDIFFICULTY = @"gameDifficulty";
