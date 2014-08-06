@@ -58,7 +58,6 @@
 		BAC6FF2118AF745B007BCF62 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC6FF2018AF745B007BCF62 /* AdSupport.framework */; };
 		BAE154E9198D272900A0DA56 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAE154E7198D272900A0DA56 /* Instabug.bundle */; };
 		BAE154EA198D272900A0DA56 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE154E8198D272900A0DA56 /* Instabug.framework */; };
-		BAEFB7B118F186210016F921 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEFB7B018F186210016F921 /* GameKit.framework */; };
 		BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9B187EA2AF00D247D2 /* Foundation.framework */; };
 		BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */; };
 		BAF63BA0187EA2AF00D247D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF63B9F187EA2AF00D247D2 /* UIKit.framework */; };
@@ -178,7 +177,6 @@
 		BACC3E1A198F8FCF00679D44 /* SPZConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPZConstants.h; sourceTree = "<group>"; };
 		BAE154E7198D272900A0DA56 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
 		BAE154E8198D272900A0DA56 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
-		BAEFB7B018F186210016F921 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BAF63B98187EA2AF00D247D2 /* SliderPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF63B9B187EA2AF00D247D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAF63B9D187EA2AF00D247D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -224,7 +222,6 @@
 				BAF63B9E187EA2AF00D247D2 /* CoreGraphics.framework in Frameworks */,
 				BAC6FF1918AF7437007BCF62 /* CoreLocation.framework in Frameworks */,
 				BAF63B9C187EA2AF00D247D2 /* Foundation.framework in Frameworks */,
-				BAEFB7B118F186210016F921 /* GameKit.framework in Frameworks */,
 				BAC6FF1D18AF7446007BCF62 /* MapKit.framework in Frameworks */,
 				BA99095A18BA0B4A00CFBE3E /* PixateFreestyle.framework in Frameworks */,
 				BAC6FF1F18AF744F007BCF62 /* QuartzCore.framework in Frameworks */,
@@ -407,7 +404,6 @@
 				BA8F6793198D1CA9001BC97D /* AVFoundation.framework */,
 				BA8F6791198D1C94001BC97D /* CoreTelephony.framework */,
 				BA8F678F198D1C84001BC97D /* MobileCoreServices.framework */,
-				BAEFB7B018F186210016F921 /* GameKit.framework */,
 				BA99095918BA0B4A00CFBE3E /* PixateFreestyle.framework */,
 				BA78393B18B83FCE00434653 /* CoreMotion.framework */,
 				BAC6FF2018AF745B007BCF62 /* AdSupport.framework */,
@@ -576,7 +572,10 @@
 						DevelopmentTeam = 62FMGDF5G5;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -822,8 +821,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyLibs",
@@ -861,8 +860,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KIN WO CHAN (VBENR3GFLH)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdPartyLibs",
